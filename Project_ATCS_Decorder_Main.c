@@ -9,7 +9,7 @@
 
 #include <xc.h>
 #define _XTAL_FREQ 8000000
-
+#include "Project_ATCS_SETUP.h"
 
 
 void main(void) {
