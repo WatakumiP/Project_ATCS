@@ -20,6 +20,14 @@
 #pragma config BORV = HI        // Brown-out Reset Voltage Selection  
 #pragma config LVP = OFF        // Low-Voltage Programming 
 
+typedef unsigned int UnINT;
+typedef unsigned char UnCHR;
+
+// COMフラグについては、別途記載のドキュメント参照のこと。
+extern UnCHR COM_FLAG;
+
+
+
 #endif	
 
 
