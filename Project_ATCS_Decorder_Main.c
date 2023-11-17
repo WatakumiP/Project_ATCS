@@ -11,7 +11,6 @@
 #define _XTAL_FREQ 8000000
 #include "Project_ATCS_SETUP.h"
 UnCHR COM_FLAG = 0x00;
-UnINT RES_DATA = 0x00;
 
 
 void main(void) {
@@ -19,7 +18,7 @@ void main(void) {
     OSCCON = 0x72;
     ANSELA  = 0x00;
     
-    TRISA = 0x02;
+    TRISA = 0x04;
     PORTA = 0x00;
     
     INTCON = 0xC0;
@@ -28,7 +27,11 @@ void main(void) {
     T1CON = 0x01;
     
     while(1){
-        
+        if(COM_FLAG & 0x04){
+            RA5 = 1;
+        }else{ 
+            RA5 = 0;
+        }
     }    
     return;
 }
@@ -38,12 +41,11 @@ void __interrupt() isr(void){
     if(PIR1bits.CCP1IF){
         PIR1 = 0x00;
         COUNT = CCPR1H << 8 | CCPR1L;
-        RES_DATA = RES_DATA << 1;
         if(COUNT >= 0x60 && COUNT <= 0x0080){
-                RES_DATA = RES_DATA | 0x0001;
+            COM_FLAG = COM_FLAG | 0x04;
         }
-        else{
-                RES_DATA = RES_DATA | 0x0000; 
+        else if(COUNT > 0x0080){
+            COM_FLAG = COM_FLAG & 0xFB;
         }
         TMR1H = 0x00;
         TMR1L = 0x00;
