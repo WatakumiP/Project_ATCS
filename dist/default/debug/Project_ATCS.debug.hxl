@@ -9,12 +9,12 @@
 ### Memory Usage ###
  Intel Hex-file ranges:
   0h - 1h		(dist/default/debug\Project_ATCS.debug.hex)
-  8h - 85h		(dist/default/debug\Project_ATCS.debug.hex)
+  8h - BFh		(dist/default/debug\Project_ATCS.debug.hex)
   10000h - 10007h		(dist/default/debug\Project_ATCS.debug.hex)
   1000Eh - 10011h		(dist/default/debug\Project_ATCS.debug.hex)
  Unused ranges:
   2h - 7h
-  86h - FFFFh
+  C0h - FFFFh
   10008h - 1000Dh
 
 ### Hex Memory Map ###
@@ -32,7 +32,10 @@
 00000050 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
 00000060 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
 00000070 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
-00000080 | H1 H1 H1 H1 H1 H1 -- -- -- -- -- -- -- -- -- --
+00000080 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
+00000090 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
+000000A0 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
+000000B0 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
 ----------------------------------------------------------
 00010000 | H1 H1 H1 H1 H1 H1 H1 H1 -- -- -- -- -- -- H1 H1
 00010010 | H1 H1 -- -- -- -- -- -- -- -- -- -- -- -- -- --
