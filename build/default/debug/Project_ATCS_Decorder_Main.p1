@@ -475,8 +475,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :U 276 ]
 {
 "30
-[; ;Project_ATCS_Decorder_Main.c: 30:         if(COM_FLAG & 0x04){
-[e $ ! != & -> _COM_FLAG `i -> 4 `i -> 0 `i 278  ]
+[; ;Project_ATCS_Decorder_Main.c: 30:         if(COM_FLAG & 0x01){
+[e $ ! != & -> _COM_FLAG `i -> 1 `i -> 0 `i 278  ]
 {
 "31
 [; ;Project_ATCS_Decorder_Main.c: 31:             RA5 = 1;
@@ -529,60 +529,60 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;Project_ATCS_Decorder_Main.c: 43:         COUNT = CCPR1H << 8 | CCPR1L;
 [e = _COUNT | << -> _CCPR1H `i -> 8 `i -> _CCPR1L `i ]
 "44
-[; ;Project_ATCS_Decorder_Main.c: 44:         if(COUNT >= 0x60 && COUNT <= 0x0080){
-[e $ ! && >= _COUNT -> 96 `i <= _COUNT -> 128 `i 282  ]
-{
+[; ;Project_ATCS_Decorder_Main.c: 44:         TMR1H = 0x00;
+[e = _TMR1H -> -> 0 `i `uc ]
 "45
-[; ;Project_ATCS_Decorder_Main.c: 45:             COM_FLAG = COM_FLAG | 0x04;
-[e = _COM_FLAG -> | -> _COM_FLAG `i -> 4 `i `uc ]
-"46
-[; ;Project_ATCS_Decorder_Main.c: 46:         }
-}
-[e $U 283  ]
+[; ;Project_ATCS_Decorder_Main.c: 45:         TMR1L = 0x00;
+[e = _TMR1L -> -> 0 `i `uc ]
 "47
-[; ;Project_ATCS_Decorder_Main.c: 47:         else if(COUNT > 0x0080){
-[e :U 282 ]
-[e $ ! > _COUNT -> 128 `i 284  ]
+[; ;Project_ATCS_Decorder_Main.c: 47:         if(COUNT >= 0x60 && COUNT <= 0x0080 && !(COM_FLAG & 0x02) ){
+[e $ ! && && >= _COUNT -> 96 `i <= _COUNT -> 128 `i ! != & -> _COM_FLAG `i -> 2 `i -> 0 `i 282  ]
 {
 "48
-[; ;Project_ATCS_Decorder_Main.c: 48:             COM_FLAG = COM_FLAG & 0xFB;
-[e = _COM_FLAG -> & -> _COM_FLAG `i -> 251 `i `uc ]
+[; ;Project_ATCS_Decorder_Main.c: 48:             COM_FLAG = COM_FLAG | 0x01;
+[e = _COM_FLAG -> | -> _COM_FLAG `i -> 1 `i `uc ]
 "49
 [; ;Project_ATCS_Decorder_Main.c: 49:         }
 }
+[e $U 283  ]
+"50
+[; ;Project_ATCS_Decorder_Main.c: 50:         else if(COUNT > 0x0080 || COM_FLAG & 0x02){
+[e :U 282 ]
+[e $ ! || > _COUNT -> 128 `i != & -> _COM_FLAG `i -> 2 `i -> 0 `i 284  ]
+{
+"51
+[; ;Project_ATCS_Decorder_Main.c: 51:             COM_FLAG = COM_FLAG & 0xFE;
+[e = _COM_FLAG -> & -> _COM_FLAG `i -> 254 `i `uc ]
+"52
+[; ;Project_ATCS_Decorder_Main.c: 52:         }
+}
 [e :U 284 ]
 [e :U 283 ]
-"50
-[; ;Project_ATCS_Decorder_Main.c: 50:         TMR1H = 0x00;
-[e = _TMR1H -> -> 0 `i `uc ]
-"51
-[; ;Project_ATCS_Decorder_Main.c: 51:         TMR1L = 0x00;
-[e = _TMR1L -> -> 0 `i `uc ]
-"52
-[; ;Project_ATCS_Decorder_Main.c: 52:     }else if(PIR1bits.TMR1IF){
+"54
+[; ;Project_ATCS_Decorder_Main.c: 54:     }else if(PIR1bits.TMR1IF){
 }
 [e $U 285  ]
 [e :U 281 ]
 [e $ ! != -> . . _PIR1bits 0 0 `i -> 0 `i 286  ]
 {
-"53
-[; ;Project_ATCS_Decorder_Main.c: 53:         PIR1 = 0x00;
-[e = _PIR1 -> -> 0 `i `uc ]
-"54
-[; ;Project_ATCS_Decorder_Main.c: 54:         COM_FLAG = COM_FLAG | 0x02;
-[e = _COM_FLAG -> | -> _COM_FLAG `i -> 2 `i `uc ]
 "55
-[; ;Project_ATCS_Decorder_Main.c: 55:         TMR1H = 0x00;
-[e = _TMR1H -> -> 0 `i `uc ]
+[; ;Project_ATCS_Decorder_Main.c: 55:         PIR1 = 0x00;
+[e = _PIR1 -> -> 0 `i `uc ]
 "56
-[; ;Project_ATCS_Decorder_Main.c: 56:         TMR1L = 0x00;
-[e = _TMR1L -> -> 0 `i `uc ]
+[; ;Project_ATCS_Decorder_Main.c: 56:         COM_FLAG = COM_FLAG | 0x02;
+[e = _COM_FLAG -> | -> _COM_FLAG `i -> 2 `i `uc ]
 "57
-[; ;Project_ATCS_Decorder_Main.c: 57:     }
+[; ;Project_ATCS_Decorder_Main.c: 57:         TMR1H = 0x00;
+[e = _TMR1H -> -> 0 `i `uc ]
+"58
+[; ;Project_ATCS_Decorder_Main.c: 58:         TMR1L = 0x00;
+[e = _TMR1L -> -> 0 `i `uc ]
+"59
+[; ;Project_ATCS_Decorder_Main.c: 59:     }
 }
 [e :U 286 ]
 [e :U 285 ]
-"58
-[; ;Project_ATCS_Decorder_Main.c: 58: }
+"60
+[; ;Project_ATCS_Decorder_Main.c: 60: }
 [e :UE 280 ]
 }
