@@ -3479,7 +3479,7 @@ extern UnCHR COM_FLAG;
 # 12 "Project_ATCS_Decorder_Main.c" 2
 
 UnCHR COM_FLAG = 0x00;
-
+UnCHR DATA = 0x00;
 
 void main(void) {
 
@@ -3495,10 +3495,13 @@ void main(void) {
     T1CON = 0x01;
 
     while(1){
-        if(COM_FLAG & 0x01){
-            RA5 = 1;
-        }else{
-            RA5 = 0;
+        if(COM_FLAG & 0b00000100){
+            if(COM_FLAG & 0b00000001){
+                DATA = (UnCHR) (DATA << 1) | 0x01;
+            }else{
+                DATA = (UnCHR) (DATA << 1) & 0xFE;
+            }
+            COM_FLAG = COM_FLAG & 0xFB;
         }
     }
     return;
@@ -3508,21 +3511,20 @@ void __attribute__((picinterrupt(("")))) isr(void){
     int COUNT = 0x00;
     if(PIR1bits.CCP1IF){
         PIR1 = 0x00;
-        COUNT = CCPR1H << 8 | CCPR1L;
         TMR1H = 0x00;
         TMR1L = 0x00;
+        COUNT = CCPR1H << 8 | CCPR1L;
 
-        if(COUNT >= 0x60 && COUNT <= 0x0080 && !(COM_FLAG & 0x02) ){
+        if(COUNT >= 0x00C0 && COUNT <= 0x0100 && !(COM_FLAG & 0x02) ){
             COM_FLAG = COM_FLAG | 0x01;
         }
         else if(COUNT > 0x0080 || COM_FLAG & 0x02){
             COM_FLAG = COM_FLAG & 0xFE;
         }
+        COM_FLAG = COM_FLAG | 0x04;
 
     }else if(PIR1bits.TMR1IF){
         PIR1 = 0x00;
         COM_FLAG = COM_FLAG | 0x02;
-        TMR1H = 0x00;
-        TMR1L = 0x00;
     }
 }
