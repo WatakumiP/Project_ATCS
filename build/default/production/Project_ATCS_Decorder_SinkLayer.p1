@@ -1,61 +1,8 @@
 Version 4.0 HI-TECH Software Intermediate Code
-[p mainexit ]
-"1646 E:/MPLAB_X/packs/Microchip/PIC12-16F1xxx_DFP/1.3.90/xc8\pic\include\proc\pic12f1822.h
-[; ;E:/MPLAB_X/packs/Microchip/PIC12-16F1xxx_DFP/1.3.90/xc8\pic\include\proc\pic12f1822.h: 1646: extern volatile unsigned char OSCCON __attribute__((address(0x099)));
-[v _OSCCON `Vuc ~T0 @X0 0 e@153 ]
-"2633
-[; ;E:/MPLAB_X/packs/Microchip/PIC12-16F1xxx_DFP/1.3.90/xc8\pic\include\proc\pic12f1822.h: 2633: extern volatile unsigned char ANSELA __attribute__((address(0x18C)));
-[v _ANSELA `Vuc ~T0 @X0 0 e@396 ]
-"1243
-[; ;E:/MPLAB_X/packs/Microchip/PIC12-16F1xxx_DFP/1.3.90/xc8\pic\include\proc\pic12f1822.h: 1243: extern volatile unsigned char TRISA __attribute__((address(0x08C)));
-[v _TRISA `Vuc ~T0 @X0 0 e@140 ]
-"430
-[; ;E:/MPLAB_X/packs/Microchip/PIC12-16F1xxx_DFP/1.3.90/xc8\pic\include\proc\pic12f1822.h: 430: extern volatile unsigned char PORTA __attribute__((address(0x00C)));
-[v _PORTA `Vuc ~T0 @X0 0 e@12 ]
-"352
-[; ;E:/MPLAB_X/packs/Microchip/PIC12-16F1xxx_DFP/1.3.90/xc8\pic\include\proc\pic12f1822.h: 352: extern volatile unsigned char INTCON __attribute__((address(0x00B)));
-[v _INTCON `Vuc ~T0 @X0 0 e@11 ]
-"1293
-[; ;E:/MPLAB_X/packs/Microchip/PIC12-16F1xxx_DFP/1.3.90/xc8\pic\include\proc\pic12f1822.h: 1293: extern volatile unsigned char PIE1 __attribute__((address(0x091)));
-[v _PIE1 `Vuc ~T0 @X0 0 e@145 ]
-"3978
-[; ;E:/MPLAB_X/packs/Microchip/PIC12-16F1xxx_DFP/1.3.90/xc8\pic\include\proc\pic12f1822.h: 3978: extern volatile unsigned char CCP1CON __attribute__((address(0x293)));
-[v _CCP1CON `Vuc ~T0 @X0 0 e@659 ]
-"889
-[; ;E:/MPLAB_X/packs/Microchip/PIC12-16F1xxx_DFP/1.3.90/xc8\pic\include\proc\pic12f1822.h: 889: extern volatile unsigned char T1CON __attribute__((address(0x018)));
-[v _T1CON `Vuc ~T0 @X0 0 e@24 ]
-"31 ./Project_ATCS_SETUP.h
-[v _Preamble `(v ~T0 @X0 0 ef ]
-"30
-[v _DATA_Sampling `(uc ~T0 @X0 0 ef ]
-[t ~ __interrupt . k ]
-[t T1 __interrupt ]
-"726 E:/MPLAB_X/packs/Microchip/PIC12-16F1xxx_DFP/1.3.90/xc8\pic\include\proc\pic12f1822.h
-[; ;E:/MPLAB_X/packs/Microchip/PIC12-16F1xxx_DFP/1.3.90/xc8\pic\include\proc\pic12f1822.h: 726:     struct {
-[s S45 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S45 . TMR1IF TMR2IF CCP1IF SSP1IF TXIF RCIF ADIF TMR1GIF ]
-"725
-[; ;E:/MPLAB_X/packs/Microchip/PIC12-16F1xxx_DFP/1.3.90/xc8\pic\include\proc\pic12f1822.h: 725: typedef union {
-[u S44 `S45 1 ]
-[n S44 . . ]
-"737
-[; ;E:/MPLAB_X/packs/Microchip/PIC12-16F1xxx_DFP/1.3.90/xc8\pic\include\proc\pic12f1822.h: 737: extern volatile PIR1bits_t PIR1bits __attribute__((address(0x011)));
-[v _PIR1bits `VS44 ~T0 @X0 0 e@17 ]
-"720
-[; ;E:/MPLAB_X/packs/Microchip/PIC12-16F1xxx_DFP/1.3.90/xc8\pic\include\proc\pic12f1822.h: 720: extern volatile unsigned char PIR1 __attribute__((address(0x011)));
-[v _PIR1 `Vuc ~T0 @X0 0 e@17 ]
-"869
-[; ;E:/MPLAB_X/packs/Microchip/PIC12-16F1xxx_DFP/1.3.90/xc8\pic\include\proc\pic12f1822.h: 869: extern volatile unsigned char TMR1H __attribute__((address(0x017)));
-[v _TMR1H `Vuc ~T0 @X0 0 e@23 ]
-"849
-[; ;E:/MPLAB_X/packs/Microchip/PIC12-16F1xxx_DFP/1.3.90/xc8\pic\include\proc\pic12f1822.h: 849: extern volatile unsigned char TMR1L __attribute__((address(0x016)));
-[v _TMR1L `Vuc ~T0 @X0 0 e@22 ]
-"3958
-[; ;E:/MPLAB_X/packs/Microchip/PIC12-16F1xxx_DFP/1.3.90/xc8\pic\include\proc\pic12f1822.h: 3958: extern volatile unsigned char CCPR1H __attribute__((address(0x292)));
-[v _CCPR1H `Vuc ~T0 @X0 0 e@658 ]
-"3938
-[; ;E:/MPLAB_X/packs/Microchip/PIC12-16F1xxx_DFP/1.3.90/xc8\pic\include\proc\pic12f1822.h: 3938: extern volatile unsigned char CCPR1L __attribute__((address(0x291)));
-[v _CCPR1L `Vuc ~T0 @X0 0 e@657 ]
+"27 ./Project_ATCS_SETUP.h
+[v _COM_FLAG `uc ~T0 @X0 0 e ]
+"28
+[v _DATA `uc ~T0 @X0 0 e ]
 "55 E:/MPLAB_X/packs/Microchip/PIC12-16F1xxx_DFP/1.3.90/xc8\pic\include\proc\pic12f1822.h
 [; ;E:/MPLAB_X/packs/Microchip/PIC12-16F1xxx_DFP/1.3.90/xc8\pic\include\proc\pic12f1822.h: 55: __asm("INDF0 equ 00h");
 [; <" INDF0 equ 00h ;# ">
@@ -437,167 +384,150 @@ Version 4.0 HI-TECH Software Intermediate Code
 [p x BORV  =  HI         ]
 "21
 [p x LVP  =  OFF         ]
-"13 Project_ATCS_Decorder_Main.c
-[; ;Project_ATCS_Decorder_Main.c: 13: UnCHR COM_FLAG = 0x00;
-[v _COM_FLAG `uc ~T0 @X0 1 e ]
-[i _COM_FLAG
--> -> 0 `i `uc
-]
-"14
-[; ;Project_ATCS_Decorder_Main.c: 14: UnCHR DATA = 0x00;
-[v _DATA `uc ~T0 @X0 1 e ]
-[i _DATA
--> -> 0 `i `uc
-]
-[v $root$_main `(v ~T0 @X0 0 e ]
-"16
-[; ;Project_ATCS_Decorder_Main.c: 16: void main(void) {
-[v _main `(v ~T0 @X0 1 ef ]
+"12 Project_ATCS_Decorder_SinkLayer.c
+[; ;Project_ATCS_Decorder_SinkLayer.c: 12: void Preamble(){
+[v _Preamble `(v ~T0 @X0 1 ef ]
 {
-[e :U _main ]
+[e :U _Preamble ]
 [f ]
-"18
-[; ;Project_ATCS_Decorder_Main.c: 18:     OSCCON = 0x72;
-[e = _OSCCON -> -> 114 `i `uc ]
-"19
-[; ;Project_ATCS_Decorder_Main.c: 19:     ANSELA = 0x00;
-[e = _ANSELA -> -> 0 `i `uc ]
-"21
-[; ;Project_ATCS_Decorder_Main.c: 21:     TRISA = 0x04;
-[e = _TRISA -> -> 4 `i `uc ]
-"22
-[; ;Project_ATCS_Decorder_Main.c: 22:     PORTA = 0x00;
-[e = _PORTA -> -> 0 `i `uc ]
-"24
-[; ;Project_ATCS_Decorder_Main.c: 24:     INTCON = 0xC0;
-[e = _INTCON -> -> 192 `i `uc ]
-"25
-[; ;Project_ATCS_Decorder_Main.c: 25:     PIE1 = 0x85;
-[e = _PIE1 -> -> 133 `i `uc ]
-"26
-[; ;Project_ATCS_Decorder_Main.c: 26:     CCP1CON = 0x05;
-[e = _CCP1CON -> -> 5 `i `uc ]
-"27
-[; ;Project_ATCS_Decorder_Main.c: 27:     T1CON = 0x01;
-[e = _T1CON -> -> 1 `i `uc ]
-"30
-[; ;Project_ATCS_Decorder_Main.c: 30:     while(1){
+"13
+[; ;Project_ATCS_Decorder_SinkLayer.c: 13:     UnCHR CO = 0x00;
+[v _CO `uc ~T0 @X0 1 a ]
+[e = _CO -> -> 0 `i `uc ]
+"14
+[; ;Project_ATCS_Decorder_SinkLayer.c: 14:     while(COM_FLAG & 0x01){
+[e $U 275  ]
 [e :U 276 ]
 {
-"31
-[; ;Project_ATCS_Decorder_Main.c: 31:         do{
-[e :U 280 ]
-{
-"32
-[; ;Project_ATCS_Decorder_Main.c: 32:             Preamble();
-[e ( _Preamble ..  ]
-"33
-[; ;Project_ATCS_Decorder_Main.c: 33:         }while(COM_FLAG & 0x08);
-}
-[e $ != & -> _COM_FLAG `i -> 8 `i -> 0 `i 280  ]
+"15
+[; ;Project_ATCS_Decorder_SinkLayer.c: 15:         COM_FLAG = COM_FLAG & 0xFB;
+[e = _COM_FLAG -> & -> _COM_FLAG `i -> 251 `i `uc ]
+"16
+[; ;Project_ATCS_Decorder_SinkLayer.c: 16:         while(COM_FLAG & 0x04);
+[e $U 278  ]
 [e :U 279 ]
-"34
-[; ;Project_ATCS_Decorder_Main.c: 34:         COM_FLAG = COM_FLAG & 0xEF;
-[e = _COM_FLAG -> & -> _COM_FLAG `i -> 239 `i `uc ]
-"35
-[; ;Project_ATCS_Decorder_Main.c: 35:         while(DATA_Sampling()){
-[e $U 281  ]
-[e :U 282 ]
-{
-"37
-[; ;Project_ATCS_Decorder_Main.c: 37:         }
-}
-[e :U 281 ]
-"35
-[; ;Project_ATCS_Decorder_Main.c: 35:         while(DATA_Sampling()){
-[e $ != -> ( _DATA_Sampling ..  `i -> 0 `i 282  ]
-[e :U 283 ]
-"38
-[; ;Project_ATCS_Decorder_Main.c: 38:     }
+[e :U 278 ]
+[e $ != & -> _COM_FLAG `i -> 4 `i -> 0 `i 279  ]
+[e :U 280 ]
+"17
+[; ;Project_ATCS_Decorder_SinkLayer.c: 17:         CO++;
+[e ++ _CO -> -> 1 `i `uc ]
+"18
+[; ;Project_ATCS_Decorder_SinkLayer.c: 18:     }
 }
 [e :U 275 ]
-[e $U 276  ]
+"14
+[; ;Project_ATCS_Decorder_SinkLayer.c: 14:     while(COM_FLAG & 0x01){
+[e $ != & -> _COM_FLAG `i -> 1 `i -> 0 `i 276  ]
 [e :U 277 ]
-"39
-[; ;Project_ATCS_Decorder_Main.c: 39:     return;
-[e $UE 274  ]
-"40
-[; ;Project_ATCS_Decorder_Main.c: 40: }
+"19
+[; ;Project_ATCS_Decorder_SinkLayer.c: 19:     if(CO >= 12){
+[e $ ! >= -> _CO `i -> 12 `i 281  ]
+{
+"20
+[; ;Project_ATCS_Decorder_SinkLayer.c: 20:         COM_FLAG = COM_FLAG & 0xF7;
+[e = _COM_FLAG -> & -> _COM_FLAG `i -> 247 `i `uc ]
+"21
+[; ;Project_ATCS_Decorder_SinkLayer.c: 21:     }
+}
+[e :U 281 ]
+"22
+[; ;Project_ATCS_Decorder_SinkLayer.c: 22: }
 [e :UE 274 ]
 }
-[v $root$_isr `(v ~T0 @X0 0 e ]
-"42
-[; ;Project_ATCS_Decorder_Main.c: 42: void __attribute__((picinterrupt(("")))) isr(void){
-[v _isr `(v ~T1 @X0 1 ef ]
+"23
+[; ;Project_ATCS_Decorder_SinkLayer.c: 23: UnCHR DATA_Sampling(){
+[v _DATA_Sampling `(uc ~T0 @X0 1 ef ]
 {
-[e :U _isr ]
+[e :U _DATA_Sampling ]
 [f ]
-"43
-[; ;Project_ATCS_Decorder_Main.c: 43:     int COUNT = 0x00;
-[v _COUNT `i ~T0 @X0 1 a ]
-[e = _COUNT -> 0 `i ]
-"44
-[; ;Project_ATCS_Decorder_Main.c: 44:     if(PIR1bits.CCP1IF){
-[e $ ! != -> . . _PIR1bits 0 2 `i -> 0 `i 285  ]
+"24
+[; ;Project_ATCS_Decorder_SinkLayer.c: 24:     UnCHR CO = 0x00;
+[v _CO `uc ~T0 @X0 1 a ]
+[e = _CO -> -> 0 `i `uc ]
+"25
+[; ;Project_ATCS_Decorder_SinkLayer.c: 25:     while(CO < 8){
+[e $U 283  ]
+[e :U 284 ]
 {
-"45
-[; ;Project_ATCS_Decorder_Main.c: 45:         PIR1 = 0x00;
-[e = _PIR1 -> -> 0 `i `uc ]
-"46
-[; ;Project_ATCS_Decorder_Main.c: 46:         TMR1H = 0x00;
-[e = _TMR1H -> -> 0 `i `uc ]
-"47
-[; ;Project_ATCS_Decorder_Main.c: 47:         TMR1L = 0x00;
-[e = _TMR1L -> -> 0 `i `uc ]
-"48
-[; ;Project_ATCS_Decorder_Main.c: 48:         COUNT = CCPR1H << 8 | CCPR1L;
-[e = _COUNT | << -> _CCPR1H `i -> 8 `i -> _CCPR1L `i ]
-"50
-[; ;Project_ATCS_Decorder_Main.c: 50:         if(COUNT >= 0x00C0 && COUNT <= 0x0100 && !(COM_FLAG & 0x02) ){
-[e $ ! && && >= _COUNT -> 192 `i <= _COUNT -> 256 `i ! != & -> _COM_FLAG `i -> 2 `i -> 0 `i 286  ]
+"26
+[; ;Project_ATCS_Decorder_SinkLayer.c: 26:         if(COM_FLAG & 0b00000100){
+[e $ ! != & -> _COM_FLAG `i -> 4 `i -> 0 `i 286  ]
 {
-"51
-[; ;Project_ATCS_Decorder_Main.c: 51:             COM_FLAG = COM_FLAG | 0x01;
-[e = _COM_FLAG -> | -> _COM_FLAG `i -> 1 `i `uc ]
-"52
-[; ;Project_ATCS_Decorder_Main.c: 52:         }
+"27
+[; ;Project_ATCS_Decorder_SinkLayer.c: 27:             if(COM_FLAG & 0b00000001){
+[e $ ! != & -> _COM_FLAG `i -> 1 `i -> 0 `i 287  ]
+{
+"28
+[; ;Project_ATCS_Decorder_SinkLayer.c: 28:                 DATA = (UnCHR) (DATA << 1) | 0x01;
+[e = _DATA -> | -> -> << -> _DATA `i -> 1 `i `uc `i -> 1 `i `uc ]
+"29
+[; ;Project_ATCS_Decorder_SinkLayer.c: 29:             }else{
 }
-[e $U 287  ]
-"53
-[; ;Project_ATCS_Decorder_Main.c: 53:         else if(COUNT > 0x0080 || COM_FLAG & 0x02){
-[e :U 286 ]
-[e $ ! || > _COUNT -> 128 `i != & -> _COM_FLAG `i -> 2 `i -> 0 `i 288  ]
+[e $U 288  ]
+[e :U 287 ]
 {
-"54
-[; ;Project_ATCS_Decorder_Main.c: 54:             COM_FLAG = COM_FLAG & 0xFE;
-[e = _COM_FLAG -> & -> _COM_FLAG `i -> 254 `i `uc ]
-"55
-[; ;Project_ATCS_Decorder_Main.c: 55:         }
+"30
+[; ;Project_ATCS_Decorder_SinkLayer.c: 30:                 DATA = (UnCHR) (DATA << 1) & 0xFE;
+[e = _DATA -> & -> -> << -> _DATA `i -> 1 `i `uc `i -> 254 `i `uc ]
+"31
+[; ;Project_ATCS_Decorder_SinkLayer.c: 31:             }
 }
 [e :U 288 ]
-[e :U 287 ]
-"56
-[; ;Project_ATCS_Decorder_Main.c: 56:         COM_FLAG = COM_FLAG | 0x04;
-[e = _COM_FLAG -> | -> _COM_FLAG `i -> 4 `i `uc ]
-"58
-[; ;Project_ATCS_Decorder_Main.c: 58:     }else if(PIR1bits.TMR1IF){
+"32
+[; ;Project_ATCS_Decorder_SinkLayer.c: 32:             COM_FLAG = COM_FLAG & 0xFB;
+[e = _COM_FLAG -> & -> _COM_FLAG `i -> 251 `i `uc ]
+"33
+[; ;Project_ATCS_Decorder_SinkLayer.c: 33:             CO++;
+[e ++ _CO -> -> 1 `i `uc ]
+"34
+[; ;Project_ATCS_Decorder_SinkLayer.c: 34:         }
 }
-[e $U 289  ]
+[e :U 286 ]
+"35
+[; ;Project_ATCS_Decorder_SinkLayer.c: 35:     }
+}
+[e :U 283 ]
+"25
+[; ;Project_ATCS_Decorder_SinkLayer.c: 25:     while(CO < 8){
+[e $ < -> _CO `i -> 8 `i 284  ]
 [e :U 285 ]
-[e $ ! != -> . . _PIR1bits 0 0 `i -> 0 `i 290  ]
-{
-"59
-[; ;Project_ATCS_Decorder_Main.c: 59:         PIR1 = 0x00;
-[e = _PIR1 -> -> 0 `i `uc ]
-"60
-[; ;Project_ATCS_Decorder_Main.c: 60:         COM_FLAG = COM_FLAG | 0x02;
-[e = _COM_FLAG -> | -> _COM_FLAG `i -> 2 `i `uc ]
-"61
-[; ;Project_ATCS_Decorder_Main.c: 61:     }
-}
+"36
+[; ;Project_ATCS_Decorder_SinkLayer.c: 36:     while((COM_FLAG & 0x04) == 0);
+[e $U 289  ]
 [e :U 290 ]
 [e :U 289 ]
-"62
-[; ;Project_ATCS_Decorder_Main.c: 62: }
-[e :UE 284 ]
+[e $ == & -> _COM_FLAG `i -> 4 `i -> 0 `i 290  ]
+[e :U 291 ]
+"37
+[; ;Project_ATCS_Decorder_SinkLayer.c: 37:     if(COM_FLAG & 0b00000001){
+[e $ ! != & -> _COM_FLAG `i -> 1 `i -> 0 `i 292  ]
+{
+"38
+[; ;Project_ATCS_Decorder_SinkLayer.c: 38:         COM_FLAG = COM_FLAG & 0xFB;
+[e = _COM_FLAG -> & -> _COM_FLAG `i -> 251 `i `uc ]
+"39
+[; ;Project_ATCS_Decorder_SinkLayer.c: 39:         return 0;
+[e ) -> -> 0 `i `uc ]
+[e $UE 282  ]
+"40
+[; ;Project_ATCS_Decorder_SinkLayer.c: 40:     }else{
+}
+[e $U 293  ]
+[e :U 292 ]
+{
+"41
+[; ;Project_ATCS_Decorder_SinkLayer.c: 41:         COM_FLAG = COM_FLAG & 0xFB;
+[e = _COM_FLAG -> & -> _COM_FLAG `i -> 251 `i `uc ]
+"42
+[; ;Project_ATCS_Decorder_SinkLayer.c: 42:         return 1;
+[e ) -> -> 1 `i `uc ]
+[e $UE 282  ]
+"43
+[; ;Project_ATCS_Decorder_SinkLayer.c: 43:     }
+}
+[e :U 293 ]
+"44
+[; ;Project_ATCS_Decorder_SinkLayer.c: 44: }
+[e :UE 282 ]
 }

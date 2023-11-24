@@ -6,15 +6,16 @@
 
 
 configuration for "pic12f1822" is
+    TESTCASE:
 end configuration;
 
 testbench for "pic12f1822" is
 begin
-    process is
-        begin
-            RA2 <= '0';
-            wait for 50 ms;
-            RA2 <= '1';
-            wait for 50 ms;
-    end process
+    TESTCASE : process is
+    begin
+        RA2 <= '0';
+        wait for 55 us;
+        RA2 <= '1';
+        wait for 55 us;
+    end process TESTCASE;
 end testbench;

@@ -25,6 +25,10 @@ typedef unsigned char UnCHR;
 
 // COMフラグについては、別途記載のドキュメント参照のこと。
 extern UnCHR COM_FLAG;
+extern UnCHR DATA;
+
+UnCHR DATA_Sampling(void);
+void Preamble(void);
 
 
 

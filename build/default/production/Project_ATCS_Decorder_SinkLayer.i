@@ -1,4 +1,4 @@
-# 1 "Project_ATCS_Decorder_Main.c"
+# 1 "Project_ATCS_Decorder_SinkLayer.c"
 # 1 "<built-in>" 1
 # 1 "<built-in>" 3
 # 288 "<built-in>" 3
@@ -6,8 +6,15 @@
 # 1 "<built-in>" 2
 # 1 "E:/MPLAB_X/packs/Microchip/PIC12-16F1xxx_DFP/1.3.90/xc8\\pic\\include\\language_support.h" 1 3
 # 2 "<built-in>" 2
-# 1 "Project_ATCS_Decorder_Main.c" 2
-# 10 "Project_ATCS_Decorder_Main.c"
+# 1 "Project_ATCS_Decorder_SinkLayer.c" 2
+
+
+
+
+
+
+
+
 # 1 "E:/MPLAB_X/packs/Microchip/PIC12-16F1xxx_DFP/1.3.90/xc8\\pic\\include\\xc.h" 1 3
 # 18 "E:/MPLAB_X/packs/Microchip/PIC12-16F1xxx_DFP/1.3.90/xc8\\pic\\include\\xc.h" 3
 extern const char __xc8_OPTIM_SPEED;
@@ -3445,8 +3452,7 @@ extern __bank0 unsigned char __resetbits;
 extern __bank0 __bit __powerdown;
 extern __bank0 __bit __timeout;
 # 29 "E:/MPLAB_X/packs/Microchip/PIC12-16F1xxx_DFP/1.3.90/xc8\\pic\\include\\xc.h" 2 3
-# 10 "Project_ATCS_Decorder_Main.c" 2
-
+# 9 "Project_ATCS_Decorder_SinkLayer.c" 2
 
 # 1 "./Project_ATCS_SETUP.h" 1
 
@@ -3480,55 +3486,39 @@ extern UnCHR DATA;
 
 UnCHR DATA_Sampling(void);
 void Preamble(void);
-# 12 "Project_ATCS_Decorder_Main.c" 2
-
-UnCHR COM_FLAG = 0x00;
-UnCHR DATA = 0x00;
-
-void main(void) {
-
-    OSCCON = 0x72;
-    ANSELA = 0x00;
-
-    TRISA = 0x04;
-    PORTA = 0x00;
-
-    INTCON = 0xC0;
-    PIE1 = 0x85;
-    CCP1CON = 0x05;
-    T1CON = 0x01;
+# 10 "Project_ATCS_Decorder_SinkLayer.c" 2
 
 
-    while(1){
-        do{
-            Preamble();
-        }while(COM_FLAG & 0x08);
-        COM_FLAG = COM_FLAG & 0xEF;
-        while(DATA_Sampling()){
-
+void Preamble(){
+    UnCHR CO = 0x00;
+    while(COM_FLAG & 0x01){
+        COM_FLAG = COM_FLAG & 0xFB;
+        while(COM_FLAG & 0x04);
+        CO++;
+    }
+    if(CO >= 12){
+        COM_FLAG = COM_FLAG & 0xF7;
+    }
+}
+UnCHR DATA_Sampling(){
+    UnCHR CO = 0x00;
+    while(CO < 8){
+        if(COM_FLAG & 0b00000100){
+            if(COM_FLAG & 0b00000001){
+                DATA = (UnCHR) (DATA << 1) | 0x01;
+            }else{
+                DATA = (UnCHR) (DATA << 1) & 0xFE;
+            }
+            COM_FLAG = COM_FLAG & 0xFB;
+            CO++;
         }
     }
-    return;
-}
-
-void __attribute__((picinterrupt(("")))) isr(void){
-    int COUNT = 0x00;
-    if(PIR1bits.CCP1IF){
-        PIR1 = 0x00;
-        TMR1H = 0x00;
-        TMR1L = 0x00;
-        COUNT = CCPR1H << 8 | CCPR1L;
-
-        if(COUNT >= 0x00C0 && COUNT <= 0x0100 && !(COM_FLAG & 0x02) ){
-            COM_FLAG = COM_FLAG | 0x01;
-        }
-        else if(COUNT > 0x0080 || COM_FLAG & 0x02){
-            COM_FLAG = COM_FLAG & 0xFE;
-        }
-        COM_FLAG = COM_FLAG | 0x04;
-
-    }else if(PIR1bits.TMR1IF){
-        PIR1 = 0x00;
-        COM_FLAG = COM_FLAG | 0x02;
+    while((COM_FLAG & 0x04) == 0);
+    if(COM_FLAG & 0b00000001){
+        COM_FLAG = COM_FLAG & 0xFB;
+        return 0;
+    }else{
+        COM_FLAG = COM_FLAG & 0xFB;
+        return 1;
     }
 }

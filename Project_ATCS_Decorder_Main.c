@@ -28,8 +28,13 @@ void main(void) {
     
     
     while(1){
-        
-        
+        do{
+            Preamble();
+        }while(COM_FLAG & 0x08);
+        COM_FLAG = COM_FLAG & 0xEF;
+        while(DATA_Sampling()){
+            
+        }
     }    
     return;
 }
@@ -37,7 +42,7 @@ void main(void) {
 void __interrupt() isr(void){
     int COUNT = 0x00;
     if(PIR1bits.CCP1IF){
-        PIR1 =  0x00;
+        PIR1  = 0x00;
         TMR1H = 0x00;
         TMR1L = 0x00;
         COUNT = CCPR1H << 8 | CCPR1L;
