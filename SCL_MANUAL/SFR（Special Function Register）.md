@@ -1,4 +1,4 @@
-SFR（Special Function Register）
+# SFR（Special Function Register）
 SCLは、現在のデバイス上の各SFRに対応する変数を自動的に作成します。変数名はSFRと同じになります。その後、SFR変数は割り当て、テストなどが可能です。
 
 ```vhdl
