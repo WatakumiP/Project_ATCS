@@ -1,7 +1,7 @@
 
 
 Microchip MPLAB XC8 Assembler V2.40 build 20220703182018 
-                                                                                               Fri Nov 24 00:41:24 2023
+                                                                                               Sun Nov 26 12:54:02 2023
 
 Microchip MPLAB XC8 C Compiler v2.40 (Free license) build 20220703182018 Og1 
      1                           	processor	12F1822
@@ -11,1102 +11,1057 @@ Microchip MPLAB XC8 C Compiler v2.40 (Free license) build 20220703182018 Og1
      5                           	psect	bssCOMMON,global,class=COMMON,space=1,delta=1,noexec
      6                           	psect	cstackCOMMON,global,class=COMMON,space=1,delta=1,noexec
      7                           	psect	maintext,global,class=CODE,merge=1,split=1,delta=2
-     8                           	psect	text1,local,class=CODE,merge=1,delta=2
-     9                           	psect	text2,local,class=CODE,merge=1,delta=2
-    10                           	psect	intentry,global,class=CODE,delta=2
-    11                           	psect	idloc,global,abs,ovrld,class=IDLOC,space=5,delta=2,noexec
-    12                           	psect	config,global,abs,ovrld,class=CONFIG,space=4,delta=2,noexec
-    13                           	dabs	1,0x7E,2
-    14     0000                     
-    15                           ; Version 2.40
-    16                           ; Generated 17/11/2021 GMT
-    17                           ; 
-    18                           ; Copyright © 2021, Microchip Technology Inc. and its subsidiaries ("Microchip")
-    19                           ; All rights reserved.
-    20                           ; 
-    21                           ; This software is developed by Microchip Technology Inc. and its subsidiaries ("Microch
+     8                           	psect	intentry,global,class=CODE,delta=2
+     9                           	psect	idloc,global,abs,ovrld,class=IDLOC,space=5,delta=2,noexec
+    10                           	psect	config,global,abs,ovrld,class=CONFIG,space=4,delta=2,noexec
+    11                           	dabs	1,0x7E,2
+    12  0000                     
+    13                           ; Version 2.40
+    14                           ; Generated 17/11/2021 GMT
+    15                           ; 
+    16                           ; Copyright © 2021, Microchip Technology Inc. and its subsidiaries ("Microchip")
+    17                           ; All rights reserved.
+    18                           ; 
+    19                           ; This software is developed by Microchip Technology Inc. and its subsidiaries ("Microch
       +                          ip").
-    22                           ; 
-    23                           ; Redistribution and use in source and binary forms, with or without modification, are
-    24                           ; permitted provided that the following conditions are met:
-    25                           ; 
-    26                           ;     1. Redistributions of source code must retain the above copyright notice, this lis
+    20                           ; 
+    21                           ; Redistribution and use in source and binary forms, with or without modification, are
+    22                           ; permitted provided that the following conditions are met:
+    23                           ; 
+    24                           ;     1. Redistributions of source code must retain the above copyright notice, this lis
       +                          t of
-    27                           ;        conditions and the following disclaimer.
-    28                           ; 
-    29                           ;     2. Redistributions in binary form must reproduce the above copyright notice, this 
+    25                           ;        conditions and the following disclaimer.
+    26                           ; 
+    27                           ;     2. Redistributions in binary form must reproduce the above copyright notice, this 
       +                          list
-    30                           ;        of conditions and the following disclaimer in the documentation and/or other
-    31                           ;        materials provided with the distribution. Publication is not required when
-    32                           ;        this file is used in an embedded application.
-    33                           ; 
-    34                           ;     3. Microchip's name may not be used to endorse or promote products derived from th
+    28                           ;        of conditions and the following disclaimer in the documentation and/or other
+    29                           ;        materials provided with the distribution. Publication is not required when
+    30                           ;        this file is used in an embedded application.
+    31                           ; 
+    32                           ;     3. Microchip's name may not be used to endorse or promote products derived from th
       +                          is
-    35                           ;        software without specific prior written permission.
-    36                           ; 
-    37                           ; THIS SOFTWARE IS PROVIDED BY MICROCHIP "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES,
-    38                           ; INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS F
+    33                           ;        software without specific prior written permission.
+    34                           ; 
+    35                           ; THIS SOFTWARE IS PROVIDED BY MICROCHIP "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES,
+    36                           ; INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS F
       +                          OR
-    39                           ; PURPOSE ARE DISCLAIMED.  IN NO EVENT SHALL MICROCHIP BE LIABLE FOR ANY DIRECT, INDIREC
+    37                           ; PURPOSE ARE DISCLAIMED.  IN NO EVENT SHALL MICROCHIP BE LIABLE FOR ANY DIRECT, INDIREC
       +                          T,
-    40                           ; INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING BUT NOT LIMITED TO
-    41                           ; PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA OR PROFITS; OR BUSINESS
-    42                           ; INTERRUPTION) HOWSOEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, ST
+    38                           ; INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING BUT NOT LIMITED TO
+    39                           ; PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA OR PROFITS; OR BUSINESS
+    40                           ; INTERRUPTION) HOWSOEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, ST
       +                          RICT
-    43                           ; LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE U
+    41                           ; LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE U
       +                          SE OF
-    44                           ; THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
-    45                           ; 
+    42                           ; THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+    43                           ; 
+    44                           ; 
+    45                           ; Code-generator required, PIC12F1822 Definitions
     46                           ; 
-    47                           ; Code-generator required, PIC12F1822 Definitions
-    48                           ; 
-    49                           ; SFR Addresses
-    50     0000                     	;# 
-    51     0001                     	;# 
-    52     0002                     	;# 
-    53     0003                     	;# 
-    54     0004                     	;# 
-    55     0005                     	;# 
-    56     0006                     	;# 
-    57     0007                     	;# 
-    58     0008                     	;# 
-    59     0009                     	;# 
-    60     000A                     	;# 
-    61     000B                     	;# 
-    62     000C                     	;# 
-    63     0011                     	;# 
-    64     0012                     	;# 
-    65     0015                     	;# 
-    66     0016                     	;# 
-    67     0016                     	;# 
-    68     0017                     	;# 
-    69     0018                     	;# 
-    70     0019                     	;# 
-    71     001A                     	;# 
-    72     001B                     	;# 
-    73     001C                     	;# 
-    74     001E                     	;# 
-    75     001F                     	;# 
-    76     008C                     	;# 
-    77     0091                     	;# 
-    78     0092                     	;# 
-    79     0095                     	;# 
-    80     0096                     	;# 
-    81     0097                     	;# 
-    82     0098                     	;# 
-    83     0099                     	;# 
-    84     009A                     	;# 
-    85     009B                     	;# 
-    86     009B                     	;# 
-    87     009C                     	;# 
-    88     009D                     	;# 
-    89     009E                     	;# 
-    90     010C                     	;# 
-    91     0111                     	;# 
-    92     0112                     	;# 
-    93     0115                     	;# 
-    94     0116                     	;# 
-    95     0117                     	;# 
-    96     0118                     	;# 
-    97     0119                     	;# 
-    98     011A                     	;# 
-    99     011B                     	;# 
-   100     011D                     	;# 
-   101     011D                     	;# 
-   102     018C                     	;# 
-   103     0191                     	;# 
-   104     0191                     	;# 
-   105     0192                     	;# 
-   106     0193                     	;# 
-   107     0193                     	;# 
-   108     0193                     	;# 
-   109     0194                     	;# 
-   110     0195                     	;# 
-   111     0196                     	;# 
-   112     0199                     	;# 
-   113     019A                     	;# 
-   114     019B                     	;# 
-   115     019B                     	;# 
-   116     019B                     	;# 
-   117     019B                     	;# 
-   118     019C                     	;# 
-   119     019C                     	;# 
-   120     019D                     	;# 
-   121     019E                     	;# 
-   122     019F                     	;# 
-   123     020C                     	;# 
-   124     0211                     	;# 
-   125     0211                     	;# 
-   126     0212                     	;# 
-   127     0212                     	;# 
-   128     0213                     	;# 
-   129     0213                     	;# 
-   130     0214                     	;# 
-   131     0214                     	;# 
-   132     0215                     	;# 
-   133     0215                     	;# 
-   134     0215                     	;# 
-   135     0216                     	;# 
-   136     0216                     	;# 
-   137     0217                     	;# 
-   138     0217                     	;# 
-   139     0291                     	;# 
-   140     0291                     	;# 
-   141     0292                     	;# 
-   142     0293                     	;# 
-   143     0294                     	;# 
-   144     0295                     	;# 
-   145     0295                     	;# 
-   146     0296                     	;# 
-   147     0391                     	;# 
-   148     0392                     	;# 
-   149     0393                     	;# 
-   150     039A                     	;# 
-   151     039C                     	;# 
-   152     039D                     	;# 
-   153     039E                     	;# 
-   154     039F                     	;# 
-   155     0FE4                     	;# 
-   156     0FE5                     	;# 
-   157     0FE6                     	;# 
-   158     0FE7                     	;# 
-   159     0FE8                     	;# 
-   160     0FE9                     	;# 
-   161     0FEA                     	;# 
-   162     0FEB                     	;# 
-   163     0FED                     	;# 
-   164     0FEE                     	;# 
-   165     0FEF                     	;# 
-   166     0000                     	;# 
-   167     0001                     	;# 
-   168     0002                     	;# 
-   169     0003                     	;# 
-   170     0004                     	;# 
-   171     0005                     	;# 
-   172     0006                     	;# 
-   173     0007                     	;# 
-   174     0008                     	;# 
-   175     0009                     	;# 
-   176     000A                     	;# 
-   177     000B                     	;# 
-   178     000C                     	;# 
-   179     0011                     	;# 
-   180     0012                     	;# 
-   181     0015                     	;# 
-   182     0016                     	;# 
-   183     0016                     	;# 
-   184     0017                     	;# 
-   185     0018                     	;# 
-   186     0019                     	;# 
-   187     001A                     	;# 
-   188     001B                     	;# 
-   189     001C                     	;# 
-   190     001E                     	;# 
-   191     001F                     	;# 
-   192     008C                     	;# 
-   193     0091                     	;# 
-   194     0092                     	;# 
-   195     0095                     	;# 
-   196     0096                     	;# 
-   197     0097                     	;# 
-   198     0098                     	;# 
-   199     0099                     	;# 
-   200     009A                     	;# 
-   201     009B                     	;# 
-   202     009B                     	;# 
-   203     009C                     	;# 
-   204     009D                     	;# 
-   205     009E                     	;# 
-   206     010C                     	;# 
-   207     0111                     	;# 
-   208     0112                     	;# 
-   209     0115                     	;# 
-   210     0116                     	;# 
-   211     0117                     	;# 
-   212     0118                     	;# 
-   213     0119                     	;# 
-   214     011A                     	;# 
-   215     011B                     	;# 
-   216     011D                     	;# 
-   217     011D                     	;# 
-   218     018C                     	;# 
-   219     0191                     	;# 
-   220     0191                     	;# 
-   221     0192                     	;# 
-   222     0193                     	;# 
-   223     0193                     	;# 
-   224     0193                     	;# 
-   225     0194                     	;# 
-   226     0195                     	;# 
-   227     0196                     	;# 
-   228     0199                     	;# 
-   229     019A                     	;# 
-   230     019B                     	;# 
-   231     019B                     	;# 
-   232     019B                     	;# 
-   233     019B                     	;# 
-   234     019C                     	;# 
-   235     019C                     	;# 
-   236     019D                     	;# 
-   237     019E                     	;# 
-   238     019F                     	;# 
-   239     020C                     	;# 
-   240     0211                     	;# 
-   241     0211                     	;# 
-   242     0212                     	;# 
-   243     0212                     	;# 
-   244     0213                     	;# 
-   245     0213                     	;# 
-   246     0214                     	;# 
-   247     0214                     	;# 
-   248     0215                     	;# 
-   249     0215                     	;# 
-   250     0215                     	;# 
-   251     0216                     	;# 
-   252     0216                     	;# 
-   253     0217                     	;# 
-   254     0217                     	;# 
-   255     0291                     	;# 
-   256     0291                     	;# 
-   257     0292                     	;# 
-   258     0293                     	;# 
-   259     0294                     	;# 
-   260     0295                     	;# 
-   261     0295                     	;# 
-   262     0296                     	;# 
-   263     0391                     	;# 
-   264     0392                     	;# 
-   265     0393                     	;# 
-   266     039A                     	;# 
-   267     039C                     	;# 
-   268     039D                     	;# 
-   269     039E                     	;# 
-   270     039F                     	;# 
-   271     0FE4                     	;# 
-   272     0FE5                     	;# 
-   273     0FE6                     	;# 
-   274     0FE7                     	;# 
-   275     0FE8                     	;# 
-   276     0FE9                     	;# 
-   277     0FEA                     	;# 
-   278     0FEB                     	;# 
-   279     0FED                     	;# 
-   280     0FEE                     	;# 
-   281     0FEF                     	;# 
-   282     0000                     	;# 
-   283     0001                     	;# 
-   284     0002                     	;# 
-   285     0003                     	;# 
-   286     0004                     	;# 
-   287     0005                     	;# 
-   288     0006                     	;# 
-   289     0007                     	;# 
-   290     0008                     	;# 
-   291     0009                     	;# 
-   292     000A                     	;# 
-   293     000B                     	;# 
-   294     000C                     	;# 
-   295     0011                     	;# 
-   296     0012                     	;# 
-   297     0015                     	;# 
-   298     0016                     	;# 
-   299     0016                     	;# 
-   300     0017                     	;# 
-   301     0018                     	;# 
-   302     0019                     	;# 
-   303     001A                     	;# 
-   304     001B                     	;# 
-   305     001C                     	;# 
-   306     001E                     	;# 
-   307     001F                     	;# 
-   308     008C                     	;# 
-   309     0091                     	;# 
-   310     0092                     	;# 
-   311     0095                     	;# 
-   312     0096                     	;# 
-   313     0097                     	;# 
-   314     0098                     	;# 
-   315     0099                     	;# 
-   316     009A                     	;# 
-   317     009B                     	;# 
-   318     009B                     	;# 
-   319     009C                     	;# 
-   320     009D                     	;# 
-   321     009E                     	;# 
-   322     010C                     	;# 
-   323     0111                     	;# 
-   324     0112                     	;# 
-   325     0115                     	;# 
-   326     0116                     	;# 
-   327     0117                     	;# 
-   328     0118                     	;# 
-   329     0119                     	;# 
-   330     011A                     	;# 
-   331     011B                     	;# 
-   332     011D                     	;# 
-   333     011D                     	;# 
-   334     018C                     	;# 
-   335     0191                     	;# 
-   336     0191                     	;# 
-   337     0192                     	;# 
-   338     0193                     	;# 
-   339     0193                     	;# 
-   340     0193                     	;# 
-   341     0194                     	;# 
-   342     0195                     	;# 
-   343     0196                     	;# 
-   344     0199                     	;# 
-   345     019A                     	;# 
-   346     019B                     	;# 
-   347     019B                     	;# 
-   348     019B                     	;# 
-   349     019B                     	;# 
-   350     019C                     	;# 
-   351     019C                     	;# 
-   352     019D                     	;# 
-   353     019E                     	;# 
-   354     019F                     	;# 
-   355     020C                     	;# 
-   356     0211                     	;# 
-   357     0211                     	;# 
-   358     0212                     	;# 
-   359     0212                     	;# 
-   360     0213                     	;# 
-   361     0213                     	;# 
-   362     0214                     	;# 
-   363     0214                     	;# 
-   364     0215                     	;# 
-   365     0215                     	;# 
-   366     0215                     	;# 
-   367     0216                     	;# 
-   368     0216                     	;# 
-   369     0217                     	;# 
-   370     0217                     	;# 
-   371     0291                     	;# 
-   372     0291                     	;# 
-   373     0292                     	;# 
-   374     0293                     	;# 
-   375     0294                     	;# 
-   376     0295                     	;# 
-   377     0295                     	;# 
-   378     0296                     	;# 
-   379     0391                     	;# 
-   380     0392                     	;# 
-   381     0393                     	;# 
-   382     039A                     	;# 
-   383     039C                     	;# 
-   384     039D                     	;# 
-   385     039E                     	;# 
-   386     039F                     	;# 
-   387     0FE4                     	;# 
-   388     0FE5                     	;# 
-   389     0FE6                     	;# 
-   390     0FE7                     	;# 
-   391     0FE8                     	;# 
-   392     0FE9                     	;# 
-   393     0FEA                     	;# 
-   394     0FEB                     	;# 
-   395     0FED                     	;# 
-   396     0FEE                     	;# 
-   397     0FEF                     	;# 
-   398     0016                     _TMR1L	set	22
-   399     0017                     _TMR1H	set	23
-   400     0011                     _PIR1	set	17
-   401     0011                     _PIR1bits	set	17
-   402     0018                     _T1CON	set	24
-   403     000B                     _INTCON	set	11
-   404     000C                     _PORTA	set	12
-   405     0091                     _PIE1	set	145
-   406     008C                     _TRISA	set	140
-   407     0099                     _OSCCON	set	153
-   408     018C                     _ANSELA	set	396
-   409     0291                     _CCPR1L	set	657
-   410     0292                     _CCPR1H	set	658
-   411     0293                     _CCP1CON	set	659
-   412                           
-   413                           	psect	cinit
-   414     0058                     start_initialization:	
-   415                           ; #config settings
+    47                           ; SFR Addresses
+    48  0000                     	;# 
+    49  0001                     	;# 
+    50  0002                     	;# 
+    51  0003                     	;# 
+    52  0004                     	;# 
+    53  0005                     	;# 
+    54  0006                     	;# 
+    55  0007                     	;# 
+    56  0008                     	;# 
+    57  0009                     	;# 
+    58  000A                     	;# 
+    59  000B                     	;# 
+    60  000C                     	;# 
+    61  0011                     	;# 
+    62  0012                     	;# 
+    63  0015                     	;# 
+    64  0016                     	;# 
+    65  0016                     	;# 
+    66  0017                     	;# 
+    67  0018                     	;# 
+    68  0019                     	;# 
+    69  001A                     	;# 
+    70  001B                     	;# 
+    71  001C                     	;# 
+    72  001E                     	;# 
+    73  001F                     	;# 
+    74  008C                     	;# 
+    75  0091                     	;# 
+    76  0092                     	;# 
+    77  0095                     	;# 
+    78  0096                     	;# 
+    79  0097                     	;# 
+    80  0098                     	;# 
+    81  0099                     	;# 
+    82  009A                     	;# 
+    83  009B                     	;# 
+    84  009B                     	;# 
+    85  009C                     	;# 
+    86  009D                     	;# 
+    87  009E                     	;# 
+    88  010C                     	;# 
+    89  0111                     	;# 
+    90  0112                     	;# 
+    91  0115                     	;# 
+    92  0116                     	;# 
+    93  0117                     	;# 
+    94  0118                     	;# 
+    95  0119                     	;# 
+    96  011A                     	;# 
+    97  011B                     	;# 
+    98  011D                     	;# 
+    99  011D                     	;# 
+   100  018C                     	;# 
+   101  0191                     	;# 
+   102  0191                     	;# 
+   103  0192                     	;# 
+   104  0193                     	;# 
+   105  0193                     	;# 
+   106  0193                     	;# 
+   107  0194                     	;# 
+   108  0195                     	;# 
+   109  0196                     	;# 
+   110  0199                     	;# 
+   111  019A                     	;# 
+   112  019B                     	;# 
+   113  019B                     	;# 
+   114  019B                     	;# 
+   115  019B                     	;# 
+   116  019C                     	;# 
+   117  019C                     	;# 
+   118  019D                     	;# 
+   119  019E                     	;# 
+   120  019F                     	;# 
+   121  020C                     	;# 
+   122  0211                     	;# 
+   123  0211                     	;# 
+   124  0212                     	;# 
+   125  0212                     	;# 
+   126  0213                     	;# 
+   127  0213                     	;# 
+   128  0214                     	;# 
+   129  0214                     	;# 
+   130  0215                     	;# 
+   131  0215                     	;# 
+   132  0215                     	;# 
+   133  0216                     	;# 
+   134  0216                     	;# 
+   135  0217                     	;# 
+   136  0217                     	;# 
+   137  0291                     	;# 
+   138  0291                     	;# 
+   139  0292                     	;# 
+   140  0293                     	;# 
+   141  0294                     	;# 
+   142  0295                     	;# 
+   143  0295                     	;# 
+   144  0296                     	;# 
+   145  0391                     	;# 
+   146  0392                     	;# 
+   147  0393                     	;# 
+   148  039A                     	;# 
+   149  039C                     	;# 
+   150  039D                     	;# 
+   151  039E                     	;# 
+   152  039F                     	;# 
+   153  0FE4                     	;# 
+   154  0FE5                     	;# 
+   155  0FE6                     	;# 
+   156  0FE7                     	;# 
+   157  0FE8                     	;# 
+   158  0FE9                     	;# 
+   159  0FEA                     	;# 
+   160  0FEB                     	;# 
+   161  0FED                     	;# 
+   162  0FEE                     	;# 
+   163  0FEF                     	;# 
+   164  0000                     	;# 
+   165  0001                     	;# 
+   166  0002                     	;# 
+   167  0003                     	;# 
+   168  0004                     	;# 
+   169  0005                     	;# 
+   170  0006                     	;# 
+   171  0007                     	;# 
+   172  0008                     	;# 
+   173  0009                     	;# 
+   174  000A                     	;# 
+   175  000B                     	;# 
+   176  000C                     	;# 
+   177  0011                     	;# 
+   178  0012                     	;# 
+   179  0015                     	;# 
+   180  0016                     	;# 
+   181  0016                     	;# 
+   182  0017                     	;# 
+   183  0018                     	;# 
+   184  0019                     	;# 
+   185  001A                     	;# 
+   186  001B                     	;# 
+   187  001C                     	;# 
+   188  001E                     	;# 
+   189  001F                     	;# 
+   190  008C                     	;# 
+   191  0091                     	;# 
+   192  0092                     	;# 
+   193  0095                     	;# 
+   194  0096                     	;# 
+   195  0097                     	;# 
+   196  0098                     	;# 
+   197  0099                     	;# 
+   198  009A                     	;# 
+   199  009B                     	;# 
+   200  009B                     	;# 
+   201  009C                     	;# 
+   202  009D                     	;# 
+   203  009E                     	;# 
+   204  010C                     	;# 
+   205  0111                     	;# 
+   206  0112                     	;# 
+   207  0115                     	;# 
+   208  0116                     	;# 
+   209  0117                     	;# 
+   210  0118                     	;# 
+   211  0119                     	;# 
+   212  011A                     	;# 
+   213  011B                     	;# 
+   214  011D                     	;# 
+   215  011D                     	;# 
+   216  018C                     	;# 
+   217  0191                     	;# 
+   218  0191                     	;# 
+   219  0192                     	;# 
+   220  0193                     	;# 
+   221  0193                     	;# 
+   222  0193                     	;# 
+   223  0194                     	;# 
+   224  0195                     	;# 
+   225  0196                     	;# 
+   226  0199                     	;# 
+   227  019A                     	;# 
+   228  019B                     	;# 
+   229  019B                     	;# 
+   230  019B                     	;# 
+   231  019B                     	;# 
+   232  019C                     	;# 
+   233  019C                     	;# 
+   234  019D                     	;# 
+   235  019E                     	;# 
+   236  019F                     	;# 
+   237  020C                     	;# 
+   238  0211                     	;# 
+   239  0211                     	;# 
+   240  0212                     	;# 
+   241  0212                     	;# 
+   242  0213                     	;# 
+   243  0213                     	;# 
+   244  0214                     	;# 
+   245  0214                     	;# 
+   246  0215                     	;# 
+   247  0215                     	;# 
+   248  0215                     	;# 
+   249  0216                     	;# 
+   250  0216                     	;# 
+   251  0217                     	;# 
+   252  0217                     	;# 
+   253  0291                     	;# 
+   254  0291                     	;# 
+   255  0292                     	;# 
+   256  0293                     	;# 
+   257  0294                     	;# 
+   258  0295                     	;# 
+   259  0295                     	;# 
+   260  0296                     	;# 
+   261  0391                     	;# 
+   262  0392                     	;# 
+   263  0393                     	;# 
+   264  039A                     	;# 
+   265  039C                     	;# 
+   266  039D                     	;# 
+   267  039E                     	;# 
+   268  039F                     	;# 
+   269  0FE4                     	;# 
+   270  0FE5                     	;# 
+   271  0FE6                     	;# 
+   272  0FE7                     	;# 
+   273  0FE8                     	;# 
+   274  0FE9                     	;# 
+   275  0FEA                     	;# 
+   276  0FEB                     	;# 
+   277  0FED                     	;# 
+   278  0FEE                     	;# 
+   279  0FEF                     	;# 
+   280  0000                     	;# 
+   281  0001                     	;# 
+   282  0002                     	;# 
+   283  0003                     	;# 
+   284  0004                     	;# 
+   285  0005                     	;# 
+   286  0006                     	;# 
+   287  0007                     	;# 
+   288  0008                     	;# 
+   289  0009                     	;# 
+   290  000A                     	;# 
+   291  000B                     	;# 
+   292  000C                     	;# 
+   293  0011                     	;# 
+   294  0012                     	;# 
+   295  0015                     	;# 
+   296  0016                     	;# 
+   297  0016                     	;# 
+   298  0017                     	;# 
+   299  0018                     	;# 
+   300  0019                     	;# 
+   301  001A                     	;# 
+   302  001B                     	;# 
+   303  001C                     	;# 
+   304  001E                     	;# 
+   305  001F                     	;# 
+   306  008C                     	;# 
+   307  0091                     	;# 
+   308  0092                     	;# 
+   309  0095                     	;# 
+   310  0096                     	;# 
+   311  0097                     	;# 
+   312  0098                     	;# 
+   313  0099                     	;# 
+   314  009A                     	;# 
+   315  009B                     	;# 
+   316  009B                     	;# 
+   317  009C                     	;# 
+   318  009D                     	;# 
+   319  009E                     	;# 
+   320  010C                     	;# 
+   321  0111                     	;# 
+   322  0112                     	;# 
+   323  0115                     	;# 
+   324  0116                     	;# 
+   325  0117                     	;# 
+   326  0118                     	;# 
+   327  0119                     	;# 
+   328  011A                     	;# 
+   329  011B                     	;# 
+   330  011D                     	;# 
+   331  011D                     	;# 
+   332  018C                     	;# 
+   333  0191                     	;# 
+   334  0191                     	;# 
+   335  0192                     	;# 
+   336  0193                     	;# 
+   337  0193                     	;# 
+   338  0193                     	;# 
+   339  0194                     	;# 
+   340  0195                     	;# 
+   341  0196                     	;# 
+   342  0199                     	;# 
+   343  019A                     	;# 
+   344  019B                     	;# 
+   345  019B                     	;# 
+   346  019B                     	;# 
+   347  019B                     	;# 
+   348  019C                     	;# 
+   349  019C                     	;# 
+   350  019D                     	;# 
+   351  019E                     	;# 
+   352  019F                     	;# 
+   353  020C                     	;# 
+   354  0211                     	;# 
+   355  0211                     	;# 
+   356  0212                     	;# 
+   357  0212                     	;# 
+   358  0213                     	;# 
+   359  0213                     	;# 
+   360  0214                     	;# 
+   361  0214                     	;# 
+   362  0215                     	;# 
+   363  0215                     	;# 
+   364  0215                     	;# 
+   365  0216                     	;# 
+   366  0216                     	;# 
+   367  0217                     	;# 
+   368  0217                     	;# 
+   369  0291                     	;# 
+   370  0291                     	;# 
+   371  0292                     	;# 
+   372  0293                     	;# 
+   373  0294                     	;# 
+   374  0295                     	;# 
+   375  0295                     	;# 
+   376  0296                     	;# 
+   377  0391                     	;# 
+   378  0392                     	;# 
+   379  0393                     	;# 
+   380  039A                     	;# 
+   381  039C                     	;# 
+   382  039D                     	;# 
+   383  039E                     	;# 
+   384  039F                     	;# 
+   385  0FE4                     	;# 
+   386  0FE5                     	;# 
+   387  0FE6                     	;# 
+   388  0FE7                     	;# 
+   389  0FE8                     	;# 
+   390  0FE9                     	;# 
+   391  0FEA                     	;# 
+   392  0FEB                     	;# 
+   393  0FED                     	;# 
+   394  0FEE                     	;# 
+   395  0FEF                     	;# 
+   396  0016                     _TMR1L	set	22
+   397  0017                     _TMR1H	set	23
+   398  0011                     _PIR1	set	17
+   399  0011                     _PIR1bits	set	17
+   400  0018                     _T1CON	set	24
+   401  000B                     _INTCON	set	11
+   402  000C                     _PORTA	set	12
+   403  0091                     _PIE1	set	145
+   404  008C                     _TRISA	set	140
+   405  0099                     _OSCCON	set	153
+   406  018C                     _ANSELA	set	396
+   407  0291                     _CCPR1L	set	657
+   408  0292                     _CCPR1H	set	658
+   409  0293                     _CCP1CON	set	659
+   410                           
+   411                           	psect	cinit
+   412  0000'                    start_initialization:	
+   413                           ; #config settings
+   414                           
+   415  0000'                    __initialization:
    416                           
-   417     0058                     __initialization:
-   418                           
-   419                           ; Clear objects allocated to COMMON
-   420     0058  01F5               	clrf	__pbssCOMMON& (0+127)
-   421     0059  01F6               	clrf	(__pbssCOMMON+1)& (0+127)
-   422     005A                     end_of_initialization:	
+   417                           ; Clear objects allocated to COMMON
+   418  0000' 0180'              	clrf	__pbssCOMMON& (0+127)
+   419  0001' 0180'              	clrf	(__pbssCOMMON+1)& (0+127)
+   420  0002' 0180'              	clrf	(__pbssCOMMON+2)& (0+127)
+   421  0003' 0180'              	clrf	(__pbssCOMMON+3)& (0+127)
+   422  0004'                    end_of_initialization:	
    423                           ;End of C runtime variable initialization code
    424                           
-   425     005A                     __end_of__initialization:
-   426     005A  107E               	bcf	int$flags,0	;clear compiler interrupt flag (level 1)
-   427     005B  0020               	movlb	0
-   428     005C  288C               	ljmp	_main	;jump to C main() function
+   425  0004'                    __end_of__initialization:
+   426  0004' 107E               	bcf	int$flags,0	;clear compiler interrupt flag (level 1)
+   427  0005' 0020               	movlb	0
+   428  0006' 2800'              	ljmp	_main	;jump to C main() function
    429                           
    430                           	psect	bssCOMMON
-   431     0075                     __pbssCOMMON:
-   432     0075                     _DATA:
-   433     0075                     	ds	1
-   434     0076                     _COM_FLAG:
-   435     0076                     	ds	1
-   436                           
-   437                           	psect	cstackCOMMON
-   438     0070                     __pcstackCOMMON:
-   439     0070                     ?_Preamble:
-   440     0070                     ?_DATA_Sampling:	
-   441                           ; 1 bytes @ 0x0
-   442                           
-   443     0070                     ?_main:	
-   444                           ; 1 bytes @ 0x0
-   445                           
-   446     0070                     ?_isr:	
-   447                           ; 1 bytes @ 0x0
-   448                           
-   449     0070                     ??_isr:	
-   450                           ; 1 bytes @ 0x0
-   451                           
-   452                           
-   453                           ; 1 bytes @ 0x0
-   454     0070                     	ds	1
-   455     0071                     isr@COUNT:
+   431  0000'                    __pbssCOMMON:
+   432  0000'                    _COUNTER:
+   433  0000'                    	ds	2
+   434  0002'                    _DATA:
+   435  0002'                    	ds	1
+   436  0003'                    _COM_FLAG:
+   437  0003'                    	ds	1
+   438                           
+   439                           	psect	cstackCOMMON
+   440  0000'                    __pcstackCOMMON:
+   441  0000'                    ?_Preamble:
+   442  0000'                    ??_Preamble:	
+   443                           ; 1 bytes @ 0x0
+   444                           
+   445  0000'                    ?_DATA_Sampling:	
+   446                           ; 1 bytes @ 0x0
+   447                           
+   448  0000'                    ??_DATA_Sampling:	
+   449                           ; 1 bytes @ 0x0
+   450                           
+   451  0000'                    ?_main:	
+   452                           ; 1 bytes @ 0x0
+   453                           
+   454  0000'                    ?_isr:	
+   455                           ; 1 bytes @ 0x0
    456                           
-   457                           ; 2 bytes @ 0x1
-   458     0071                     	ds	2
-   459     0073                     ??_Preamble:
-   460     0073                     ??_DATA_Sampling:	
-   461                           ; 1 bytes @ 0x3
-   462                           
-   463                           
-   464                           ; 1 bytes @ 0x3
-   465     0073                     	ds	1
-   466     0074                     Preamble@CO:
-   467     0074                     DATA_Sampling@CO:	
-   468                           ; 1 bytes @ 0x4
-   469                           
-   470                           
-   471                           ; 1 bytes @ 0x4
-   472     0074                     	ds	1
-   473     0075                     ??_main:
-   474                           
-   475                           	psect	maintext
-   476     008C                     __pmaintext:	
-   477                           ; 1 bytes @ 0x5
-   478 ;;
-   479 ;;Main: autosize = 0, tempsize = 0, incstack = 0, save=0
-   480 ;;
-   481 ;; *************** function _main *****************
-   482 ;; Defined at:
-   483 ;;		line 16 in file "Project_ATCS_Decorder_Main.c"
-   484 ;; Parameters:    Size  Location     Type
-   485 ;;		None
-   486 ;; Auto vars:     Size  Location     Type
-   487 ;;		None
-   488 ;; Return value:  Size  Location     Type
-   489 ;;                  1    wreg      void 
-   490 ;; Registers used:
-   491 ;;		wreg, status,2, status,0, pclath, cstack
-   492 ;; Tracked objects:
-   493 ;;		On entry : B1F/0
-   494 ;;		On exit  : 0/0
-   495 ;;		Unchanged: 0/0
-   496 ;; Data sizes:     COMMON   BANK0   BANK1
-   497 ;;      Params:         0       0       0
-   498 ;;      Locals:         0       0       0
-   499 ;;      Temps:          0       0       0
-   500 ;;      Totals:         0       0       0
-   501 ;;Total ram usage:        0 bytes
-   502 ;; Hardware stack levels required when called: 2
-   503 ;; This function calls:
-   504 ;;		_DATA_Sampling
-   505 ;;		_Preamble
-   506 ;; This function is called by:
-   507 ;;		Startup code after reset
-   508 ;; This function uses a non-reentrant model
-   509 ;;
-   510                           
-   511     008C                     _main:	
-   512                           ;psect for function _main
-   513                           
-   514     008C                     l738:	
-   515                           ;incstack = 0
-   516                           ; Regs used in _main: [wreg+status,2+status,0+pclath+cstack]
-   517                           
+   457  0000'                    ??_isr:	
+   458                           ; 1 bytes @ 0x0
+   459                           
+   460                           
+   461                           ; 1 bytes @ 0x0
+   462  0000'                    	ds	1
+   463  0001'                    isr@COUNT:
+   464                           
+   465                           ; 2 bytes @ 0x1
+   466  0001'                    	ds	2
+   467  0003'                    ??_main:
+   468                           
+   469                           	psect	maintext
+   470  0000'                    __pmaintext:	
+   471                           ; 1 bytes @ 0x3
+   472 ;;
+   473 ;;Main: autosize = 0, tempsize = 0, incstack = 0, save=0
+   474 ;;
+   475 ;; *************** function _main *****************
+   476 ;; Defined at:
+   477 ;;		line 17 in file "Project_ATCS_Decorder_Main.c"
+   478 ;; Parameters:    Size  Location     Type
+   479 ;;		None
+   480 ;; Auto vars:     Size  Location     Type
+   481 ;;		None
+   482 ;; Return value:  Size  Location     Type
+   483 ;;                  1    wreg      void 
+   484 ;; Registers used:
+   485 ;;		wreg, fsr0l, fsr0h, fsr1l, fsr1h, fsr1l, fsr1h, status,2, status,0, pclath, cstack
+   486 ;; Tracked objects:
+   487 ;;		On entry : B1F/0
+   488 ;;		On exit  : 0/0
+   489 ;;		Unchanged: 0/0
+   490 ;; Data sizes:     COMMON   BANK0   BANK1
+   491 ;;      Params:         0       0       0
+   492 ;;      Locals:         0       0       0
+   493 ;;      Temps:          0       0       0
+   494 ;;      Totals:         0       0       0
+   495 ;;Total ram usage:        0 bytes
+   496 ;; Hardware stack levels required when called: 2
+   497 ;; This function calls:
+   498 ;;		_DATA_Sampling
+   499 ;;		_Preamble
+   500 ;; This function is called by:
+   501 ;;		Startup code after reset
+   502 ;; This function uses a non-reentrant model
+   503 ;;
+   504                           
+   505  0000'                    _main:	
+   506                           ;psect for function _main
+   507                           
+   508  0000'                    l685:	
+   509                           ;incstack = 0
+   510                           ; Regs used in _main: [allreg]
+   511                           
+   512                           
+   513                           ;Project_ATCS_Decorder_Main.c: 19:     OSCCON = 0x72;
+   514  0000' 3072               	movlw	114
+   515  0001' 0021               	movlb	1	; select bank1
+   516  0002' 0099               	movwf	25	;volatile
+   517  0003'                    l687:
    518                           
-   519                           ;Project_ATCS_Decorder_Main.c: 18:     OSCCON = 0x72;
-   520     008C  3072               	movlw	114
-   521     008D  0021               	movlb	1	; select bank1
-   522     008E  0099               	movwf	25	;volatile
-   523     008F                     l740:
-   524                           
-   525                           ;Project_ATCS_Decorder_Main.c: 19:     ANSELA = 0x00;
-   526     008F  0023               	movlb	3	; select bank3
-   527     0090  018C               	clrf	12	;volatile
-   528     0091                     l742:
-   529                           
-   530                           ;Project_ATCS_Decorder_Main.c: 21:     TRISA = 0x04;
-   531     0091  3004               	movlw	4
-   532     0092  0021               	movlb	1	; select bank1
-   533     0093  008C               	movwf	12	;volatile
-   534                           
-   535                           ;Project_ATCS_Decorder_Main.c: 22:     PORTA = 0x00;
-   536     0094  0020               	movlb	0	; select bank0
-   537     0095  018C               	clrf	12	;volatile
-   538     0096                     l744:
-   539                           
-   540                           ;Project_ATCS_Decorder_Main.c: 24:     INTCON = 0xC0;
-   541     0096  30C0               	movlw	192
-   542     0097  008B               	movwf	11	;volatile
-   543     0098                     l746:
+   519                           ;Project_ATCS_Decorder_Main.c: 20:     ANSELA = 0x00;
+   520  0003' 0023               	movlb	3	; select bank3
+   521  0004' 018C               	clrf	12	;volatile
+   522  0005'                    l689:
+   523                           
+   524                           ;Project_ATCS_Decorder_Main.c: 22:     TRISA = 0x04;
+   525  0005' 3004               	movlw	4
+   526  0006' 0021               	movlb	1	; select bank1
+   527  0007' 008C               	movwf	12	;volatile
+   528                           
+   529                           ;Project_ATCS_Decorder_Main.c: 23:     PORTA = 0x00;
+   530  0008' 0020               	movlb	0	; select bank0
+   531  0009' 018C               	clrf	12	;volatile
+   532  000A'                    l691:
+   533                           
+   534                           ;Project_ATCS_Decorder_Main.c: 25:     INTCON = 0xC0;
+   535  000A' 30C0               	movlw	192
+   536  000B' 008B               	movwf	11	;volatile
+   537  000C'                    l693:
+   538                           
+   539                           ;Project_ATCS_Decorder_Main.c: 26:     PIE1 = 0x85;
+   540  000C' 3085               	movlw	133
+   541  000D' 0021               	movlb	1	; select bank1
+   542  000E' 0091               	movwf	17	;volatile
+   543  000F'                    l695:
    544                           
-   545                           ;Project_ATCS_Decorder_Main.c: 25:     PIE1 = 0x85;
-   546     0098  3085               	movlw	133
-   547     0099  0021               	movlb	1	; select bank1
-   548     009A  0091               	movwf	17	;volatile
-   549     009B                     l748:
+   545                           ;Project_ATCS_Decorder_Main.c: 27:     CCP1CON = 0x05;
+   546  000F' 3005               	movlw	5
+   547  0010' 0025               	movlb	5	; select bank5
+   548  0011' 0093               	movwf	19	;volatile
+   549  0012'                    l697:
    550                           
-   551                           ;Project_ATCS_Decorder_Main.c: 26:     CCP1CON = 0x05;
-   552     009B  3005               	movlw	5
-   553     009C  0025               	movlb	5	; select bank5
-   554     009D  0093               	movwf	19	;volatile
-   555     009E                     l750:
+   551                           ;Project_ATCS_Decorder_Main.c: 28:     T1CON = 0x01;
+   552  0012' 3001               	movlw	1
+   553  0013' 0020               	movlb	0	; select bank0
+   554  0014' 0098               	movwf	24	;volatile
+   555  0015'                    l699:
    556                           
-   557                           ;Project_ATCS_Decorder_Main.c: 27:     T1CON = 0x01;
-   558     009E  3001               	movlw	1
-   559     009F  0020               	movlb	0	; select bank0
-   560     00A0  0098               	movwf	24	;volatile
-   561     00A1                     l752:
-   562                           
-   563                           ;Project_ATCS_Decorder_Main.c: 32:             Preamble();
-   564     00A1  3180  20B5  3180   	fcall	_Preamble
-   565     00A4                     l754:
-   566                           
-   567                           ;Project_ATCS_Decorder_Main.c: 33:         }while(COM_FLAG & 0x08);
-   568     00A4  19F6               	btfsc	_COM_FLAG,3
-   569     00A5  28A7               	goto	u91
-   570     00A6  28A8               	goto	u90
-   571     00A7                     u91:
-   572     00A7  28A1               	goto	l752
-   573     00A8                     u90:
-   574     00A8                     l756:
-   575                           
-   576                           ;Project_ATCS_Decorder_Main.c: 34:         COM_FLAG = COM_FLAG & 0xEF;
-   577     00A8  0876               	movf	_COM_FLAG,w
-   578     00A9  39EF               	andlw	239
-   579     00AA  00F6               	movwf	_COM_FLAG
-   580     00AB                     l758:	
-   581                           ;Project_ATCS_Decorder_Main.c: 35:         while(DATA_Sampling()){
-   582                           
-   583                           
-   584                           ;Project_ATCS_Decorder_Main.c: 35:         while(DATA_Sampling()){
-   585     00AB  3180  205D  3180   	fcall	_DATA_Sampling
-   586     00AE  3A00               	xorlw	0
-   587     00AF  1D03               	skipz
-   588     00B0  28B2               	goto	u101
-   589     00B1  28B3               	goto	u100
-   590     00B2                     u101:
-   591     00B2  28AB               	goto	l758
-   592     00B3                     u100:
-   593     00B3  28A1               	goto	l752
-   594     00B4  2857               	ljmp	start
-   595     00B5                     __end_of_main:
-   596                           
-   597                           	psect	text1
-   598     00B5                     __ptext1:	
-   599 ;; *************** function _Preamble *****************
-   600 ;; Defined at:
-   601 ;;		line 12 in file "Project_ATCS_Decorder_SinkLayer.c"
-   602 ;; Parameters:    Size  Location     Type
-   603 ;;		None
-   604 ;; Auto vars:     Size  Location     Type
-   605 ;;  CO              1    4[COMMON] unsigned char 
-   606 ;; Return value:  Size  Location     Type
-   607 ;;                  1    wreg      void 
-   608 ;; Registers used:
-   609 ;;		wreg, status,2, status,0
-   610 ;; Tracked objects:
-   611 ;;		On entry : 0/0
-   612 ;;		On exit  : 0/0
-   613 ;;		Unchanged: 0/0
-   614 ;; Data sizes:     COMMON   BANK0   BANK1
-   615 ;;      Params:         0       0       0
-   616 ;;      Locals:         1       0       0
-   617 ;;      Temps:          1       0       0
-   618 ;;      Totals:         2       0       0
-   619 ;;Total ram usage:        2 bytes
-   620 ;; Hardware stack levels used: 1
-   621 ;; Hardware stack levels required when called: 1
-   622 ;; This function calls:
-   623 ;;		Nothing
-   624 ;; This function is called by:
-   625 ;;		_main
-   626 ;; This function uses a non-reentrant model
-   627 ;;
-   628                           
-   629     00B5                     _Preamble:	
-   630                           ;psect for function _Preamble
+   557                           ;Project_ATCS_Decorder_Main.c: 33:             Preamble();
+   558  0015' 3180' 2000' 3180'  	fcall	_Preamble
+   559  0018'                    l701:
+   560                           
+   561                           ;Project_ATCS_Decorder_Main.c: 34:         }while(COM_FLAG & 0x08);
+   562  0018' 1983'              	btfsc	_COM_FLAG,3
+   563  0019' 281B'              	goto	u11
+   564  001A' 281C'              	goto	u10
+   565  001B'                    u11:
+   566  001B' 2815'              	goto	l699
+   567  001C'                    u10:
+   568  001C'                    l703:
+   569                           
+   570                           ;Project_ATCS_Decorder_Main.c: 35:         COM_FLAG = COM_FLAG & 0xEF;
+   571  001C' 0803'              	movf	_COM_FLAG,w
+   572  001D' 39EF               	andlw	239
+   573  001E' 0083'              	movwf	_COM_FLAG
+   574  001F'                    l705:	
+   575                           ;Project_ATCS_Decorder_Main.c: 36:         while(DATA_Sampling()){
+   576                           
+   577                           
+   578                           ;Project_ATCS_Decorder_Main.c: 36:         while(DATA_Sampling()){
+   579  001F' 3180' 2000' 3180'  	fcall	_DATA_Sampling
+   580  0022' 3A00               	xorlw	0
+   581  0023' 1D03               	skipz
+   582  0024' 2826'              	goto	u21
+   583  0025' 2827'              	goto	u20
+   584  0026'                    u21:
+   585  0026' 281F'              	goto	l705
+   586  0027'                    u20:
+   587  0027' 2815'              	goto	l699
+   588  0028' 2800'              	ljmp	start
+   589  0029'                    __end_of_main:
+   590                           
+   591                           	psect	intentry
+   592  0000'                    __pintentry:	
+   593 ;; *************** function _isr *****************
+   594 ;; Defined at:
+   595 ;;		line 43 in file "Project_ATCS_Decorder_Main.c"
+   596 ;; Parameters:    Size  Location     Type
+   597 ;;		None
+   598 ;; Auto vars:     Size  Location     Type
+   599 ;;  COUNT           2    1[COMMON] int 
+   600 ;; Return value:  Size  Location     Type
+   601 ;;                  1    wreg      void 
+   602 ;; Registers used:
+   603 ;;		wreg, status,2, status,0
+   604 ;; Tracked objects:
+   605 ;;		On entry : 0/0
+   606 ;;		On exit  : 0/0
+   607 ;;		Unchanged: 0/0
+   608 ;; Data sizes:     COMMON   BANK0   BANK1
+   609 ;;      Params:         0       0       0
+   610 ;;      Locals:         2       0       0
+   611 ;;      Temps:          1       0       0
+   612 ;;      Totals:         3       0       0
+   613 ;;Total ram usage:        3 bytes
+   614 ;; Hardware stack levels used: 1
+   615 ;; This function calls:
+   616 ;;		Nothing
+   617 ;; This function is called by:
+   618 ;;		Interrupt level 1
+   619 ;; This function uses a non-reentrant model
+   620 ;;
+   621                           
+   622  0000'                    _isr:
+   623                           
+   624                           ;incstack = 0
+   625  0000' 147E               	bsf	int$flags,0	;set compiler interrupt flag (level 1)
+   626                           
+   627                           ; Regs used in _isr: [wreg+status,2+status,0]
+   628  0001' 3180'              	pagesel	$
+   629  0002'                    i1l707:
+   630  0002'                    i1l709:
    631                           
-   632     00B5                     l698:	
-   633                           ;incstack = 0
-   634                           ; Regs used in _Preamble: [wreg+status,2+status,0]
-   635                           
-   636                           
-   637                           ;Project_ATCS_Decorder_SinkLayer.c: 13:     UnCHR CO = 0x00;
-   638     00B5  01F4               	clrf	Preamble@CO
-   639                           
-   640                           ;Project_ATCS_Decorder_SinkLayer.c: 14:     while(COM_FLAG & 0x01){
-   641     00B6  28C2               	goto	l704
-   642     00B7                     l700:
-   643                           
-   644                           ;Project_ATCS_Decorder_SinkLayer.c: 15:         COM_FLAG = COM_FLAG & 0xFB;
-   645     00B7  0876               	movf	_COM_FLAG,w
-   646     00B8  39FB               	andlw	251
-   647     00B9  00F6               	movwf	_COM_FLAG
-   648     00BA                     l71:	
-   649                           ;Project_ATCS_Decorder_SinkLayer.c: 16:         while(COM_FLAG & 0x04);
-   650                           
-   651     00BA  1976               	btfsc	_COM_FLAG,2
-   652     00BB  28BD               	goto	u11
-   653     00BC  28BE               	goto	u10
-   654     00BD                     u11:
-   655     00BD  28BA               	goto	l71
-   656     00BE                     u10:
-   657     00BE                     l702:
-   658                           
-   659                           ;Project_ATCS_Decorder_SinkLayer.c: 17:         CO++;
-   660     00BE  3001               	movlw	1
-   661     00BF  00F3               	movwf	??_Preamble
-   662     00C0  0873               	movf	??_Preamble,w
-   663     00C1  07F4               	addwf	Preamble@CO,f
-   664     00C2                     l704:
-   665                           
-   666                           ;Project_ATCS_Decorder_SinkLayer.c: 14:     while(COM_FLAG & 0x01){
-   667     00C2  1876               	btfsc	_COM_FLAG,0
-   668     00C3  28C5               	goto	u21
-   669     00C4  28C6               	goto	u20
-   670     00C5                     u21:
-   671     00C5  28B7               	goto	l700
-   672     00C6                     u20:
-   673     00C6                     l706:
-   674                           
-   675                           ;Project_ATCS_Decorder_SinkLayer.c: 19:     if(CO >= 12){
-   676     00C6  300C               	movlw	12
-   677     00C7  0274               	subwf	Preamble@CO,w
-   678     00C8  1C03               	skipc
-   679     00C9  28CB               	goto	u31
-   680     00CA  28CC               	goto	u30
-   681     00CB                     u31:
-   682     00CB  28CF               	goto	l76
-   683     00CC                     u30:
-   684     00CC                     l708:
-   685                           
-   686                           ;Project_ATCS_Decorder_SinkLayer.c: 20:         COM_FLAG = COM_FLAG & 0xF7;
-   687     00CC  0876               	movf	_COM_FLAG,w
-   688     00CD  39F7               	andlw	247
-   689     00CE  00F6               	movwf	_COM_FLAG
-   690     00CF                     l76:
-   691     00CF  0008               	return
-   692     00D0                     __end_of_Preamble:
-   693                           
-   694                           	psect	text2
-   695     005D                     __ptext2:	
-   696 ;; *************** function _DATA_Sampling *****************
-   697 ;; Defined at:
-   698 ;;		line 23 in file "Project_ATCS_Decorder_SinkLayer.c"
-   699 ;; Parameters:    Size  Location     Type
-   700 ;;		None
-   701 ;; Auto vars:     Size  Location     Type
-   702 ;;  CO              1    4[COMMON] unsigned char 
-   703 ;; Return value:  Size  Location     Type
-   704 ;;                  1    wreg      unsigned char 
-   705 ;; Registers used:
-   706 ;;		wreg, status,2, status,0
-   707 ;; Tracked objects:
-   708 ;;		On entry : 0/0
-   709 ;;		On exit  : 0/0
-   710 ;;		Unchanged: 0/0
-   711 ;; Data sizes:     COMMON   BANK0   BANK1
-   712 ;;      Params:         0       0       0
-   713 ;;      Locals:         1       0       0
-   714 ;;      Temps:          1       0       0
-   715 ;;      Totals:         2       0       0
-   716 ;;Total ram usage:        2 bytes
-   717 ;; Hardware stack levels used: 1
-   718 ;; Hardware stack levels required when called: 1
-   719 ;; This function calls:
-   720 ;;		Nothing
-   721 ;; This function is called by:
-   722 ;;		_main
-   723 ;; This function uses a non-reentrant model
-   724 ;;
-   725                           
-   726     005D                     _DATA_Sampling:	
-   727                           ;psect for function _DATA_Sampling
-   728                           
-   729     005D                     l710:	
-   730                           ;incstack = 0
-   731                           ; Regs used in _DATA_Sampling: [wreg+status,2+status,0]
-   732                           
-   733                           
-   734                           ;Project_ATCS_Decorder_SinkLayer.c: 24:     UnCHR CO = 0x00;
-   735     005D  01F4               	clrf	DATA_Sampling@CO
-   736                           
-   737                           ;Project_ATCS_Decorder_SinkLayer.c: 25:     while(CO < 8){
-   738     005E  2874               	goto	l722
-   739     005F                     l80:
-   740                           
-   741                           ;Project_ATCS_Decorder_SinkLayer.c: 26:         if(COM_FLAG & 0b00000100){
-   742     005F  1D76               	btfss	_COM_FLAG,2
-   743     0060  2862               	goto	u41
-   744     0061  2863               	goto	u40
-   745     0062                     u41:
-   746     0062  2874               	goto	l722
-   747     0063                     u40:
-   748     0063                     l712:
-   749                           
-   750                           ;Project_ATCS_Decorder_SinkLayer.c: 27:             if(COM_FLAG & 0b00000001){
-   751     0063  1C76               	btfss	_COM_FLAG,0
-   752     0064  2866               	goto	u51
-   753     0065  2867               	goto	u50
-   754     0066                     u51:
-   755     0066  286A               	goto	l716
-   756     0067                     u50:
-   757     0067                     l714:
-   758                           
-   759                           ;Project_ATCS_Decorder_SinkLayer.c: 28:                 DATA = (UnCHR) (DATA << 1) | 0x0
-      +                          1;
-   760     0067  1403               	setc
-   761     0068  0DF5               	rlf	_DATA,f
-   762                           
-   763                           ;Project_ATCS_Decorder_SinkLayer.c: 29:             }else{
-   764     0069  286D               	goto	l718
-   765     006A                     l716:
-   766                           
-   767                           ;Project_ATCS_Decorder_SinkLayer.c: 30:                 DATA = (UnCHR) (DATA << 1) & 0xF
-      +                          E;
-   768     006A  3575               	lslf	_DATA,w
-   769     006B  39FE               	andlw	254
-   770     006C  00F5               	movwf	_DATA
-   771     006D                     l718:
-   772                           
-   773                           ;Project_ATCS_Decorder_SinkLayer.c: 32:             COM_FLAG = COM_FLAG & 0xFB;
-   774     006D  0876               	movf	_COM_FLAG,w
-   775     006E  39FB               	andlw	251
-   776     006F  00F6               	movwf	_COM_FLAG
-   777     0070                     l720:
-   778                           
-   779                           ;Project_ATCS_Decorder_SinkLayer.c: 33:             CO++;
-   780     0070  3001               	movlw	1
-   781     0071  00F3               	movwf	??_DATA_Sampling
-   782     0072  0873               	movf	??_DATA_Sampling,w
-   783     0073  07F4               	addwf	DATA_Sampling@CO,f
-   784     0074                     l722:
-   785                           
-   786                           ;Project_ATCS_Decorder_SinkLayer.c: 25:     while(CO < 8){
-   787     0074  3008               	movlw	8
-   788     0075  0274               	subwf	DATA_Sampling@CO,w
-   789     0076  1C03               	skipc
-   790     0077  2879               	goto	u61
-   791     0078  287A               	goto	u60
-   792     0079                     u61:
-   793     0079  285F               	goto	l80
-   794     007A                     u60:
-   795     007A                     l85:
-   796     007A  1D76               	btfss	_COM_FLAG,2
-   797     007B  287D               	goto	u71
-   798     007C  287E               	goto	u70
-   799     007D                     u71:
-   800     007D  287A               	goto	l85
-   801     007E                     u70:
-   802     007E                     l87:
-   803                           
-   804                           ;Project_ATCS_Decorder_SinkLayer.c: 37:     if(COM_FLAG & 0b00000001){
-   805     007E  1C76               	btfss	_COM_FLAG,0
-   806     007F  2881               	goto	u81
-   807     0080  2882               	goto	u80
-   808     0081                     u81:
-   809     0081  2887               	goto	l732
-   810     0082                     u80:
-   811     0082                     l724:
-   812                           
-   813                           ;Project_ATCS_Decorder_SinkLayer.c: 38:         COM_FLAG = COM_FLAG & 0xFB;
-   814     0082  0876               	movf	_COM_FLAG,w
-   815     0083  39FB               	andlw	251
-   816     0084  00F6               	movwf	_COM_FLAG
-   817     0085                     l726:
-   818                           
-   819                           ;Project_ATCS_Decorder_SinkLayer.c: 39:         return 0;
-   820     0085  3000               	movlw	0
-   821     0086  288B               	goto	l89
-   822     0087                     l732:
-   823                           
-   824                           ;Project_ATCS_Decorder_SinkLayer.c: 41:         COM_FLAG = COM_FLAG & 0xFB;
-   825     0087  0876               	movf	_COM_FLAG,w
-   826     0088  39FB               	andlw	251
-   827     0089  00F6               	movwf	_COM_FLAG
-   828     008A                     l734:
-   829                           
-   830                           ;Project_ATCS_Decorder_SinkLayer.c: 42:         return 1;
-   831     008A  3001               	movlw	1
-   832     008B                     l89:
-   833     008B  0008               	return
-   834     008C                     __end_of_DATA_Sampling:
-   835                           
-   836                           	psect	intentry
-   837     0004                     __pintentry:	
-   838 ;; *************** function _isr *****************
-   839 ;; Defined at:
-   840 ;;		line 42 in file "Project_ATCS_Decorder_Main.c"
-   841 ;; Parameters:    Size  Location     Type
-   842 ;;		None
-   843 ;; Auto vars:     Size  Location     Type
-   844 ;;  COUNT           2    1[COMMON] int 
-   845 ;; Return value:  Size  Location     Type
-   846 ;;                  1    wreg      void 
-   847 ;; Registers used:
-   848 ;;		wreg, status,2
-   849 ;; Tracked objects:
-   850 ;;		On entry : 0/0
-   851 ;;		On exit  : 0/0
-   852 ;;		Unchanged: 0/0
-   853 ;; Data sizes:     COMMON   BANK0   BANK1
-   854 ;;      Params:         0       0       0
-   855 ;;      Locals:         2       0       0
-   856 ;;      Temps:          1       0       0
-   857 ;;      Totals:         3       0       0
-   858 ;;Total ram usage:        3 bytes
-   859 ;; Hardware stack levels used: 1
-   860 ;; This function calls:
-   861 ;;		Nothing
-   862 ;; This function is called by:
-   863 ;;		Interrupt level 1
-   864 ;; This function uses a non-reentrant model
-   865 ;;
-   866                           
-   867     0004                     _isr:
-   868                           
-   869                           ;incstack = 0
-   870     0004  147E               	bsf	int$flags,0	;set compiler interrupt flag (level 1)
-   871                           
-   872                           ; Regs used in _isr: [wreg+status,2]
-   873     0005  3180               	pagesel	$
-   874     0006                     i1l760:
-   875     0006                     i1l762:
-   876                           
-   877                           ;Project_ATCS_Decorder_Main.c: 44:     if(PIR1bits.CCP1IF){
-   878     0006  0020               	movlb	0	; select bank0
-   879     0007  1D11               	btfss	17,2	;volatile
-   880     0008  280A               	goto	u11_21
-   881     0009  280B               	goto	u11_20
-   882     000A                     u11_21:
-   883     000A  284D               	goto	i1l54
-   884     000B                     u11_20:
-   885     000B                     i1l764:
-   886                           
-   887                           ;Project_ATCS_Decorder_Main.c: 45:         PIR1 = 0x00;
-   888     000B  0191               	clrf	17	;volatile
-   889                           
-   890                           ;Project_ATCS_Decorder_Main.c: 46:         TMR1H = 0x00;
-   891     000C  0197               	clrf	23	;volatile
-   892                           
-   893                           ;Project_ATCS_Decorder_Main.c: 47:         TMR1L = 0x00;
-   894     000D  0196               	clrf	22	;volatile
-   895     000E                     i1l766:
-   896                           
-   897                           ;Project_ATCS_Decorder_Main.c: 48:         COUNT = CCPR1H << 8 | CCPR1L;
-   898     000E  0025               	movlb	5	; select bank5
-   899     000F  0812               	movf	18,w	;volatile
-   900     0010  00F2               	movwf	isr@COUNT+1
-   901     0011  0811               	movf	17,w	;volatile
-   902     0012  00F1               	movwf	isr@COUNT
-   903     0013                     i1l768:
-   904                           
-   905                           ;Project_ATCS_Decorder_Main.c: 50:         if(COUNT >= 0x00C0 && COUNT <= 0x0100 && !(CO
-      +                          M_FLAG & 0x02) ){
-   906     0013  0872               	movf	isr@COUNT+1,w
-   907     0014  3A80               	xorlw	128
-   908     0015  00F0               	movwf	??_isr
-   909     0016  3080               	movlw	128
-   910     0017  0270               	subwf	??_isr,w
-   911     0018  1D03               	skipz
-   912     0019  281C               	goto	u12_25
-   913     001A  30C0               	movlw	192
-   914     001B  0271               	subwf	isr@COUNT,w
-   915     001C                     u12_25:
-   916     001C  1C03               	skipc
-   917     001D  281F               	goto	u12_21
-   918     001E  2820               	goto	u12_20
-   919     001F                     u12_21:
-   920     001F  2835               	goto	i1l776
-   921     0020                     u12_20:
-   922     0020                     i1l770:
-   923     0020  0872               	movf	isr@COUNT+1,w
-   924     0021  3A80               	xorlw	128
-   925     0022  00F0               	movwf	??_isr
-   926     0023  3081               	movlw	129
-   927     0024  0270               	subwf	??_isr,w
-   928     0025  1D03               	skipz
-   929     0026  2829               	goto	u13_25
-   930     0027  3001               	movlw	1
-   931     0028  0271               	subwf	isr@COUNT,w
-   932     0029                     u13_25:
-   933     0029  1803               	skipnc
-   934     002A  282C               	goto	u13_21
-   935     002B  282D               	goto	u13_20
-   936     002C                     u13_21:
-   937     002C  2835               	goto	i1l776
-   938     002D                     u13_20:
-   939     002D                     i1l772:
-   940     002D  18F6               	btfsc	_COM_FLAG,1
-   941     002E  2830               	goto	u14_21
-   942     002F  2831               	goto	u14_20
-   943     0030                     u14_21:
-   944     0030  2835               	goto	i1l776
-   945     0031                     u14_20:
-   946     0031                     i1l774:
-   947                           
-   948                           ;Project_ATCS_Decorder_Main.c: 51:             COM_FLAG = COM_FLAG | 0x01;
-   949     0031  0876               	movf	_COM_FLAG,w
-   950     0032  3801               	iorlw	1
-   951     0033  00F6               	movwf	_COM_FLAG
-   952                           
-   953                           ;Project_ATCS_Decorder_Main.c: 52:         }
-   954     0034  2849               	goto	i1l56
-   955     0035                     i1l776:
-   956     0035  0872               	movf	isr@COUNT+1,w
-   957     0036  3A80               	xorlw	128
-   958     0037  00F0               	movwf	??_isr
-   959     0038  3080               	movlw	128
-   960     0039  0270               	subwf	??_isr,w
-   961     003A  1D03               	skipz
-   962     003B  283E               	goto	u15_25
-   963     003C  3081               	movlw	129
-   964     003D  0271               	subwf	isr@COUNT,w
-   965     003E                     u15_25:
-   966     003E  1803               	skipnc
-   967     003F  2841               	goto	u15_21
-   968     0040  2842               	goto	u15_20
-   969     0041                     u15_21:
-   970     0041  2846               	goto	i1l780
-   971     0042                     u15_20:
-   972     0042                     i1l778:
-   973     0042  1CF6               	btfss	_COM_FLAG,1
-   974     0043  2845               	goto	u16_21
-   975     0044  2846               	goto	u16_20
-   976     0045                     u16_21:
-   977     0045  2849               	goto	i1l56
-   978     0046                     u16_20:
-   979     0046                     i1l780:
-   980                           
-   981                           ;Project_ATCS_Decorder_Main.c: 54:             COM_FLAG = COM_FLAG & 0xFE;
-   982     0046  0876               	movf	_COM_FLAG,w
-   983     0047  39FE               	andlw	254
-   984     0048  00F6               	movwf	_COM_FLAG
-   985     0049                     i1l56:
-   986                           
-   987                           ;Project_ATCS_Decorder_Main.c: 56:         COM_FLAG = COM_FLAG | 0x04;
-   988     0049  0876               	movf	_COM_FLAG,w
-   989     004A  3804               	iorlw	4
-   990     004B  00F6               	movwf	_COM_FLAG
-   991                           
-   992                           ;Project_ATCS_Decorder_Main.c: 58:     }else if(PIR1bits.TMR1IF){
-   993     004C  2855               	goto	i1l62
-   994     004D                     i1l54:
-   995     004D  1C11               	btfss	17,0	;volatile
-   996     004E  2850               	goto	u17_21
-   997     004F  2851               	goto	u17_20
-   998     0050                     u17_21:
-   999     0050  2855               	goto	i1l62
-  1000     0051                     u17_20:
-  1001     0051                     i1l782:
-  1002                           
-  1003                           ;Project_ATCS_Decorder_Main.c: 59:         PIR1 = 0x00;
-  1004     0051  0191               	clrf	17	;volatile
-  1005     0052                     i1l784:
-  1006                           
-  1007                           ;Project_ATCS_Decorder_Main.c: 60:         COM_FLAG = COM_FLAG | 0x02;
-  1008     0052  0876               	movf	_COM_FLAG,w
-  1009     0053  3802               	iorlw	2
-  1010     0054  00F6               	movwf	_COM_FLAG
-  1011     0055                     i1l62:
-  1012     0055  107E               	bcf	int$flags,0	;clear compiler interrupt flag (level 1)
-  1013     0056  0009               	retfie
-  1014     0057                     __end_of_isr:
-  1015     007E                     btemp	set	126	;btemp
-  1016     007E                     int$flags	set	126
-  1017     007E                     wtemp0	set	126
-  1018                           
-  1019                           	psect	idloc
-  1020                           
-  1021                           ;Config register IDLOC0 @ 0x8000
-  1022                           ;	unspecified, using default values
-  1023     8000                     	org	32768
-  1024     8000  3FFF               	dw	16383
-  1025                           
-  1026                           ;Config register IDLOC1 @ 0x8001
-  1027                           ;	unspecified, using default values
-  1028     8001                     	org	32769
-  1029     8001  3FFF               	dw	16383
-  1030                           
-  1031                           ;Config register IDLOC2 @ 0x8002
-  1032                           ;	unspecified, using default values
-  1033     8002                     	org	32770
-  1034     8002  3FFF               	dw	16383
-  1035                           
-  1036                           ;Config register IDLOC3 @ 0x8003
-  1037                           ;	unspecified, using default values
-  1038     8003                     	org	32771
-  1039     8003  3FFF               	dw	16383
-  1040                           
-  1041                           	psect	config
-  1042                           
-  1043                           ;Config register CONFIG1 @ 0x8007
-  1044                           ;	Oscillator Selection
-  1045                           ;	FOSC = INTOSC, INTOSC oscillator: I/O function on CLKIN pin
-  1046                           ;	Watchdog Timer Enable
-  1047                           ;	WDTE = OFF, WDT disabled
-  1048                           ;	Power-up Timer Enable
-  1049                           ;	PWRTE = ON, PWRT enabled
-  1050                           ;	MCLR Pin Function Select
-  1051                           ;	MCLRE = OFF, MCLR/VPP pin function is digital input
-  1052                           ;	Flash Program Memory Code Protection
-  1053                           ;	CP = OFF, Program memory code protection is disabled
-  1054                           ;	Data Memory Code Protection
-  1055                           ;	CPD = OFF, Data memory code protection is disabled
-  1056                           ;	Brown-out Reset Enable
-  1057                           ;	BOREN = ON, Brown-out Reset enabled
-  1058                           ;	Clock Out Enable
-  1059                           ;	CLKOUTEN = OFF, CLKOUT function is disabled. I/O or oscillator function on the CLKOUT 
+   632                           ;Project_ATCS_Decorder_Main.c: 45:     if(PIR1bits.CCP1IF){
+   633  0002' 0020               	movlb	0	; select bank0
+   634  0003' 1D11               	btfss	17,2	;volatile
+   635  0004' 2806'              	goto	u3_21
+   636  0005' 2807'              	goto	u3_20
+   637  0006'                    u3_21:
+   638  0006' 28C6'              	goto	i1l56
+   639  0007'                    u3_20:
+   640  0007'                    i1l711:
+   641                           
+   642                           ;Project_ATCS_Decorder_Main.c: 46:         PIR1 = 0x00;
+   643  0007' 0191               	clrf	17	;volatile
+   644                           
+   645                           ;Project_ATCS_Decorder_Main.c: 47:         TMR1H = 0x00;
+   646  0008' 0197               	clrf	23	;volatile
+   647                           
+   648                           ;Project_ATCS_Decorder_Main.c: 48:         TMR1L = 0x00;
+   649  0009' 0196               	clrf	22	;volatile
+   650  000A'                    i1l713:
+   651                           
+   652                           ;Project_ATCS_Decorder_Main.c: 49:         COUNT = CCPR1H << 8 | CCPR1L;
+   653  000A' 0025               	movlb	5	; select bank5
+   654  000B' 0812               	movf	18,w	;volatile
+   655  000C' 0082'              	movwf	isr@COUNT+1
+   656  000D' 0811               	movf	17,w	;volatile
+   657  000E' 0081'              	movwf	isr@COUNT
+   658  000F'                    i1l715:
+   659                           
+   660                           ;Project_ATCS_Decorder_Main.c: 50:         if(!(COM_FLAG & 0x01)){
+   661  000F' 1803'              	btfsc	_COM_FLAG,0
+   662  0010' 2812'              	goto	u4_21
+   663  0011' 2813'              	goto	u4_20
+   664  0012'                    u4_21:
+   665  0012' 2859'              	goto	i1l57
+   666  0013'                    u4_20:
+   667  0013'                    i1l717:
+   668                           
+   669                           ;Project_ATCS_Decorder_Main.c: 51:             if(COUNT >= 0x00C0 && COUNT <= 0x0100 && 
+      +                          !(COM_FLAG & 0x02) ){
+   670  0013' 0802'              	movf	isr@COUNT+1,w
+   671  0014' 3A80               	xorlw	128
+   672  0015' 0080'              	movwf	??_isr
+   673  0016' 3080               	movlw	128
+   674  0017' 0200'              	subwf	??_isr,w
+   675  0018' 1D03               	skipz
+   676  0019' 281C'              	goto	u5_25
+   677  001A' 30C0               	movlw	192
+   678  001B' 0201'              	subwf	isr@COUNT,w
+   679  001C'                    u5_25:
+   680  001C' 1C03               	skipc
+   681  001D' 281F'              	goto	u5_21
+   682  001E' 2820'              	goto	u5_20
+   683  001F'                    u5_21:
+   684  001F' 2836'              	goto	i1l725
+   685  0020'                    u5_20:
+   686  0020'                    i1l719:
+   687  0020' 0802'              	movf	isr@COUNT+1,w
+   688  0021' 3A80               	xorlw	128
+   689  0022' 0080'              	movwf	??_isr
+   690  0023' 3081               	movlw	129
+   691  0024' 0200'              	subwf	??_isr,w
+   692  0025' 1D03               	skipz
+   693  0026' 2829'              	goto	u6_25
+   694  0027' 3001               	movlw	1
+   695  0028' 0201'              	subwf	isr@COUNT,w
+   696  0029'                    u6_25:
+   697  0029' 1803               	skipnc
+   698  002A' 282C'              	goto	u6_21
+   699  002B' 282D'              	goto	u6_20
+   700  002C'                    u6_21:
+   701  002C' 2836'              	goto	i1l725
+   702  002D'                    u6_20:
+   703  002D'                    i1l721:
+   704  002D' 1883'              	btfsc	_COM_FLAG,1
+   705  002E' 2830'              	goto	u7_21
+   706  002F' 2831'              	goto	u7_20
+   707  0030'                    u7_21:
+   708  0030' 2836'              	goto	i1l725
+   709  0031'                    u7_20:
+   710  0031'                    i1l723:
+   711                           
+   712                           ;Project_ATCS_Decorder_Main.c: 52:                 COUNTER++;
+   713  0031' 3001               	movlw	1
+   714  0032' 0780'              	addwf	_COUNTER,f
+   715  0033' 3000               	movlw	0
+   716  0034' 3D81'              	addwfc	_COUNTER+1,f
+   717                           
+   718                           ;Project_ATCS_Decorder_Main.c: 53:             }
+   719  0035' 28CE'              	goto	i1l77
+   720  0036'                    i1l725:
+   721  0036' 0802'              	movf	isr@COUNT+1,w
+   722  0037' 3A80               	xorlw	128
+   723  0038' 0080'              	movwf	??_isr
+   724  0039' 3080               	movlw	128
+   725  003A' 0200'              	subwf	??_isr,w
+   726  003B' 1D03               	skipz
+   727  003C' 283F'              	goto	u8_25
+   728  003D' 3081               	movlw	129
+   729  003E' 0201'              	subwf	isr@COUNT,w
+   730  003F'                    u8_25:
+   731  003F' 1803               	skipnc
+   732  0040' 2842'              	goto	u8_21
+   733  0041' 2843'              	goto	u8_20
+   734  0042'                    u8_21:
+   735  0042' 2847'              	goto	i1l729
+   736  0043'                    u8_20:
+   737  0043'                    i1l727:
+   738  0043' 1C83'              	btfss	_COM_FLAG,1
+   739  0044' 2846'              	goto	u9_21
+   740  0045' 2847'              	goto	u9_20
+   741  0046'                    u9_21:
+   742  0046' 28CE'              	goto	i1l77
+   743  0047'                    u9_20:
+   744  0047'                    i1l729:
+   745                           
+   746                           ;Project_ATCS_Decorder_Main.c: 55:                 if(COUNTER > 11){
+   747  0047' 3000               	movlw	0
+   748  0048' 0201'              	subwf	_COUNTER+1,w
+   749  0049' 300C               	movlw	12
+   750  004A' 1903               	skipnz
+   751  004B' 0200'              	subwf	_COUNTER,w
+   752  004C' 1C03               	skipc
+   753  004D' 284F'              	goto	u10_21
+   754  004E' 2850'              	goto	u10_20
+   755  004F'                    u10_21:
+   756  004F' 28C5'              	goto	i1l64
+   757  0050'                    u10_20:
+   758  0050'                    i1l731:
+   759                           
+   760                           ;Project_ATCS_Decorder_Main.c: 56:                     COM_FLAG = COM_FLAG | 0x01;
+   761  0050' 0803'              	movf	_COM_FLAG,w
+   762  0051' 3801               	iorlw	1
+   763  0052' 0083'              	movwf	_COM_FLAG
+   764                           
+   765                           ;Project_ATCS_Decorder_Main.c: 57:                     COM_FLAG = COM_FLAG & 0xFD;
+   766  0053' 0803'              	movf	_COM_FLAG,w
+   767  0054' 39FD               	andlw	253
+   768  0055' 0083'              	movwf	_COM_FLAG
+   769  0056'                    i1l733:
+   770                           
+   771                           ;Project_ATCS_Decorder_Main.c: 58:                     COUNTER = 0x00;
+   772  0056' 0180'              	clrf	_COUNTER
+   773  0057' 0181'              	clrf	_COUNTER+1
+   774  0058' 28CE'              	goto	i1l77
+   775  0059'                    i1l57:
+   776  0059' 1C03'              	btfss	_COM_FLAG,0
+   777  005A' 285C'              	goto	u11_21
+   778  005B' 285D'              	goto	u11_20
+   779  005C'                    u11_21:
+   780  005C' 28CE'              	goto	i1l77
+   781  005D'                    u11_20:
+   782  005D'                    i1l735:
+   783                           
+   784                           ;Project_ATCS_Decorder_Main.c: 62:             if(COUNTER < 8 ){
+   785  005D' 3000               	movlw	0
+   786  005E' 0201'              	subwf	_COUNTER+1,w
+   787  005F' 3008               	movlw	8
+   788  0060' 1903               	skipnz
+   789  0061' 0200'              	subwf	_COUNTER,w
+   790  0062' 1803               	skipnc
+   791  0063' 2865'              	goto	u12_21
+   792  0064' 2866'              	goto	u12_20
+   793  0065'                    u12_21:
+   794  0065' 289C'              	goto	i1l753
+   795  0066'                    u12_20:
+   796  0066'                    i1l737:
+   797                           
+   798                           ;Project_ATCS_Decorder_Main.c: 63:                 if(COUNT >= 0x00C0 && COUNT <= 0x0100
+      +                           && !(COM_FLAG & 0x02) ){
+   799  0066' 0802'              	movf	isr@COUNT+1,w
+   800  0067' 3A80               	xorlw	128
+   801  0068' 0080'              	movwf	??_isr
+   802  0069' 3080               	movlw	128
+   803  006A' 0200'              	subwf	??_isr,w
+   804  006B' 1D03               	skipz
+   805  006C' 286F'              	goto	u13_25
+   806  006D' 30C0               	movlw	192
+   807  006E' 0201'              	subwf	isr@COUNT,w
+   808  006F'                    u13_25:
+   809  006F' 1C03               	skipc
+   810  0070' 2872'              	goto	u13_21
+   811  0071' 2873'              	goto	u13_20
+   812  0072'                    u13_21:
+   813  0072' 2887'              	goto	i1l745
+   814  0073'                    u13_20:
+   815  0073'                    i1l739:
+   816  0073' 0802'              	movf	isr@COUNT+1,w
+   817  0074' 3A80               	xorlw	128
+   818  0075' 0080'              	movwf	??_isr
+   819  0076' 3081               	movlw	129
+   820  0077' 0200'              	subwf	??_isr,w
+   821  0078' 1D03               	skipz
+   822  0079' 287C'              	goto	u14_25
+   823  007A' 3001               	movlw	1
+   824  007B' 0201'              	subwf	isr@COUNT,w
+   825  007C'                    u14_25:
+   826  007C' 1803               	skipnc
+   827  007D' 287F'              	goto	u14_21
+   828  007E' 2880'              	goto	u14_20
+   829  007F'                    u14_21:
+   830  007F' 2887'              	goto	i1l745
+   831  0080'                    u14_20:
+   832  0080'                    i1l741:
+   833  0080' 1883'              	btfsc	_COM_FLAG,1
+   834  0081' 2883'              	goto	u15_21
+   835  0082' 2884'              	goto	u15_20
+   836  0083'                    u15_21:
+   837  0083' 2887'              	goto	i1l745
+   838  0084'                    u15_20:
+   839  0084'                    i1l743:
+   840                           
+   841                           ;Project_ATCS_Decorder_Main.c: 64:                     DATA = (UnCHR) (DATA << 1) | 0x01
+      +                          ;
+   842  0084' 1403               	setc
+   843  0085' 0D82'              	rlf	_DATA,f
+   844                           
+   845                           ;Project_ATCS_Decorder_Main.c: 65:                 }else if(COUNT > 0x0080 || COM_FLAG &
+      +                           0x02){
+   846  0086' 2831'              	goto	i1l723
+   847  0087'                    i1l745:
+   848  0087' 0802'              	movf	isr@COUNT+1,w
+   849  0088' 3A80               	xorlw	128
+   850  0089' 0080'              	movwf	??_isr
+   851  008A' 3080               	movlw	128
+   852  008B' 0200'              	subwf	??_isr,w
+   853  008C' 1D03               	skipz
+   854  008D' 2890'              	goto	u16_25
+   855  008E' 3081               	movlw	129
+   856  008F' 0201'              	subwf	isr@COUNT,w
+   857  0090'                    u16_25:
+   858  0090' 1803               	skipnc
+   859  0091' 2893'              	goto	u16_21
+   860  0092' 2894'              	goto	u16_20
+   861  0093'                    u16_21:
+   862  0093' 2898'              	goto	i1l749
+   863  0094'                    u16_20:
+   864  0094'                    i1l747:
+   865  0094' 1C83'              	btfss	_COM_FLAG,1
+   866  0095' 2897'              	goto	u17_21
+   867  0096' 2898'              	goto	u17_20
+   868  0097'                    u17_21:
+   869  0097' 2831'              	goto	i1l723
+   870  0098'                    u17_20:
+   871  0098'                    i1l749:
+   872                           
+   873                           ;Project_ATCS_Decorder_Main.c: 66:                     DATA = (UnCHR) (DATA << 1) & 0xFE
+      +                          ;
+   874  0098' 3502'              	lslf	_DATA,w
+   875  0099' 39FE               	andlw	254
+   876  009A' 0082'              	movwf	_DATA
+   877  009B' 2831'              	goto	i1l723
+   878  009C'                    i1l753:
+   879                           
+   880                           ;Project_ATCS_Decorder_Main.c: 71:                 if(COUNT >= 0x00C0 && COUNT <= 0x0100
+      +                           && !(COM_FLAG & 0x02)){
+   881  009C' 0802'              	movf	isr@COUNT+1,w
+   882  009D' 3A80               	xorlw	128
+   883  009E' 0080'              	movwf	??_isr
+   884  009F' 3080               	movlw	128
+   885  00A0' 0200'              	subwf	??_isr,w
+   886  00A1' 1D03               	skipz
+   887  00A2' 28A5'              	goto	u18_25
+   888  00A3' 30C0               	movlw	192
+   889  00A4' 0201'              	subwf	isr@COUNT,w
+   890  00A5'                    u18_25:
+   891  00A5' 1C03               	skipc
+   892  00A6' 28A8'              	goto	u18_21
+   893  00A7' 28A9'              	goto	u18_20
+   894  00A8'                    u18_21:
+   895  00A8' 28C1'              	goto	i1l761
+   896  00A9'                    u18_20:
+   897  00A9'                    i1l755:
+   898  00A9' 0802'              	movf	isr@COUNT+1,w
+   899  00AA' 3A80               	xorlw	128
+   900  00AB' 0080'              	movwf	??_isr
+   901  00AC' 3081               	movlw	129
+   902  00AD' 0200'              	subwf	??_isr,w
+   903  00AE' 1D03               	skipz
+   904  00AF' 28B2'              	goto	u19_25
+   905  00B0' 3001               	movlw	1
+   906  00B1' 0201'              	subwf	isr@COUNT,w
+   907  00B2'                    u19_25:
+   908  00B2' 1803               	skipnc
+   909  00B3' 28B5'              	goto	u19_21
+   910  00B4' 28B6'              	goto	u19_20
+   911  00B5'                    u19_21:
+   912  00B5' 28C1'              	goto	i1l761
+   913  00B6'                    u19_20:
+   914  00B6'                    i1l757:
+   915  00B6' 1883'              	btfsc	_COM_FLAG,1
+   916  00B7' 28B9'              	goto	u20_21
+   917  00B8' 28BA'              	goto	u20_20
+   918  00B9'                    u20_21:
+   919  00B9' 28C1'              	goto	i1l761
+   920  00BA'                    u20_20:
+   921  00BA'                    i1l759:
+   922                           
+   923                           ;Project_ATCS_Decorder_Main.c: 72:                     COM_FLAG = COM_FLAG | 0x04;
+   924  00BA' 0803'              	movf	_COM_FLAG,w
+   925  00BB' 3804               	iorlw	4
+   926  00BC' 0083'              	movwf	_COM_FLAG
+   927                           
+   928                           ;Project_ATCS_Decorder_Main.c: 73:                     COM_FLAG = COM_FLAG & 0xFE;
+   929  00BD' 0803'              	movf	_COM_FLAG,w
+   930  00BE' 39FE               	andlw	254
+   931  00BF' 0083'              	movwf	_COM_FLAG
+   932                           
+   933                           ;Project_ATCS_Decorder_Main.c: 74:                 }else{
+   934  00C0' 2856'              	goto	i1l733
+   935  00C1'                    i1l761:
+   936                           
+   937                           ;Project_ATCS_Decorder_Main.c: 75:                     COM_FLAG = COM_FLAG & 0xFB;
+   938  00C1' 0803'              	movf	_COM_FLAG,w
+   939  00C2' 39FB               	andlw	251
+   940  00C3' 0083'              	movwf	_COM_FLAG
+   941  00C4' 2856'              	goto	i1l733
+   942  00C5'                    i1l64:
+   943                           
+   944                           ;Project_ATCS_Decorder_Main.c: 80:     }else if(PIR1bits.TMR1IF){
+   945  00C5' 28CE'              	goto	i1l77
+   946  00C6'                    i1l56:
+   947  00C6' 1C11               	btfss	17,0	;volatile
+   948  00C7' 28C9'              	goto	u21_21
+   949  00C8' 28CA'              	goto	u21_20
+   950  00C9'                    u21_21:
+   951  00C9' 28CE'              	goto	i1l77
+   952  00CA'                    u21_20:
+   953  00CA'                    i1l765:
+   954                           
+   955                           ;Project_ATCS_Decorder_Main.c: 81:         PIR1 = 0x00;
+   956  00CA' 0191               	clrf	17	;volatile
+   957  00CB'                    i1l767:
+   958                           
+   959                           ;Project_ATCS_Decorder_Main.c: 82:         COM_FLAG = COM_FLAG | 0x02;
+   960  00CB' 0803'              	movf	_COM_FLAG,w
+   961  00CC' 3802               	iorlw	2
+   962  00CD' 0083'              	movwf	_COM_FLAG
+   963  00CE'                    i1l77:
+   964  00CE' 107E               	bcf	int$flags,0	;clear compiler interrupt flag (level 1)
+   965  00CF' 0009               	retfie
+   966  00D0'                    __end_of_isr:
+   967  007E                     btemp	set	126	;btemp
+   968  007E                     int$flags	set	126
+   969  007E                     wtemp0	set	126
+   970                           
+   971                           	psect	idloc
+   972                           
+   973                           ;Config register IDLOC0 @ 0x8000
+   974                           ;	unspecified, using default values
+   975  8000                     	org	32768
+   976  8000  3FFF               	dw	16383
+   977                           
+   978                           ;Config register IDLOC1 @ 0x8001
+   979                           ;	unspecified, using default values
+   980  8001                     	org	32769
+   981  8001  3FFF               	dw	16383
+   982                           
+   983                           ;Config register IDLOC2 @ 0x8002
+   984                           ;	unspecified, using default values
+   985  8002                     	org	32770
+   986  8002  3FFF               	dw	16383
+   987                           
+   988                           ;Config register IDLOC3 @ 0x8003
+   989                           ;	unspecified, using default values
+   990  8003                     	org	32771
+   991  8003  3FFF               	dw	16383
+   992                           
+   993                           	psect	config
+   994                           
+   995                           ;Config register CONFIG1 @ 0x8007
+   996                           ;	Oscillator Selection
+   997                           ;	FOSC = INTOSC, INTOSC oscillator: I/O function on CLKIN pin
+   998                           ;	Watchdog Timer Enable
+   999                           ;	WDTE = OFF, WDT disabled
+  1000                           ;	Power-up Timer Enable
+  1001                           ;	PWRTE = ON, PWRT enabled
+  1002                           ;	MCLR Pin Function Select
+  1003                           ;	MCLRE = OFF, MCLR/VPP pin function is digital input
+  1004                           ;	Flash Program Memory Code Protection
+  1005                           ;	CP = OFF, Program memory code protection is disabled
+  1006                           ;	Data Memory Code Protection
+  1007                           ;	CPD = OFF, Data memory code protection is disabled
+  1008                           ;	Brown-out Reset Enable
+  1009                           ;	BOREN = ON, Brown-out Reset enabled
+  1010                           ;	Clock Out Enable
+  1011                           ;	CLKOUTEN = OFF, CLKOUT function is disabled. I/O or oscillator function on the CLKOUT 
       +                          pin
-  1060                           ;	Internal/External Switchover
-  1061                           ;	IESO = OFF, Internal/External Switchover mode is disabled
-  1062                           ;	Fail-Safe Clock Monitor Enable
-  1063                           ;	FCMEN = OFF, Fail-Safe Clock Monitor is disabled
-  1064     8007                     	org	32775
-  1065     8007  0F84               	dw	3972
-  1066                           
-  1067                           ;Config register CONFIG2 @ 0x8008
-  1068                           ;	Flash Memory Self-Write Protection
-  1069                           ;	WRT = OFF, Write protection off
-  1070                           ;	PLL Enable
-  1071                           ;	PLLEN = OFF, 4x PLL disabled
-  1072                           ;	Stack Overflow/Underflow Reset Enable
-  1073                           ;	STVREN = ON, Stack Overflow or Underflow will cause a Reset
-  1074                           ;	Brown-out Reset Voltage Selection
-  1075                           ;	BORV = HI, Brown-out Reset Voltage (Vbor), high trip point selected.
-  1076                           ;	Low-Voltage Programming Enable
-  1077                           ;	LVP = OFF, High-voltage on MCLR/VPP must be used for programming
-  1078     8008                     	org	32776
-  1079     8008  1AFF               	dw	6911
+  1012                           ;	Internal/External Switchover
+  1013                           ;	IESO = OFF, Internal/External Switchover mode is disabled
+  1014                           ;	Fail-Safe Clock Monitor Enable
+  1015                           ;	FCMEN = OFF, Fail-Safe Clock Monitor is disabled
+  1016  8007                     	org	32775
+  1017  8007  0F84               	dw	3972
+  1018                           
+  1019                           ;Config register CONFIG2 @ 0x8008
+  1020                           ;	Flash Memory Self-Write Protection
+  1021                           ;	WRT = OFF, Write protection off
+  1022                           ;	PLL Enable
+  1023                           ;	PLLEN = OFF, 4x PLL disabled
+  1024                           ;	Stack Overflow/Underflow Reset Enable
+  1025                           ;	STVREN = ON, Stack Overflow or Underflow will cause a Reset
+  1026                           ;	Brown-out Reset Voltage Selection
+  1027                           ;	BORV = HI, Brown-out Reset Voltage (Vbor), high trip point selected.
+  1028                           ;	Low-Voltage Programming Enable
+  1029                           ;	LVP = OFF, High-voltage on MCLR/VPP must be used for programming
+  1030  8008                     	org	32776
+  1031  8008  1AFF               	dw	6911
 
 Data Sizes:
     Strings     0
     Constant    0
     Data        0
-    BSS         2
+    BSS         4
     Persistent  32
     Stack       0
 
 Auto Spaces:
     Space          Size  Autos    Used
-    COMMON           14      5       7
+    COMMON           14      3       7
     BANK0            80      0       0
     BANK1            32      0       0
 
@@ -1116,8 +1071,7 @@ Pointer List with Targets:
 
 Critical Paths under _main in COMMON
 
-    _main->_DATA_Sampling
-    _main->_Preamble
+    None.
 
 Critical Paths under _isr in COMMON
 
@@ -1144,21 +1098,19 @@ Call Graph Tables:
  ---------------------------------------------------------------------------------
  (Depth) Function   	        Calls       Base Space   Used Autos Params    Refs
  ---------------------------------------------------------------------------------
- (0) _main                                                 0     0      0      30
+ (0) _main                                                 0     0      0       0
                       _DATA_Sampling
                            _Preamble
  ---------------------------------------------------------------------------------
- (1) _Preamble                                             2     2      0      15
-                                              3 COMMON     2     2      0
+ (1) _Preamble                                             0     0      0       0
  ---------------------------------------------------------------------------------
- (1) _DATA_Sampling                                        2     2      0      15
-                                              3 COMMON     2     2      0
+ (1) _DATA_Sampling                                        0     0      0       0
  ---------------------------------------------------------------------------------
  Estimated maximum stack depth 1
  ---------------------------------------------------------------------------------
  (Depth) Function   	        Calls       Base Space   Used Autos Params    Refs
  ---------------------------------------------------------------------------------
- (2) _isr                                                  3     3      0      45
+ (2) _isr                                                  3     3      0     120
                                               0 COMMON     3     3      0
  ---------------------------------------------------------------------------------
  Estimated maximum stack depth 2
@@ -1181,7 +1133,7 @@ CODE                 0      0       0       0        0.0%
 BITCOMMON            E      0       0       1        0.0%
 BITSFR0              0      0       0       1        0.0%
 SFR0                 0      0       0       1        0.0%
-COMMON               E      5       7       2       50.0%
+COMMON               E      3       7       2       50.0%
 BITSFR1              0      0       0       2        0.0%
 SFR1                 0      0       0       2        0.0%
 BITSFR2              0      0       0       3        0.0%
@@ -1254,51 +1206,52 @@ SFR31                0      0       0      32        0.0%
 
 
 Microchip Technology PIC Macro Assembler V2.40 build 20220703182018 
-Symbol Table                                                                                   Fri Nov 24 00:41:24 2023
+Symbol Table                                                                                   Sun Nov 26 12:54:02 2023
 
-                     l71 00BA                       l80 005F                       l76 00CF  
-                     l85 007A                       l87 007E                       l89 008B  
-                     u10 00BE                       u11 00BD                       u20 00C6  
-                     u21 00C5                       u30 00CC                       u31 00CB  
-                     u40 0063                       u41 0062                       u50 0067  
-                     u51 0066                       u60 007A                       u61 0079  
-                     u70 007E                       u71 007D                       u80 0082  
-                     u81 0081                       u90 00A8                       u91 00A7  
-                    l700 00B7                      l710 005D                      l702 00BE  
-                    l720 0070                      l712 0063                      l704 00C2  
-                    l714 0067                      l722 0074                      l706 00C6  
-                    l724 0082                      l732 0087                      l716 006A  
-                    l708 00CC                      l740 008F                      l734 008A  
-                    l726 0085                      l718 006D                      l750 009E  
-                    l742 0091                      l752 00A1                      l744 0096  
-                    l754 00A4                      l746 0098                      l738 008C  
-                    l756 00A8                      l748 009B                      l758 00AB  
-                    l698 00B5                      u100 00B3                      u101 00B2  
-                    _isr 0004                     ?_isr 0070                     _DATA 0075  
-                   _PIE1 0091                     i1l62 0055                     i1l54 004D  
-                   i1l56 0049                     _PIR1 0011                     _main 008C  
-                   btemp 007E                     start 0057                    ??_isr 0070  
-                  ?_main 0070                    _T1CON 0018                    i1l760 0006  
-                  i1l770 0020                    i1l762 0006                    i1l780 0046  
-                  i1l772 002D                    i1l764 000B                    i1l782 0051  
-                  i1l774 0031                    i1l766 000E                    i1l784 0052  
-                  i1l776 0035                    i1l768 0013                    i1l778 0042  
-                  u11_20 000B                    u11_21 000A                    u12_20 0020  
-                  u12_21 001F                    u12_25 001C                    u13_20 002D  
-                  u13_21 002C                    u13_25 0029                    u14_20 0031  
-                  u14_21 0030                    u15_20 0042                    u15_21 0041  
-                  u15_25 003E                    u16_20 0046                    u16_21 0045  
-                  u17_20 0051                    u17_21 0050                    _TMR1H 0017  
-                  _TMR1L 0016                    _PORTA 000C                    _TRISA 008C  
-                  wtemp0 007E          __initialization 0058             __end_of_main 00B5  
-                 ??_main 0075         __end_of_Preamble 00D0               Preamble@CO 0074  
-                 _CCPR1H 0292                   _CCPR1L 0291                   _ANSELA 018C  
-                 _INTCON 000B                   _OSCCON 0099  __end_of__initialization 005A  
-         __pcstackCOMMON 0070                ?_Preamble 0070               __pmaintext 008C  
-             __pintentry 0004                  _CCP1CON 0293               ??_Preamble 0073  
-                __ptext1 00B5                  __ptext2 005D            _DATA_Sampling 005D  
-   end_of_initialization 005A           ?_DATA_Sampling 0070      start_initialization 0058  
-            __end_of_isr 0057          DATA_Sampling@CO 0074          ??_DATA_Sampling 0073  
-            __pbssCOMMON 0075                ___latbits 0000                 _COM_FLAG 0076  
-               _PIR1bits 0011                 _Preamble 00B5                 int$flags 007E  
-               isr@COUNT 0071                 intlevel1 0000    __end_of_DATA_Sampling 008C  
+                     u10 001C                       u11 001B                       u20 0027  
+                     u21 0026                      l701 0018                      l703 001C  
+                    l705 001F                      l691 000A                      l693 000C  
+                    l685 0000                      l695 000F                      l687 0003  
+                    l697 0012                      l689 0005                      l699 0015  
+                    _isr 0000                     ?_isr 0000                     _DATA 0002  
+                   _PIE1 0091                     i1l64 00C5                     i1l56 00C6  
+                   i1l57 0059                     _PIR1 0011                     i1l77 00CE  
+                   u3_20 0007                     u3_21 0006                     u4_20 0013  
+                   u4_21 0012                     u5_20 0020                     u5_21 001F  
+                   u5_25 001C                     u6_20 002D                     u6_21 002C  
+                   u6_25 0029                     u7_20 0031                     u7_21 0030  
+                   u8_20 0043                     u8_21 0042                     u8_25 003F  
+                   u9_20 0047                     u9_21 0046                     _main 0000  
+                   btemp 007E                     start 0000*                   ??_isr 0000  
+                  ?_main 0000                    _T1CON 0018                    i1l711 0007  
+                  i1l721 002D                    i1l713 000A                    i1l731 0050  
+                  i1l723 0031                    i1l715 000F                    i1l707 0002  
+                  i1l741 0080                    i1l733 0056                    i1l725 0036  
+                  i1l717 0013                    i1l709 0002                    i1l743 0084  
+                  i1l735 005D                    i1l727 0043                    i1l719 0020  
+                  i1l761 00C1                    i1l745 0087                    i1l737 0066  
+                  i1l753 009C                    i1l729 0047                    i1l755 00A9  
+                  i1l747 0094                    i1l739 0073                    i1l765 00CA  
+                  i1l757 00B6                    i1l749 0098                    i1l767 00CB  
+                  i1l759 00BA                    u10_20 0050                    u10_21 004F  
+                  u11_20 005D                    u11_21 005C                    u20_20 00BA  
+                  u12_20 0066                    u20_21 00B9                    u12_21 0065  
+                  u21_20 00CA                    u13_20 0073                    u21_21 00C9  
+                  u13_21 0072                    u13_25 006F                    u14_20 0080  
+                  u14_21 007F                    u14_25 007C                    u15_20 0084  
+                  u15_21 0083                    u16_20 0094                    u16_21 0093  
+                  u16_25 0090                    u17_20 0098                    u17_21 0097  
+                  _TMR1H 0017                    _TMR1L 0016                    u18_20 00A9  
+                  u18_21 00A8                    u18_25 00A5                    u19_20 00B6  
+                  u19_21 00B5                    _PORTA 000C                    u19_25 00B2  
+                  _TRISA 008C                    wtemp0 007E          __initialization 0000  
+           __end_of_main 0029                   ??_main 0003                   _CCPR1H 0292  
+                 _CCPR1L 0291                   _ANSELA 018C                   _INTCON 000B  
+                 _OSCCON 0099  __end_of__initialization 0004           __pcstackCOMMON 0000  
+              ?_Preamble 0000               __pmaintext 0000               __pintentry 0000  
+                _CCP1CON 0293                  _COUNTER 0000               ??_Preamble 0000  
+          _DATA_Sampling 0000*    end_of_initialization 0004           ?_DATA_Sampling 0000  
+    start_initialization 0000              __end_of_isr 00D0          ??_DATA_Sampling 0000  
+            __pbssCOMMON 0000                ___latbits 0000                 _COM_FLAG 0003  
+               _PIR1bits 0011                 _Preamble 0000*                int$flags 007E  
+               isr@COUNT 0001                 intlevel1 0000* 

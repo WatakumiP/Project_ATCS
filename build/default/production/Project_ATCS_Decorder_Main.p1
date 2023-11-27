@@ -449,155 +449,255 @@ Version 4.0 HI-TECH Software Intermediate Code
 [i _DATA
 -> -> 0 `i `uc
 ]
+"15
+[; ;Project_ATCS_Decorder_Main.c: 15: UnINT COUNTER = 0x00;
+[v _COUNTER `ui ~T0 @X0 1 e ]
+[i _COUNTER
+-> -> 0 `i `ui
+]
 [v $root$_main `(v ~T0 @X0 0 e ]
-"16
-[; ;Project_ATCS_Decorder_Main.c: 16: void main(void) {
+"17
+[; ;Project_ATCS_Decorder_Main.c: 17: void main(void) {
 [v _main `(v ~T0 @X0 1 ef ]
 {
 [e :U _main ]
 [f ]
-"18
-[; ;Project_ATCS_Decorder_Main.c: 18:     OSCCON = 0x72;
-[e = _OSCCON -> -> 114 `i `uc ]
 "19
-[; ;Project_ATCS_Decorder_Main.c: 19:     ANSELA = 0x00;
+[; ;Project_ATCS_Decorder_Main.c: 19:     OSCCON = 0x72;
+[e = _OSCCON -> -> 114 `i `uc ]
+"20
+[; ;Project_ATCS_Decorder_Main.c: 20:     ANSELA = 0x00;
 [e = _ANSELA -> -> 0 `i `uc ]
-"21
-[; ;Project_ATCS_Decorder_Main.c: 21:     TRISA = 0x04;
-[e = _TRISA -> -> 4 `i `uc ]
 "22
-[; ;Project_ATCS_Decorder_Main.c: 22:     PORTA = 0x00;
+[; ;Project_ATCS_Decorder_Main.c: 22:     TRISA = 0x04;
+[e = _TRISA -> -> 4 `i `uc ]
+"23
+[; ;Project_ATCS_Decorder_Main.c: 23:     PORTA = 0x00;
 [e = _PORTA -> -> 0 `i `uc ]
-"24
-[; ;Project_ATCS_Decorder_Main.c: 24:     INTCON = 0xC0;
-[e = _INTCON -> -> 192 `i `uc ]
 "25
-[; ;Project_ATCS_Decorder_Main.c: 25:     PIE1 = 0x85;
-[e = _PIE1 -> -> 133 `i `uc ]
+[; ;Project_ATCS_Decorder_Main.c: 25:     INTCON = 0xC0;
+[e = _INTCON -> -> 192 `i `uc ]
 "26
-[; ;Project_ATCS_Decorder_Main.c: 26:     CCP1CON = 0x05;
-[e = _CCP1CON -> -> 5 `i `uc ]
+[; ;Project_ATCS_Decorder_Main.c: 26:     PIE1 = 0x85;
+[e = _PIE1 -> -> 133 `i `uc ]
 "27
-[; ;Project_ATCS_Decorder_Main.c: 27:     T1CON = 0x01;
+[; ;Project_ATCS_Decorder_Main.c: 27:     CCP1CON = 0x05;
+[e = _CCP1CON -> -> 5 `i `uc ]
+"28
+[; ;Project_ATCS_Decorder_Main.c: 28:     T1CON = 0x01;
 [e = _T1CON -> -> 1 `i `uc ]
-"30
-[; ;Project_ATCS_Decorder_Main.c: 30:     while(1){
+"31
+[; ;Project_ATCS_Decorder_Main.c: 31:     while(1){
 [e :U 276 ]
 {
-"31
-[; ;Project_ATCS_Decorder_Main.c: 31:         do{
+"32
+[; ;Project_ATCS_Decorder_Main.c: 32:         do{
 [e :U 280 ]
 {
-"32
-[; ;Project_ATCS_Decorder_Main.c: 32:             Preamble();
-[e ( _Preamble ..  ]
 "33
-[; ;Project_ATCS_Decorder_Main.c: 33:         }while(COM_FLAG & 0x08);
+[; ;Project_ATCS_Decorder_Main.c: 33:             Preamble();
+[e ( _Preamble ..  ]
+"34
+[; ;Project_ATCS_Decorder_Main.c: 34:         }while(COM_FLAG & 0x08);
 }
 [e $ != & -> _COM_FLAG `i -> 8 `i -> 0 `i 280  ]
 [e :U 279 ]
-"34
-[; ;Project_ATCS_Decorder_Main.c: 34:         COM_FLAG = COM_FLAG & 0xEF;
-[e = _COM_FLAG -> & -> _COM_FLAG `i -> 239 `i `uc ]
 "35
-[; ;Project_ATCS_Decorder_Main.c: 35:         while(DATA_Sampling()){
+[; ;Project_ATCS_Decorder_Main.c: 35:         COM_FLAG = COM_FLAG & 0xEF;
+[e = _COM_FLAG -> & -> _COM_FLAG `i -> 239 `i `uc ]
+"36
+[; ;Project_ATCS_Decorder_Main.c: 36:         while(DATA_Sampling()){
 [e $U 281  ]
 [e :U 282 ]
 {
-"37
-[; ;Project_ATCS_Decorder_Main.c: 37:         }
+"38
+[; ;Project_ATCS_Decorder_Main.c: 38:         }
 }
 [e :U 281 ]
-"35
-[; ;Project_ATCS_Decorder_Main.c: 35:         while(DATA_Sampling()){
+"36
+[; ;Project_ATCS_Decorder_Main.c: 36:         while(DATA_Sampling()){
 [e $ != -> ( _DATA_Sampling ..  `i -> 0 `i 282  ]
 [e :U 283 ]
-"38
-[; ;Project_ATCS_Decorder_Main.c: 38:     }
+"39
+[; ;Project_ATCS_Decorder_Main.c: 39:     }
 }
 [e :U 275 ]
 [e $U 276  ]
 [e :U 277 ]
-"39
-[; ;Project_ATCS_Decorder_Main.c: 39:     return;
-[e $UE 274  ]
 "40
-[; ;Project_ATCS_Decorder_Main.c: 40: }
+[; ;Project_ATCS_Decorder_Main.c: 40:     return;
+[e $UE 274  ]
+"41
+[; ;Project_ATCS_Decorder_Main.c: 41: }
 [e :UE 274 ]
 }
 [v $root$_isr `(v ~T0 @X0 0 e ]
-"42
-[; ;Project_ATCS_Decorder_Main.c: 42: void __attribute__((picinterrupt(("")))) isr(void){
+"43
+[; ;Project_ATCS_Decorder_Main.c: 43: void __attribute__((picinterrupt(("")))) isr(void){
 [v _isr `(v ~T1 @X0 1 ef ]
 {
 [e :U _isr ]
 [f ]
-"43
-[; ;Project_ATCS_Decorder_Main.c: 43:     int COUNT = 0x00;
+"44
+[; ;Project_ATCS_Decorder_Main.c: 44:     int COUNT = 0x00;
 [v _COUNT `i ~T0 @X0 1 a ]
 [e = _COUNT -> 0 `i ]
-"44
-[; ;Project_ATCS_Decorder_Main.c: 44:     if(PIR1bits.CCP1IF){
+"45
+[; ;Project_ATCS_Decorder_Main.c: 45:     if(PIR1bits.CCP1IF){
 [e $ ! != -> . . _PIR1bits 0 2 `i -> 0 `i 285  ]
 {
-"45
-[; ;Project_ATCS_Decorder_Main.c: 45:         PIR1 = 0x00;
-[e = _PIR1 -> -> 0 `i `uc ]
 "46
-[; ;Project_ATCS_Decorder_Main.c: 46:         TMR1H = 0x00;
-[e = _TMR1H -> -> 0 `i `uc ]
+[; ;Project_ATCS_Decorder_Main.c: 46:         PIR1 = 0x00;
+[e = _PIR1 -> -> 0 `i `uc ]
 "47
-[; ;Project_ATCS_Decorder_Main.c: 47:         TMR1L = 0x00;
-[e = _TMR1L -> -> 0 `i `uc ]
+[; ;Project_ATCS_Decorder_Main.c: 47:         TMR1H = 0x00;
+[e = _TMR1H -> -> 0 `i `uc ]
 "48
-[; ;Project_ATCS_Decorder_Main.c: 48:         COUNT = CCPR1H << 8 | CCPR1L;
+[; ;Project_ATCS_Decorder_Main.c: 48:         TMR1L = 0x00;
+[e = _TMR1L -> -> 0 `i `uc ]
+"49
+[; ;Project_ATCS_Decorder_Main.c: 49:         COUNT = CCPR1H << 8 | CCPR1L;
 [e = _COUNT | << -> _CCPR1H `i -> 8 `i -> _CCPR1L `i ]
 "50
-[; ;Project_ATCS_Decorder_Main.c: 50:         if(COUNT >= 0x00C0 && COUNT <= 0x0100 && !(COM_FLAG & 0x02) ){
-[e $ ! && && >= _COUNT -> 192 `i <= _COUNT -> 256 `i ! != & -> _COM_FLAG `i -> 2 `i -> 0 `i 286  ]
+[; ;Project_ATCS_Decorder_Main.c: 50:         if(!(COM_FLAG & 0x01)){
+[e $ ! ! != & -> _COM_FLAG `i -> 1 `i -> 0 `i 286  ]
 {
 "51
-[; ;Project_ATCS_Decorder_Main.c: 51:             COM_FLAG = COM_FLAG | 0x01;
-[e = _COM_FLAG -> | -> _COM_FLAG `i -> 1 `i `uc ]
+[; ;Project_ATCS_Decorder_Main.c: 51:             if(COUNT >= 0x00C0 && COUNT <= 0x0100 && !(COM_FLAG & 0x02) ){
+[e $ ! && && >= _COUNT -> 192 `i <= _COUNT -> 256 `i ! != & -> _COM_FLAG `i -> 2 `i -> 0 `i 287  ]
+{
 "52
-[; ;Project_ATCS_Decorder_Main.c: 52:         }
-}
-[e $U 287  ]
+[; ;Project_ATCS_Decorder_Main.c: 52:                 COUNTER++;
+[e ++ _COUNTER -> -> 1 `i `ui ]
 "53
-[; ;Project_ATCS_Decorder_Main.c: 53:         else if(COUNT > 0x0080 || COM_FLAG & 0x02){
-[e :U 286 ]
-[e $ ! || > _COUNT -> 128 `i != & -> _COM_FLAG `i -> 2 `i -> 0 `i 288  ]
-{
+[; ;Project_ATCS_Decorder_Main.c: 53:             }
+}
+[e $U 288  ]
 "54
-[; ;Project_ATCS_Decorder_Main.c: 54:             COM_FLAG = COM_FLAG & 0xFE;
-[e = _COM_FLAG -> & -> _COM_FLAG `i -> 254 `i `uc ]
-"55
-[; ;Project_ATCS_Decorder_Main.c: 55:         }
-}
-[e :U 288 ]
+[; ;Project_ATCS_Decorder_Main.c: 54:             else if(COUNT > 0x0080 || COM_FLAG & 0x02){
 [e :U 287 ]
-"56
-[; ;Project_ATCS_Decorder_Main.c: 56:         COM_FLAG = COM_FLAG | 0x04;
-[e = _COM_FLAG -> | -> _COM_FLAG `i -> 4 `i `uc ]
-"58
-[; ;Project_ATCS_Decorder_Main.c: 58:     }else if(PIR1bits.TMR1IF){
-}
-[e $U 289  ]
-[e :U 285 ]
-[e $ ! != -> . . _PIR1bits 0 0 `i -> 0 `i 290  ]
+[e $ ! || > _COUNT -> 128 `i != & -> _COM_FLAG `i -> 2 `i -> 0 `i 289  ]
 {
+"55
+[; ;Project_ATCS_Decorder_Main.c: 55:                 if(COUNTER > 11){
+[e $ ! > _COUNTER -> -> 11 `i `ui 290  ]
+{
+"56
+[; ;Project_ATCS_Decorder_Main.c: 56:                     COM_FLAG = COM_FLAG | 0x01;
+[e = _COM_FLAG -> | -> _COM_FLAG `i -> 1 `i `uc ]
+"57
+[; ;Project_ATCS_Decorder_Main.c: 57:                     COM_FLAG = COM_FLAG & 0xFD;
+[e = _COM_FLAG -> & -> _COM_FLAG `i -> 253 `i `uc ]
+"58
+[; ;Project_ATCS_Decorder_Main.c: 58:                     COUNTER = 0x00;
+[e = _COUNTER -> -> 0 `i `ui ]
 "59
-[; ;Project_ATCS_Decorder_Main.c: 59:         PIR1 = 0x00;
-[e = _PIR1 -> -> 0 `i `uc ]
-"60
-[; ;Project_ATCS_Decorder_Main.c: 60:         COM_FLAG = COM_FLAG | 0x02;
-[e = _COM_FLAG -> | -> _COM_FLAG `i -> 2 `i `uc ]
-"61
-[; ;Project_ATCS_Decorder_Main.c: 61:     }
+[; ;Project_ATCS_Decorder_Main.c: 59:                 }
 }
 [e :U 290 ]
+"60
+[; ;Project_ATCS_Decorder_Main.c: 60:             }
+}
 [e :U 289 ]
+[e :U 288 ]
+"61
+[; ;Project_ATCS_Decorder_Main.c: 61:         }else if(COM_FLAG & 0x01){
+}
+[e $U 291  ]
+[e :U 286 ]
+[e $ ! != & -> _COM_FLAG `i -> 1 `i -> 0 `i 292  ]
+{
 "62
-[; ;Project_ATCS_Decorder_Main.c: 62: }
+[; ;Project_ATCS_Decorder_Main.c: 62:             if(COUNTER < 8 ){
+[e $ ! < _COUNTER -> -> 8 `i `ui 293  ]
+{
+"63
+[; ;Project_ATCS_Decorder_Main.c: 63:                 if(COUNT >= 0x00C0 && COUNT <= 0x0100 && !(COM_FLAG & 0x02) ){
+[e $ ! && && >= _COUNT -> 192 `i <= _COUNT -> 256 `i ! != & -> _COM_FLAG `i -> 2 `i -> 0 `i 294  ]
+{
+"64
+[; ;Project_ATCS_Decorder_Main.c: 64:                     DATA = (UnCHR) (DATA << 1) | 0x01;
+[e = _DATA -> | -> -> << -> _DATA `i -> 1 `i `uc `i -> 1 `i `uc ]
+"65
+[; ;Project_ATCS_Decorder_Main.c: 65:                 }else if(COUNT > 0x0080 || COM_FLAG & 0x02){
+}
+[e $U 295  ]
+[e :U 294 ]
+[e $ ! || > _COUNT -> 128 `i != & -> _COM_FLAG `i -> 2 `i -> 0 `i 296  ]
+{
+"66
+[; ;Project_ATCS_Decorder_Main.c: 66:                     DATA = (UnCHR) (DATA << 1) & 0xFE;
+[e = _DATA -> & -> -> << -> _DATA `i -> 1 `i `uc `i -> 254 `i `uc ]
+"67
+[; ;Project_ATCS_Decorder_Main.c: 67:                 }
+}
+[e :U 296 ]
+[e :U 295 ]
+"68
+[; ;Project_ATCS_Decorder_Main.c: 68:                 COUNTER++;
+[e ++ _COUNTER -> -> 1 `i `ui ]
+"69
+[; ;Project_ATCS_Decorder_Main.c: 69:             }
+}
+[e $U 297  ]
+"70
+[; ;Project_ATCS_Decorder_Main.c: 70:             else{
+[e :U 293 ]
+{
+"71
+[; ;Project_ATCS_Decorder_Main.c: 71:                 if(COUNT >= 0x00C0 && COUNT <= 0x0100 && !(COM_FLAG & 0x02)){
+[e $ ! && && >= _COUNT -> 192 `i <= _COUNT -> 256 `i ! != & -> _COM_FLAG `i -> 2 `i -> 0 `i 298  ]
+{
+"72
+[; ;Project_ATCS_Decorder_Main.c: 72:                     COM_FLAG = COM_FLAG | 0x04;
+[e = _COM_FLAG -> | -> _COM_FLAG `i -> 4 `i `uc ]
+"73
+[; ;Project_ATCS_Decorder_Main.c: 73:                     COM_FLAG = COM_FLAG & 0xFE;
+[e = _COM_FLAG -> & -> _COM_FLAG `i -> 254 `i `uc ]
+"74
+[; ;Project_ATCS_Decorder_Main.c: 74:                 }else{
+}
+[e $U 299  ]
+[e :U 298 ]
+{
+"75
+[; ;Project_ATCS_Decorder_Main.c: 75:                     COM_FLAG = COM_FLAG & 0xFB;
+[e = _COM_FLAG -> & -> _COM_FLAG `i -> 251 `i `uc ]
+"76
+[; ;Project_ATCS_Decorder_Main.c: 76:                 }
+}
+[e :U 299 ]
+"77
+[; ;Project_ATCS_Decorder_Main.c: 77:                 COUNTER = 0x00;
+[e = _COUNTER -> -> 0 `i `ui ]
+"78
+[; ;Project_ATCS_Decorder_Main.c: 78:             }
+}
+[e :U 297 ]
+"79
+[; ;Project_ATCS_Decorder_Main.c: 79:         }
+}
+[e :U 292 ]
+[e :U 291 ]
+"80
+[; ;Project_ATCS_Decorder_Main.c: 80:     }else if(PIR1bits.TMR1IF){
+}
+[e $U 300  ]
+[e :U 285 ]
+[e $ ! != -> . . _PIR1bits 0 0 `i -> 0 `i 301  ]
+{
+"81
+[; ;Project_ATCS_Decorder_Main.c: 81:         PIR1 = 0x00;
+[e = _PIR1 -> -> 0 `i `uc ]
+"82
+[; ;Project_ATCS_Decorder_Main.c: 82:         COM_FLAG = COM_FLAG | 0x02;
+[e = _COM_FLAG -> | -> _COM_FLAG `i -> 2 `i `uc ]
+"83
+[; ;Project_ATCS_Decorder_Main.c: 83:     }
+}
+[e :U 301 ]
+[e :U 300 ]
+"84
+[; ;Project_ATCS_Decorder_Main.c: 84: }
 [e :UE 284 ]
 }

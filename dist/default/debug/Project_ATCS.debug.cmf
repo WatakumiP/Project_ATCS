@@ -12,17 +12,17 @@
 # in delta units.  Any other numeric values are decimal.
 %PSECTS
 $dist/default/debug\Project_ATCS.debug.o
-cinit CODE 0 58 58 5 2 1
+cinit CODE 0 D5 D5 7 2 1
 idloc IDLOC 5 8000 8000 4 2 1
-maintext CODE 0 5D 5D 28 2 1
-cstackCOMMON COMMON 1 70 70 3 1 1
-intentry CODE 0 4 4 53 2 1
-bssCOMMON COMMON 1 73 73 2 1 1
+maintext CODE 0 DC DC 18 2 1
+cstackCOMMON COMMON 1 74 74 3 1 1
+intentry CODE 0 4 4 D0 2 1
+bssCOMMON COMMON 1 70 70 4 1 1
 config CONFIG 4 8007 8007 2 2 1
-$C:\Users\owata\AppData\Local\Temp\xcAs1f7g.o
+$C:\Users\owata\AppData\Local\Temp\xcAs16f4.o
 idloc IDLOC 5 8000 8000 4 2 1
 reset_vec CODE 0 0 0 1 2 1
-end_init CODE 0 57 57 1 2 1
+end_init CODE 0 D4 D4 1 2 1
 config CONFIG 4 8007 8007 2 2 1
 # %UNUSED Section
 # This section enumerates the unused ranges of each CLASS. Each entry
@@ -35,9 +35,9 @@ RAM A0-BF 1
 BANK0 20-6F 1
 BANK1 A0-BF 1
 CONST 1-3 2
-CONST 85-7FF 2
+CONST F4-7FF 2
 ENTRY 1-3 2
-ENTRY 85-7FF 2
+ENTRY F4-7FF 2
 SFR10 500-56F 1
 SFR11 580-5EF 1
 SFR12 600-66F 1
@@ -61,7 +61,7 @@ SFR29 E80-EEF 1
 SFR30 F00-F6F 1
 SFR31 F80-FEF 1
 CODE 1-3 2
-CODE 85-7FF 2
+CODE F4-7FF 2
 SFR0 0-1F 1
 SFR1 80-9F 1
 SFR2 100-16F 1
@@ -73,12 +73,12 @@ SFR7 380-3EF 1
 SFR8 400-46F 1
 SFR9 480-4EF 1
 BIGRAM 2000-206F 1
-COMMON 75-7D 1
+COMMON 77-7D 1
 EEDATA F000-F0FF 2
 STRCODE 1-3 2
-STRCODE 85-7FF 2
+STRCODE F4-7FF 2
 STRING 1-3 2
-STRING 85-7FF 2
+STRING F4-7FF 2
 # %LINETAB Section
 # This section enumerates the file/line to address mappings.
 # The beginning of the section is indicated by %LINETAB.
@@ -93,54 +93,79 @@ STRING 85-7FF 2
 # All other numeric values are in decimal.
 %LINETAB
 $dist/default/debug\Project_ATCS.debug.o
-58 cinit CODE >618:C:\Users\owata\AppData\Local\Temp\xcAs1f7g.s
-58 cinit CODE >621:C:\Users\owata\AppData\Local\Temp\xcAs1f7g.s
-58 cinit CODE >636:C:\Users\owata\AppData\Local\Temp\xcAs1f7g.s
-59 cinit CODE >637:C:\Users\owata\AppData\Local\Temp\xcAs1f7g.s
-5A cinit CODE >643:C:\Users\owata\AppData\Local\Temp\xcAs1f7g.s
-5A cinit CODE >645:C:\Users\owata\AppData\Local\Temp\xcAs1f7g.s
-5B cinit CODE >646:C:\Users\owata\AppData\Local\Temp\xcAs1f7g.s
-5C cinit CODE >647:C:\Users\owata\AppData\Local\Temp\xcAs1f7g.s
-4 intentry CODE >40:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_Main.c
-4 intentry CODE >42:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_Main.c
-6 intentry CODE >43:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_Main.c
-6 intentry CODE >44:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_Main.c
-B intentry CODE >45:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_Main.c
-C intentry CODE >46:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_Main.c
-D intentry CODE >47:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_Main.c
-E intentry CODE >48:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_Main.c
-13 intentry CODE >50:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_Main.c
-18 intentry CODE >50:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_Main.c
-1C intentry CODE >50:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_Main.c
-25 intentry CODE >50:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_Main.c
-29 intentry CODE >50:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_Main.c
-31 intentry CODE >51:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_Main.c
-34 intentry CODE >52:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_Main.c
-35 intentry CODE >53:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_Main.c
-3A intentry CODE >53:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_Main.c
-3E intentry CODE >53:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_Main.c
-46 intentry CODE >54:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_Main.c
-49 intentry CODE >55:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_Main.c
-49 intentry CODE >56:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_Main.c
-4C intentry CODE >58:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_Main.c
-51 intentry CODE >59:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_Main.c
-52 intentry CODE >60:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_Main.c
-55 intentry CODE >62:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_Main.c
-5D maintext CODE >16:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_Main.c
-5D maintext CODE >18:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_Main.c
-60 maintext CODE >19:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_Main.c
-62 maintext CODE >21:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_Main.c
-65 maintext CODE >22:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_Main.c
-67 maintext CODE >24:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_Main.c
-69 maintext CODE >25:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_Main.c
-6C maintext CODE >26:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_Main.c
-6F maintext CODE >27:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_Main.c
-72 maintext CODE >30:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_Main.c
-76 maintext CODE >31:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_Main.c
-7A maintext CODE >32:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_Main.c
-7C maintext CODE >33:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_Main.c
-7D maintext CODE >34:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_Main.c
-80 maintext CODE >36:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_Main.c
+D5 cinit CODE >851:C:\Users\owata\AppData\Local\Temp\xcAs16f4.s
+D5 cinit CODE >854:C:\Users\owata\AppData\Local\Temp\xcAs16f4.s
+D5 cinit CODE >872:C:\Users\owata\AppData\Local\Temp\xcAs16f4.s
+D6 cinit CODE >873:C:\Users\owata\AppData\Local\Temp\xcAs16f4.s
+D7 cinit CODE >874:C:\Users\owata\AppData\Local\Temp\xcAs16f4.s
+D8 cinit CODE >875:C:\Users\owata\AppData\Local\Temp\xcAs16f4.s
+D9 cinit CODE >881:C:\Users\owata\AppData\Local\Temp\xcAs16f4.s
+D9 cinit CODE >883:C:\Users\owata\AppData\Local\Temp\xcAs16f4.s
+DA cinit CODE >884:C:\Users\owata\AppData\Local\Temp\xcAs16f4.s
+DB cinit CODE >885:C:\Users\owata\AppData\Local\Temp\xcAs16f4.s
+4 intentry CODE >35:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_Main.c
+4 intentry CODE >37:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_Main.c
+6 intentry CODE >38:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_Main.c
+6 intentry CODE >39:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_Main.c
+B intentry CODE >40:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_Main.c
+C intentry CODE >41:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_Main.c
+D intentry CODE >42:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_Main.c
+E intentry CODE >43:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_Main.c
+13 intentry CODE >44:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_Main.c
+17 intentry CODE >45:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_Main.c
+1C intentry CODE >45:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_Main.c
+20 intentry CODE >45:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_Main.c
+29 intentry CODE >45:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_Main.c
+2D intentry CODE >45:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_Main.c
+35 intentry CODE >46:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_Main.c
+39 intentry CODE >47:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_Main.c
+3A intentry CODE >48:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_Main.c
+3F intentry CODE >48:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_Main.c
+43 intentry CODE >48:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_Main.c
+4B intentry CODE >49:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_Main.c
+4E intentry CODE >49:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_Main.c
+50 intentry CODE >49:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_Main.c
+54 intentry CODE >50:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_Main.c
+57 intentry CODE >51:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_Main.c
+5A intentry CODE >52:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_Main.c
+5D intentry CODE >55:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_Main.c
+61 intentry CODE >56:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_Main.c
+64 intentry CODE >56:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_Main.c
+66 intentry CODE >56:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_Main.c
+6A intentry CODE >57:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_Main.c
+6F intentry CODE >57:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_Main.c
+73 intentry CODE >57:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_Main.c
+7C intentry CODE >57:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_Main.c
+80 intentry CODE >57:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_Main.c
+88 intentry CODE >58:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_Main.c
+8A intentry CODE >59:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_Main.c
+90 intentry CODE >59:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_Main.c
+94 intentry CODE >59:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_Main.c
+9C intentry CODE >60:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_Main.c
+A0 intentry CODE >65:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_Main.c
+A5 intentry CODE >65:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_Main.c
+A9 intentry CODE >65:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_Main.c
+B2 intentry CODE >65:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_Main.c
+B6 intentry CODE >65:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_Main.c
+BE intentry CODE >66:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_Main.c
+C1 intentry CODE >67:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_Main.c
+C4 intentry CODE >68:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_Main.c
+C5 intentry CODE >69:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_Main.c
+C9 intentry CODE >73:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_Main.c
+C9 intentry CODE >74:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_Main.c
+CE intentry CODE >75:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_Main.c
+CF intentry CODE >76:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_Main.c
+D2 intentry CODE >78:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_Main.c
+DC maintext CODE >17:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_Main.c
+DC maintext CODE >19:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_Main.c
+DF maintext CODE >20:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_Main.c
+E1 maintext CODE >22:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_Main.c
+E4 maintext CODE >23:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_Main.c
+E6 maintext CODE >25:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_Main.c
+E8 maintext CODE >26:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_Main.c
+EB maintext CODE >27:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_Main.c
+EE maintext CODE >28:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_Main.c
+F1 maintext CODE >32:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_Main.c
 # %SYMTAB Section
 # An enumeration of all symbols in the program.
 # The beginning of the section is indicated by %SYMTAB.
@@ -154,28 +179,29 @@ E intentry CODE >48:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_Main.c
 # is the name of the object file in which the symbol was defined.
 %SYMTAB
 ___latbits 0 0 ABS 0 - dist/default/debug\Project_ATCS.debug.o
-__Hspace_0 85 0 ABS 0 - -
-__Hspace_1 75 0 ABS 0 - -
+__Hspace_0 F4 0 ABS 0 - -
+__Hspace_1 77 0 ABS 0 - -
 __Hspace_2 0 0 ABS 0 - -
 __Hspace_3 0 0 ABS 0 - -
 __Hspace_4 10010 0 ABS 0 - -
 __Heeprom_data 0 0 EEDATA 3 eeprom_data -
+_COUNTER 70 0 COMMON 1 bssCOMMON dist/default/debug\Project_ATCS.debug.o
 __Hstrings 0 0 ABS 0 strings -
-_DATA 73 0 COMMON 1 bssCOMMON dist/default/debug\Project_ATCS.debug.o
+_DATA 72 0 COMMON 1 bssCOMMON dist/default/debug\Project_ATCS.debug.o
 _PIE1 91 0 ABS 0 - dist/default/debug\Project_ATCS.debug.o
 _PIR1 11 0 ABS 0 - dist/default/debug\Project_ATCS.debug.o
-___sp 0 0 STACK 2 stack C:\Users\owata\AppData\Local\Temp\xcAs1f7g.o
-_main BA 0 CODE 0 maintext dist/default/debug\Project_ATCS.debug.o
+___sp 0 0 STACK 2 stack C:\Users\owata\AppData\Local\Temp\xcAs16f4.o
+_main 1B8 0 CODE 0 maintext dist/default/debug\Project_ATCS.debug.o
 btemp 7E 0 ABS 0 - dist/default/debug\Project_ATCS.debug.o
-start AE 0 CODE 0 init C:\Users\owata\AppData\Local\Temp\xcAs1f7g.o
+start 1A8 0 CODE 0 init C:\Users\owata\AppData\Local\Temp\xcAs16f4.o
 __HbssCOMMON 0 0 ABS 0 bssCOMMON -
 __Hpowerup 0 0 CODE 0 powerup -
-intlevel0 0 0 ENTRY 0 functab C:\Users\owata\AppData\Local\Temp\xcAs1f7g.o
-intlevel1 0 0 ENTRY 0 functab C:\Users\owata\AppData\Local\Temp\xcAs1f7g.o
-intlevel2 0 0 ENTRY 0 functab C:\Users\owata\AppData\Local\Temp\xcAs1f7g.o
-intlevel3 0 0 ENTRY 0 functab C:\Users\owata\AppData\Local\Temp\xcAs1f7g.o
-intlevel4 0 0 ENTRY 0 functab C:\Users\owata\AppData\Local\Temp\xcAs1f7g.o
-intlevel5 0 0 ENTRY 0 functab C:\Users\owata\AppData\Local\Temp\xcAs1f7g.o
+intlevel0 0 0 ENTRY 0 functab C:\Users\owata\AppData\Local\Temp\xcAs16f4.o
+intlevel1 0 0 ENTRY 0 functab C:\Users\owata\AppData\Local\Temp\xcAs16f4.o
+intlevel2 0 0 ENTRY 0 functab C:\Users\owata\AppData\Local\Temp\xcAs16f4.o
+intlevel3 0 0 ENTRY 0 functab C:\Users\owata\AppData\Local\Temp\xcAs16f4.o
+intlevel4 0 0 ENTRY 0 functab C:\Users\owata\AppData\Local\Temp\xcAs16f4.o
+intlevel5 0 0 ENTRY 0 functab C:\Users\owata\AppData\Local\Temp\xcAs16f4.o
 __LbssCOMMON 0 0 ABS 0 bssCOMMON -
 wtemp0 7E 0 ABS 0 - dist/default/debug\Project_ATCS.debug.o
 __Hfunctab 0 0 ENTRY 0 functab -
@@ -185,11 +211,11 @@ _CCPR1H 292 0 ABS 0 - dist/default/debug\Project_ATCS.debug.o
 _CCPR1L 291 0 ABS 0 - dist/default/debug\Project_ATCS.debug.o
 __Lmaintext 0 0 ABS 0 maintext -
 _INTCON B 0 ABS 0 - dist/default/debug\Project_ATCS.debug.o
-___stackhi 0 0 ABS 0 - C:\Users\owata\AppData\Local\Temp\xcAs1f7g.o
-___stacklo 0 0 ABS 0 - C:\Users\owata\AppData\Local\Temp\xcAs1f7g.o
-start_initialization B0 0 CODE 0 cinit dist/default/debug\Project_ATCS.debug.o
+___stackhi 0 0 ABS 0 - C:\Users\owata\AppData\Local\Temp\xcAs16f4.o
+___stacklo 0 0 ABS 0 - C:\Users\owata\AppData\Local\Temp\xcAs16f4.o
+start_initialization 1AA 0 CODE 0 cinit dist/default/debug\Project_ATCS.debug.o
 _OSCCON 99 0 ABS 0 - dist/default/debug\Project_ATCS.debug.o
-___int_sp 0 0 STACK 2 stack C:\Users\owata\AppData\Local\Temp\xcAs1f7g.o
+___int_sp 0 0 STACK 2 stack C:\Users\owata\AppData\Local\Temp\xcAs16f4.o
 __Hbank0 0 0 ABS 0 bank0 -
 __Hbank1 0 0 ABS 0 bank1 -
 __Hbank2 0 0 BANK2 1 bank2 -
@@ -200,7 +226,7 @@ __Hbank6 0 0 BANK6 1 bank6 -
 __Hbank7 0 0 BANK7 1 bank7 -
 __Hbank8 0 0 BANK8 1 bank8 -
 __Hbank9 0 0 BANK9 1 bank9 -
-__Hcinit BA 0 CODE 0 cinit -
+__Hcinit 1B8 0 CODE 0 cinit -
 __Hidloc 10008 0 IDLOC 5 idloc -
 __Hsfr10 0 0 ABS 0 sfr10 -
 __Hsfr11 0 0 ABS 0 sfr11 -
@@ -261,7 +287,7 @@ __Lbank6 0 0 BANK6 1 bank6 -
 __Lbank7 0 0 BANK7 1 bank7 -
 __Lbank8 0 0 BANK8 1 bank8 -
 __Lbank9 0 0 BANK9 1 bank9 -
-__Lcinit B0 0 CODE 0 cinit -
+__Lcinit 1AA 0 CODE 0 cinit -
 __Lidloc 0 0 IDLOC 5 idloc -
 __Lsfr10 0 0 ABS 0 sfr10 -
 __Lsfr11 0 0 ABS 0 sfr11 -
@@ -289,7 +315,7 @@ __Lstack 0 0 STACK 2 stack -
 __Habs1 0 0 ABS 0 abs1 -
 __Hcode 0 0 ABS 0 code -
 __Hheap 0 0 HEAP 7 heap -
-__Hinit AE 0 CODE 0 init -
+__Hinit 1A8 0 CODE 0 init -
 __Hsfr0 0 0 ABS 0 sfr0 -
 __Hsfr1 0 0 ABS 0 sfr1 -
 __Hsfr2 0 0 ABS 0 sfr2 -
@@ -304,7 +330,7 @@ __Htext 0 0 ABS 0 text -
 __Labs1 0 0 ABS 0 abs1 -
 __Lcode 0 0 ABS 0 code -
 __Lheap 0 0 HEAP 7 heap -
-__Linit AE 0 CODE 0 init -
+__Linit 1A8 0 CODE 0 init -
 __Lsfr0 0 0 ABS 0 sfr0 -
 __Lsfr1 0 0 ABS 0 sfr1 -
 __Lsfr2 0 0 ABS 0 sfr2 -
@@ -318,14 +344,14 @@ __Lsfr9 0 0 ABS 0 sfr9 -
 __Ltext 0 0 ABS 0 text -
 int$flags 7E 0 ABS 0 - dist/default/debug\Project_ATCS.debug.o
 __HcstackCOMMON 0 0 ABS 0 cstackCOMMON -
-__S0 85 0 ABS 0 - -
-__S1 75 0 ABS 0 - -
+__S0 F4 0 ABS 0 - -
+__S1 77 0 ABS 0 - -
 __S3 0 0 ABS 0 - -
 _isr 8 0 CODE 0 intentry dist/default/debug\Project_ATCS.debug.o
-_COM_FLAG 74 0 COMMON 1 bssCOMMON dist/default/debug\Project_ATCS.debug.o
-__end_of_isr AE 0 CODE 0 intentry dist/default/debug\Project_ATCS.debug.o
+_COM_FLAG 73 0 COMMON 1 bssCOMMON dist/default/debug\Project_ATCS.debug.o
+__end_of_isr 1A8 0 CODE 0 intentry dist/default/debug\Project_ATCS.debug.o
 __Lintentry 8 0 CODE 0 intentry -
-reset_vec 0 0 CODE 0 reset_vec C:\Users\owata\AppData\Local\Temp\xcAs1f7g.o
+reset_vec 0 0 CODE 0 reset_vec C:\Users\owata\AppData\Local\Temp\xcAs16f4.o
 __Lbank10 0 0 BANK10 1 bank10 -
 __Lbank11 0 0 BANK11 1 bank11 -
 __Lbank12 0 0 BANK12 1 bank12 -
@@ -348,7 +374,7 @@ __Lbank28 0 0 BANK28 1 bank28 -
 __Lbank29 0 0 BANK29 1 bank29 -
 __Lbank30 0 0 BANK30 1 bank30 -
 __Lbank31 0 0 BANK31 1 bank31 -
-__pmaintext BA 0 CODE 0 maintext dist/default/debug\Project_ATCS.debug.o
+__pmaintext 1B8 0 CODE 0 maintext dist/default/debug\Project_ATCS.debug.o
 __Lbigram 0 0 ABS 0 bigram -
 __Lcommon 0 0 ABS 0 common -
 __Lconfig 0 0 CONFIG 4 config -
@@ -357,26 +383,26 @@ __Lspace_1 0 0 ABS 0 - -
 __Lspace_2 0 0 ABS 0 - -
 __Lspace_3 0 0 ABS 0 - -
 __Lspace_4 0 0 ABS 0 - -
-__pbssCOMMON 73 0 COMMON 1 bssCOMMON dist/default/debug\Project_ATCS.debug.o
+__pbssCOMMON 70 0 COMMON 1 bssCOMMON dist/default/debug\Project_ATCS.debug.o
 _PIR1bits 11 0 ABS 0 - dist/default/debug\Project_ATCS.debug.o
-__Lend_init AE 0 CODE 0 end_init -
+__Lend_init 1A8 0 CODE 0 end_init -
 __LcstackCOMMON 0 0 ABS 0 cstackCOMMON -
-end_of_initialization B4 0 CODE 0 cinit dist/default/debug\Project_ATCS.debug.o
-__Hintentry AE 0 CODE 0 intentry -
-isr@COUNT 71 0 COMMON 1 cstackCOMMON dist/default/debug\Project_ATCS.debug.o
+end_of_initialization 1B2 0 CODE 0 cinit dist/default/debug\Project_ATCS.debug.o
+__Hintentry 1A8 0 CODE 0 intentry -
+isr@COUNT 75 0 COMMON 1 cstackCOMMON dist/default/debug\Project_ATCS.debug.o
 __Lstrings 0 0 ABS 0 strings -
 __Hreset_vec 2 0 CODE 0 reset_vec -
 __Lpowerup 0 0 CODE 0 powerup -
 __Leeprom_data 0 0 EEDATA 3 eeprom_data -
 __Lreset_vec 0 0 CODE 0 reset_vec -
-___heap_hi 0 0 ABS 0 - C:\Users\owata\AppData\Local\Temp\xcAs1f7g.o
-___heap_lo 0 0 ABS 0 - C:\Users\owata\AppData\Local\Temp\xcAs1f7g.o
-__end_of__initialization B4 0 CODE 0 cinit dist/default/debug\Project_ATCS.debug.o
+___heap_hi 0 0 ABS 0 - C:\Users\owata\AppData\Local\Temp\xcAs16f4.o
+___heap_lo 0 0 ABS 0 - C:\Users\owata\AppData\Local\Temp\xcAs16f4.o
+__end_of__initialization 1B2 0 CODE 0 cinit dist/default/debug\Project_ATCS.debug.o
 __Lfunctab 0 0 ENTRY 0 functab -
 __Lclrtext 0 0 ABS 0 clrtext -
-__pcstackCOMMON 70 0 COMMON 1 cstackCOMMON dist/default/debug\Project_ATCS.debug.o
-__Hend_init B0 0 CODE 0 end_init -
-__end_of_main 10A 0 CODE 0 maintext dist/default/debug\Project_ATCS.debug.o
+__pcstackCOMMON 74 0 COMMON 1 cstackCOMMON dist/default/debug\Project_ATCS.debug.o
+__Hend_init 1AA 0 CODE 0 end_init -
+__end_of_main 1E8 0 CODE 0 maintext dist/default/debug\Project_ATCS.debug.o
 _PORTA C 0 ABS 0 - dist/default/debug\Project_ATCS.debug.o
 _T1CON 18 0 ABS 0 - dist/default/debug\Project_ATCS.debug.o
 _TMR1H 17 0 ABS 0 - dist/default/debug\Project_ATCS.debug.o
@@ -386,7 +412,7 @@ __Hram 0 0 ABS 0 ram -
 __Lram 0 0 ABS 0 ram -
 _CCP1CON 293 0 ABS 0 - dist/default/debug\Project_ATCS.debug.o
 __pintentry 8 0 CODE 0 intentry dist/default/debug\Project_ATCS.debug.o
-__initialization B0 0 CODE 0 cinit dist/default/debug\Project_ATCS.debug.o
+__initialization 1AA 0 CODE 0 cinit dist/default/debug\Project_ATCS.debug.o
 # %SPLITSTAB Section
 # This section enumerates all the psect splits performed by the assembler.
 # The beginning of the section is indicated by %SPLITSTAB.
@@ -412,9 +438,9 @@ __initialization B0 0 CODE 0 cinit dist/default/debug\Project_ATCS.debug.o
 # and size are in units of delta. The file address is in units of bytes.
 # All other numeric quantities are in decimal.
 %SEGMENTS
-cstackCOMMON 1 70 70 5 1
-intentry 0 4 8 81 2
+intentry 0 4 8 F0 2
 reset_vec 0 0 0 1 2
+bssCOMMON 1 70 70 7 1
 # %NOTES Section
 # This section contains data of all the note-psects.  The beginning of the section
 # is indicated by %NOTES. The first line indicates the name and decimal

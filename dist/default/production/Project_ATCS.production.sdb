@@ -11,14 +11,10 @@
 [v ___eecpymem __eecpymem `(v  1 e 1 0 ]
 "39
 [v ___memcpyee __memcpyee `(v  1 e 1 0 ]
-"16 E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_Main.c
+"17 E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_Main.c
 [v _main main `(v  1 e 1 0 ]
-"42
+"43
 [v _isr isr `II(v  1 e 1 0 ]
-"12 E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_SinkLayer.c
-[v _Preamble Preamble `(v  1 e 1 0 ]
-"23
-[v _DATA_Sampling DATA_Sampling `(uc  1 e 1 0 ]
 "352 E:/MPLAB_X/packs/Microchip/PIC12-16F1xxx_DFP/1.3.90/xc8\pic\include\proc\pic12f1822.h
 [v _INTCON INTCON `VEuc  1 e 1 @11 ]
 "430
@@ -61,29 +57,17 @@
 [v _COM_FLAG COM_FLAG `uc  1 e 1 0 ]
 "14
 [v _DATA DATA `uc  1 e 1 0 ]
-"16
+"15
+[v _COUNTER COUNTER `ui  1 e 2 0 ]
+"17
 [v _main main `(v  1 e 1 0 ]
 {
-"40
+"41
 } 0
-"12 E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_SinkLayer.c
-[v _Preamble Preamble `(v  1 e 1 0 ]
-{
-"13
-[v Preamble@CO CO `uc  1 a 1 4 ]
-"22
-} 0
-"23
-[v _DATA_Sampling DATA_Sampling `(uc  1 e 1 0 ]
-{
-"24
-[v DATA_Sampling@CO CO `uc  1 a 1 4 ]
-"44
-} 0
-"42 E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_Main.c
+"43
 [v _isr isr `II(v  1 e 1 0 ]
 {
-"43
+"44
 [v isr@COUNT COUNT `i  1 a 2 1 ]
-"62
+"84
 } 0
