@@ -12,8 +12,6 @@ testbench for "pic12f1822" is
 begin
     TESTCASE : process is
     begin
-        RA2 <= '0';
-        wait for 55 us;
         RA2 <= '1';
         wait for 55 us;
         RA2 <= '0';
@@ -75,53 +73,53 @@ begin
         RA2 <= '0';
         wait for 55 us;
         RA2 <= '1';
+        wait for 55 us;
+        RA2 <= '0';
         wait for 55 us;
 
-        RA2 <= '0';
-        wait for 100 us;
         RA2 <= '1';
+        wait for 100 us;
+        RA2 <= '0';
         wait for 100 us;
 
-        RA2 <= '0';
-        wait for 100 us;
         RA2 <= '1';
         wait for 100 us;
         RA2 <= '0';
-        wait for 55 us;
+        wait for 100 us;
         RA2 <= '1';
         wait for 55 us;
         RA2 <= '0';
-        wait for 100 us;
+        wait for 55 us;
         RA2 <= '1';
         wait for 100 us;
         RA2 <= '0';
-        wait for 55 us;
+        wait for 100 us;
         RA2 <= '1';
         wait for 55 us;
         RA2 <= '0';
-        wait for 100 us;
+        wait for 55 us;
         RA2 <= '1';
         wait for 100 us;
         RA2 <= '0';
-        wait for 55 us;
+        wait for 100 us;
         RA2 <= '1';
         wait for 55 us;
         RA2 <= '0';
-        wait for 100 us;
+        wait for 55 us;
         RA2 <= '1';
         wait for 100 us;
         RA2 <= '0';
-        wait for 55 us;
+        wait for 100 us;
         RA2 <= '1';
+        wait for 55 us;
+        RA2 <= '0';
         wait for 55 us;
 
-        RA2 <= '0';
-        wait for 100 us;
         RA2 <= '1';
+        wait for 100 us;
+        RA2 <= '0';
         wait for 100 us;
 
-        RA2 <= '0';
-        wait for 100 us;
         RA2 <= '1';
         wait for 100 us;
         RA2 <= '0';
@@ -129,7 +127,7 @@ begin
         RA2 <= '1';
         wait for 100 us;
         RA2 <= '0';
-        wait for 55 us;
+        wait for 100 us;
         RA2 <= '1';
         wait for 55 us;
         RA2 <= '0';
@@ -137,7 +135,7 @@ begin
         RA2 <= '1';
         wait for 55 us;
         RA2 <= '0';
-        wait for 100 us;
+        wait for 55 us;
         RA2 <= '1';
         wait for 100 us;
         RA2 <= '0';
@@ -145,17 +143,19 @@ begin
         RA2 <= '1';
         wait for 100 us;
         RA2 <= '0';
-        wait for 55 us;
+        wait for 100 us;
         RA2 <= '1';
         wait for 55 us;
         RA2 <= '0';
         wait for 55 us;
         RA2 <= '1';
+        wait for 55 us;
+        RA2 <= '0';
         wait for 55 us;
 
-        RA2 <= '0';
-        wait for 55 us;
         RA2 <= '1';
+        wait for 55 us;
+        RA2 <= '0';
         wait for 55 us;
         
     end process TESTCASE;

@@ -1,4 +1,4 @@
-# 1 "C:\\Program Files\\Microchip\\xc8\\v2.40\\pic\\sources\\c99\\pic\\__eeprom.c"
+# 1 "Project_ATCS_Decorder_INTERRUPT.c"
 # 1 "<built-in>" 1
 # 1 "<built-in>" 3
 # 288 "<built-in>" 3
@@ -6,7 +6,15 @@
 # 1 "<built-in>" 2
 # 1 "C:/Program Files/MPLAB_X/packs/Microchip/PIC12-16F1xxx_DFP/1.3.90/xc8\\pic\\include\\language_support.h" 1 3
 # 2 "<built-in>" 2
-# 1 "C:\\Program Files\\Microchip\\xc8\\v2.40\\pic\\sources\\c99\\pic\\__eeprom.c" 2
+# 1 "Project_ATCS_Decorder_INTERRUPT.c" 2
+
+
+
+
+
+
+
+
 # 1 "C:/Program Files/MPLAB_X/packs/Microchip/PIC12-16F1xxx_DFP/1.3.90/xc8\\pic\\include\\xc.h" 1 3
 # 18 "C:/Program Files/MPLAB_X/packs/Microchip/PIC12-16F1xxx_DFP/1.3.90/xc8\\pic\\include\\xc.h" 3
 extern const char __xc8_OPTIM_SPEED;
@@ -3444,176 +3452,105 @@ extern __bank0 unsigned char __resetbits;
 extern __bank0 __bit __powerdown;
 extern __bank0 __bit __timeout;
 # 29 "C:/Program Files/MPLAB_X/packs/Microchip/PIC12-16F1xxx_DFP/1.3.90/xc8\\pic\\include\\xc.h" 2 3
-# 1 "C:\\Program Files\\Microchip\\xc8\\v2.40\\pic\\sources\\c99\\pic\\__eeprom.c" 2
+# 9 "Project_ATCS_Decorder_INTERRUPT.c" 2
+
+# 1 "./Project_ATCS_SETUP.h" 1
 
 
 
 
-void
-__eecpymem(volatile unsigned char *to, __eeprom unsigned char * from, unsigned char size)
-{
- volatile unsigned char *cp = to;
 
- while (EECON1bits.WR) continue;
- EEADR = (unsigned char)from;
- while(size--) {
-  while (EECON1bits.WR) continue;
+#pragma config FOSC = INTOSC
+#pragma config WDTE = OFF
+#pragma config PWRTE = ON
+#pragma config MCLRE = OFF
+#pragma config CP = OFF
+#pragma config CPD = OFF
+#pragma config BOREN = ON
+#pragma config CLKOUTEN = OFF
+#pragma config IESO = OFF
+#pragma config FCMEN = OFF
 
-  EECON1 &= 0x7F;
+#pragma config WRT = OFF
+#pragma config PLLEN = OFF
+#pragma config STVREN = ON
+#pragma config BORV = HI
+#pragma config LVP = OFF
 
-  EECON1bits.RD = 1;
-  *cp++ = EEDATA;
-  ++EEADR;
- }
-# 36 "C:\\Program Files\\Microchip\\xc8\\v2.40\\pic\\sources\\c99\\pic\\__eeprom.c"
-}
+typedef enum EE_SR{
+    EE_READ = 0,
+    EE_WRITE_UID,
+    EE_VERIFY_UID,
+    EE_WRITE_ROM,
+    EE_VERIFY_ROM,
+    EE_NEXT
+}EE_STATE_V;
 
-void
-__memcpyee(__eeprom unsigned char * to, const unsigned char *from, unsigned char size)
-{
- const unsigned char *ptr =from;
+typedef unsigned int UnINT;
+typedef unsigned char UnCHR;
 
- while (EECON1bits.WR) continue;
- EEADR = (unsigned char)to - 1U;
 
- EECON1 &= 0x7F;
+extern UnCHR COM_FLAG;
+extern UnCHR DATA;
+extern UnCHR EE_FLAG;
+extern UnINT COUNTER;
+extern EE_STATE_V EE_STATE;
 
- while(size--) {
-  while (EECON1bits.WR) {
-   continue;
-  }
-  EEDATA = *ptr++;
-  ++EEADR;
-  STATUSbits.CARRY = 0;
-  if (INTCONbits.GIE) {
-   STATUSbits.CARRY = 1;
-  }
-  INTCONbits.GIE = 0;
-  EECON1bits.WREN = 1;
-  EECON2 = 0x55;
-  EECON2 = 0xAA;
-  EECON1bits.WR = 1;
-  EECON1bits.WREN = 0;
-  if (STATUSbits.CARRY) {
-   INTCONbits.GIE = 1;
-  }
- }
-# 101 "C:\\Program Files\\Microchip\\xc8\\v2.40\\pic\\sources\\c99\\pic\\__eeprom.c"
-}
+UnCHR DATA_Sampling(void);
+void Preamble(void);
+# 10 "Project_ATCS_Decorder_INTERRUPT.c" 2
 
-unsigned char
-__eetoc(__eeprom void *addr)
-{
- unsigned char data;
- __eecpymem((unsigned char *) &data,addr,1);
- return data;
-}
+UnCHR COM_FLAG = 0x00;
+UnCHR DATA = 0x00;
+UnINT COUNTER = 0x00;
 
-unsigned int
-__eetoi(__eeprom void *addr)
-{
- unsigned int data;
- __eecpymem((unsigned char *) &data,addr,2);
- return data;
-}
-
-#pragma warning push
-#pragma warning disable 2040
-__uint24
-__eetom(__eeprom void *addr)
-{
- __uint24 data;
- __eecpymem((unsigned char *) &data,addr,3);
- return data;
-}
-#pragma warning pop
-
-unsigned long
-__eetol(__eeprom void *addr)
-{
- unsigned long data;
- __eecpymem((unsigned char *) &data,addr,4);
- return data;
-}
-
-#pragma warning push
-#pragma warning disable 1516
-unsigned long long
-__eetoo(__eeprom void *addr)
-{
- unsigned long long data;
- __eecpymem((unsigned char *) &data,addr,8);
- return data;
-}
-#pragma warning pop
-
-unsigned char
-__ctoee(__eeprom void *addr, unsigned char data)
-{
- __memcpyee(addr,(unsigned char *) &data,1);
- return data;
-}
-
-unsigned int
-__itoee(__eeprom void *addr, unsigned int data)
-{
- __memcpyee(addr,(unsigned char *) &data,2);
- return data;
-}
-
-#pragma warning push
-#pragma warning disable 2040
-__uint24
-__mtoee(__eeprom void *addr, __uint24 data)
-{
- __memcpyee(addr,(unsigned char *) &data,3);
- return data;
-}
-#pragma warning pop
-
-unsigned long
-__ltoee(__eeprom void *addr, unsigned long data)
-{
- __memcpyee(addr,(unsigned char *) &data,4);
- return data;
-}
-
-#pragma warning push
-#pragma warning disable 1516
-unsigned long long
-__otoee(__eeprom void *addr, unsigned long long data)
-{
- __memcpyee(addr,(unsigned char *) &data,8);
- return data;
-}
-#pragma warning pop
-
-float
-__eetoft(__eeprom void *addr)
-{
- float data;
- __eecpymem((unsigned char *) &data,addr,3);
- return data;
-}
-
-double
-__eetofl(__eeprom void *addr)
-{
- double data;
- __eecpymem((unsigned char *) &data,addr,4);
- return data;
-}
-
-float
-__fttoee(__eeprom void *addr, float data)
-{
- __memcpyee(addr,(unsigned char *) &data,3);
- return data;
-}
-
-double
-__fltoee(__eeprom void *addr, double data)
-{
- __memcpyee(addr,(unsigned char *) &data,4);
- return data;
+void __attribute__((picinterrupt(("")))) isr(void){
+    int COUNT = 0x00;
+    if(PIR1bits.CCP1IF){
+        PIR1 = 0x00;
+        TMR1H = 0x00;
+        TMR1L = 0x00;
+        COUNT = CCPR1H << 8 | CCPR1L;
+        if(!(COM_FLAG & 0x01)){
+            if(COUNT >= 0x00C0 && COUNT <= 0x0100 && !(COM_FLAG & 0x02) ){
+                COUNTER++;
+            }
+            else if(COUNT > 0x0080 || COM_FLAG & 0x02){
+                if(COUNTER > 11){
+                    COM_FLAG = COM_FLAG | 0x01;
+                    COM_FLAG = COM_FLAG & 0xFD;
+                    COUNTER = 0x00;
+                }
+            }
+        }else if(COM_FLAG & 0x01){
+            if(COUNTER < 8 ){
+                if(COUNT >= 0x00C0 && COUNT <= 0x0100 && !(COM_FLAG & 0x02) ){
+                    DATA = (UnCHR) (DATA << 1) | 0x01;
+                }else if(COUNT > 0x0080 || COM_FLAG & 0x02){
+                    DATA = (UnCHR) (DATA << 1) & 0xFE;
+                }
+                COUNTER++;
+            }
+            else{
+                if(COUNT >= 0x00C0 && COUNT <= 0x0100 && !(COM_FLAG & 0x02)){
+                    COM_FLAG = COM_FLAG | 0x04;
+                    COM_FLAG = COM_FLAG & 0xFE;
+                }else{
+                    COM_FLAG = COM_FLAG & 0xFB;
+                }
+                COUNTER = 0x00;
+            }
+        }
+    }else if(PIR1bits.TMR1IF){
+        PIR1 = 0x00;
+        COM_FLAG = COM_FLAG | 0x02;
+    }else if(PIR2bits.EEIF){
+        if(EE_STATE == EE_WRITE_UID){
+            EE_STATE = EE_VERIFY_UID;
+        }else if(EE_STATE == EE_WRITE_ROM){
+            EE_STATE = EE_VERIFY_ROM;
+        }else{
+            EE_STATE = EE_NEXT;
+        }
+    }
 }

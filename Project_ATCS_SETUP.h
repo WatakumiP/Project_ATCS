@@ -20,17 +20,27 @@
 #pragma config BORV = HI        // Brown-out Reset Voltage Selection  
 #pragma config LVP = OFF        // Low-Voltage Programming 
 
+typedef enum EE_SR{
+    EE_READ = 0,
+    EE_WRITE_UID,
+    EE_VERIFY_UID,
+    EE_WRITE_ROM,
+    EE_VERIFY_ROM,
+    EE_NEXT
+}EE_STATE_V;
+
 typedef unsigned int UnINT;
 typedef unsigned char UnCHR;
 
 // COMフラグについては、別途記載のドキュメント参照のこと。
 extern UnCHR COM_FLAG;
 extern UnCHR DATA;
+extern UnCHR EE_FLAG;
+extern UnINT COUNTER;
+extern EE_STATE_V EE_STATE;
 
 UnCHR DATA_Sampling(void);
 void Preamble(void);
-
-
 
 #endif	
 

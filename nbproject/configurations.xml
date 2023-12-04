@@ -14,7 +14,8 @@
                    displayName="Source Files"
                    projectFiles="true">
       <itemPath>Project_ATCS_Decorder_Main.c</itemPath>
-      <itemPath>Project_ATCS_Decorder_SinkLayer.c</itemPath>
+      <itemPath>Project_ATCS_Decorder_INTERRUPT.c</itemPath>
+      <itemPath>Project_ATCS_Decorder_Module.c</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"
