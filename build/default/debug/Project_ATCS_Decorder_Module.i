@@ -1,4 +1,4 @@
-# 1 "Project_ATCS_Decorder_INTERRUPT.c"
+# 1 "Project_ATCS_Decorder_Module.c"
 # 1 "<built-in>" 1
 # 1 "<built-in>" 3
 # 288 "<built-in>" 3
@@ -6,7 +6,8 @@
 # 1 "<built-in>" 2
 # 1 "C:/Program Files/MPLAB_X/packs/Microchip/PIC12-16F1xxx_DFP/1.3.90/xc8\\pic\\include\\language_support.h" 1 3
 # 2 "<built-in>" 2
-# 1 "Project_ATCS_Decorder_INTERRUPT.c" 2
+# 1 "Project_ATCS_Decorder_Module.c" 2
+
 
 
 
@@ -3451,7 +3452,7 @@ extern __bank0 unsigned char __resetbits;
 extern __bank0 __bit __powerdown;
 extern __bank0 __bit __timeout;
 # 29 "C:/Program Files/MPLAB_X/packs/Microchip/PIC12-16F1xxx_DFP/1.3.90/xc8\\pic\\include\\xc.h" 2 3
-# 8 "Project_ATCS_Decorder_INTERRUPT.c" 2
+# 9 "Project_ATCS_Decorder_Module.c" 2
 
 # 1 "./Project_ATCS_SETUP.h" 1
 
@@ -3511,72 +3512,125 @@ extern EE_STAGE_DATA EE_STORE;
 UnCHR DATA_Sampling(void);
 void Preamble(void);
 void EEPROM_SELECT(void);
-# 9 "Project_ATCS_Decorder_INTERRUPT.c" 2
+# 10 "Project_ATCS_Decorder_Module.c" 2
 
-UnCHR COM_FLAG = 0x00;
-UnCHR DATA = 0x00;
-UnCHR COUNTER = 0x00;
-UnCHR STCR = 0x00;
 
-void __attribute__((picinterrupt(("")))) isr(void){
-    int COUNT = 0x00;
+void EEPROM_SELECT(void) {
+    INTCONbits.GIE = 0;
+    UnCHR COUNT = 0x00 ;
 
-    if(PIR1bits.CCP1IF){
-        PIR1 = 0x00;
-        TMR1H = 0x00;
-        TMR1L = 0x00;
-        COUNT = CCPR1H << 8 | CCPR1L;
-        if(!(COM_FLAG & 0x01)){
-            if(COUNT >= 0x00C0 && COUNT <= 0x0100 && !(COM_FLAG & 0x02) ){
-                COUNTER++;
-            }
-
-            else if(COUNT > 0x0080 || COM_FLAG & 0x02){
-                if(COUNTER > 11){
-                    COM_FLAG = COM_FLAG | 0x01;
-                    COM_FLAG = COM_FLAG & 0xFD;
-                    COUNTER = 0x00;
+    switch (EE_STORE.EE_STATE) {
+        case EE_READ_S:
+            do{
+                if(EE_STORE.EE_REPORT[COUNT]){
+                    EEADR = EE_STORE.EE_ADRS;
+                    EECON1 = EE_STORE.EE_CONFIG;
+                    while (EECON1bits.RD);
+                    EE_STORE.EE_DATA[COUNT] = EEDAT;
+                    INTCONbits.GIE = 1;
+                    return;
                 }
-            }
+                COUNT++;
+                EEADR = EE_STORE.EE_ADRS++;
+            }while(COUNT < 4);
+            return;
 
-        }else if(COM_FLAG & 0x01){
-            if(COUNTER < 8 ){
-                if(COUNT >= 0x00C0 && COUNT <= 0x0100 && !(COM_FLAG & 0x02)){
-                    DATA = (UnCHR) (DATA << 1) | 0x01;
-                }else if(COUNT > 0x0080 || COM_FLAG & 0x02){
-                    DATA = (UnCHR) (DATA << 1) & 0xFE;
+        case EE_READ_M:
+            do {
+                if(EE_STORE.EE_REPORT[COUNT]){
+                    EEADR = EE_STORE.EE_ADRS;
+                    EECON1 = EE_STORE.EE_CONFIG;
+                    while (EECON1bits.RD);
+                    EE_STORE.EE_DATA[COUNT] = EEDAT;
                 }
-                COUNTER++;
-            }
-            else{
-                if(COUNT >= 0x00C0 && COUNT <= 0x0100 && !(COM_FLAG & 0x02)){
-                    STACK[STCR] = DATA;
-                    COM_FLAG = COM_FLAG | 0x04;
-                    COM_FLAG = COM_FLAG & 0xFE;
-                    STCR = 0x00;
-                }else{
-                    if(STCR == 32){
-                        STCR = 0;
+                EE_STORE.EE_ADRS++;
+            } while (COUNT < 4);
+            INTCONbits.GIE = 1;
+            return;
+
+        case EE_WRITE_UID:
+            INTCONbits.GIE = 0;
+            UnINT EE_SAVE = EE_STORE.EE_ADRS;
+            do {
+                if(EE_STORE.EE_REPORT[COUNT]){
+                    EEADR = EE_STORE.EE_ADRS;
+                    EEDAT = EE_STORE.EE_DATA[COUNT];
+                    EECON1 = 0x64;
+                    EECON2 = 0x55;
+                    EECON2 = 0xAA;
+                    EECON1bits.WR = 1;
+                }
+                COUNT++;
+                EE_STORE.EE_ADRS++;
+            } while (COUNT < 4);
+            EE_STORE.EE_ADRS = EE_SAVE;
+
+            EECON1 = 0x44;
+            EECON2 = 0x55;
+            EECON2 = 0xAA;
+
+            EECON1bits.WR = 1;
+            INTCONbits.GIE = 1;
+            return;
+
+        case EE_VERIFY_UID:
+            INTCONbits.GIE = 0;
+            do {
+                if(EE_STORE.EE_REPORT[COUNT]){
+                    EEADR = EE_STORE.EE_ADRS;
+                    EECON1 = 0x41;
+                    while (EECON1bits.RD);
+                    if (EEDAT != EE_STORE.EE_DATA[COUNT]) {
+                        EE_STORE.EE_REPORT[COUNT] = 0xFF;
+                    } else {
+                        EE_STORE.EE_REPORT[COUNT] = 0x00;
                     }
-                    STACK[STCR] = DATA;
-                    COM_FLAG = COM_FLAG & 0xFB;
-                    STCR++;
                 }
-                COUNTER = 0x00;
-            }
-        }
-    }else if(PIR1bits.TMR1IF){
+                COUNT++;
+                EE_STORE.EE_ADRS++;
+            } while (COUNT < 4);
+            INTCONbits.GIE = 1;
+            return;
 
-        PIR1 = 0x00;
-        COM_FLAG = COM_FLAG | 0x02;
+        case EE_WRITE_ROM:
+            do{
+                if(EE_STORE.EE_REPORT[COUNT]){
+                    EEADR = EE_STORE.EE_ADRS;
+                    EEDAT = EE_STORE.EE_DATA[COUNT];
+                    EECON1 = 0x44;
+                    EECON2 = 0x55;
+                    EECON2 = 0xAA;
+                    EECON1bits.WR = 1;
+                    INTCONbits.GIE = 1;
+                    return;
+                }
+                COUNT++;
+                EEADR = EE_STORE.EE_ADRS++;
+            }while(COUNT < 4);
+            INTCONbits.GIE = 1;
+            return;
 
-    }else if(PIR2bits.EEIF){
-        PIR2bits.EEIF = 0;
-        if(EE_STORE.EE_STATE == EE_WRITE_UID){
-            EE_STORE.EE_STATE = EE_VERIFY_UID;
-        }else if(EE_STORE.EE_STATE == EE_WRITE_ROM){
-            EE_STORE.EE_STATE = EE_VERIFY_ROM;
-        }
-        EEPROM_SELECT();
+        case EE_VERIFY_ROM:
+            do{
+                if(EE_STORE.EE_REPORT[COUNT]){
+                    EEADR = EE_STORE.EE_ADRS;
+                    EECON1 = 0x01;
+                    while (EECON1bits.RD);
+                    EE_STORE.EE_DATA[COUNT] = EEDAT;
+                    if (EEDAT != EE_STORE.EE_DATA[COUNT]) {
+                        EE_STORE.EE_REPORT[COUNT] = 0xFF;
+                    } else {
+                        EE_STORE.EE_REPORT[COUNT] = 0x00;
+                    }
+                    return;
+                }
+                COUNT++;
+                EEADR = EE_STORE.EE_ADRS++;
+            }while(COUNT < 4);
+            INTCONbits.GIE = 1;
+            return;
+
+        default:
+            return;
     }
 }

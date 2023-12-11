@@ -27,7 +27,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 "3938
 [; ;C:/Program Files/MPLAB_X/packs/Microchip/PIC12-16F1xxx_DFP/1.3.90/xc8\pic\include\proc\pic12f1822.h: 3938: extern volatile unsigned char CCPR1L __attribute__((address(0x291)));
 [v _CCPR1L `Vuc ~T0 @X0 0 e@657 ]
-"41 ./Project_ATCS_SETUP.h
+"43 ./Project_ATCS_SETUP.h
 [v _STACK `uc ~T0 @X0 -> 0 `x e ]
 "788 C:/Program Files/MPLAB_X/packs/Microchip/PIC12-16F1xxx_DFP/1.3.90/xc8\pic\include\proc\pic12f1822.h
 [; ;C:/Program Files/MPLAB_X/packs/Microchip/PIC12-16F1xxx_DFP/1.3.90/xc8\pic\include\proc\pic12f1822.h: 788:     struct {
@@ -44,12 +44,12 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;Project_ATCS_Decorder_INTERRUPT.c: 69:         if(EE_STORE.EE_STATE == EE_WRITE_UID){
 [c E1975 0 1 2 3 4 5 6 .. ]
 [n E1975 EE_SR EE_READ_S EE_READ_M EE_WRITE_UID EE_VERIFY_UID EE_WRITE_ROM EE_VERIFY_ROM EE_NEXT  ]
-"43 ./Project_ATCS_SETUP.h
+"45 ./Project_ATCS_SETUP.h
 [s S274 `E1975 1 `uc 1 `ui 1 `ui -> 4 `i `uc -> 4 `i ]
 [n S274 EE_STAGE_DATA EE_STATE EE_CONFIG EE_ADRS EE_DATA EE_REPORT ]
-"51
+"53
 [v _EE_STORE `S274 ~T0 @X0 0 e ]
-"55
+"57
 [v _EEPROM_SELECT `(v ~T0 @X0 0 ef ]
 "55 C:/Program Files/MPLAB_X/packs/Microchip/PIC12-16F1xxx_DFP/1.3.90/xc8\pic\include\proc\pic12f1822.h
 [; ;C:/Program Files/MPLAB_X/packs/Microchip/PIC12-16F1xxx_DFP/1.3.90/xc8\pic\include\proc\pic12f1822.h: 55: __asm("INDF0 equ 00h");
@@ -400,49 +400,49 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;C:/Program Files/MPLAB_X/packs/Microchip/PIC12-16F1xxx_DFP/1.3.90/xc8\pic\include\proc\pic12f1822.h: 5034: __asm("TOSH equ 0FEFh");
 [; <" TOSH equ 0FEFh ;# ">
 "6 ./Project_ATCS_SETUP.h
-[; ;./Project_ATCS_SETUP.h: 6:     EE_VERIFY_ROM,
+[; ;./Project_ATCS_SETUP.h: 6:     EE_VERIFY_UID,
 [p x FOSC  =  INTOSC     ]
 "7
-[; ;./Project_ATCS_SETUP.h: 7:     EE_NEXT
+[; ;./Project_ATCS_SETUP.h: 7:     EE_WRITE_ROM,
 [p x WDTE  =  OFF        ]
 "8
-[; ;./Project_ATCS_SETUP.h: 8: }EE_SR;
+[; ;./Project_ATCS_SETUP.h: 8:     EE_VERIFY_ROM,
 [p x PWRTE  =  ON        ]
 "9
-[; ;./Project_ATCS_SETUP.h: 9: 
+[; ;./Project_ATCS_SETUP.h: 9:     EE_NEXT
 [p x MCLRE  =  OFF       ]
 "10
-[; ;./Project_ATCS_SETUP.h: 10: typedef unsigned int UnINT;
+[; ;./Project_ATCS_SETUP.h: 10: }EE_SR;
 [p x CP  =  OFF          ]
 "11
-[; ;./Project_ATCS_SETUP.h: 11: typedef unsigned char UnCHR;
+[; ;./Project_ATCS_SETUP.h: 11: 
 [p x CPD  =  OFF         ]
 "12
-[; ;./Project_ATCS_SETUP.h: 12: 
+[; ;./Project_ATCS_SETUP.h: 12: typedef unsigned int UnINT;
 [p x BOREN  =  ON        ]
 "13
-[; ;./Project_ATCS_SETUP.h: 13: 
+[; ;./Project_ATCS_SETUP.h: 13: typedef unsigned char UnCHR;
 [p x CLKOUTEN  =  OFF    ]
 "14
-[; ;./Project_ATCS_SETUP.h: 14: extern UnCHR COM_FLAG;
+[; ;./Project_ATCS_SETUP.h: 14: 
 [p x IESO  =  OFF        ]
 "15
-[; ;./Project_ATCS_SETUP.h: 15: extern UnCHR DATA;
+[; ;./Project_ATCS_SETUP.h: 15: 
 [p x FCMEN  =  OFF       ]
 "17
-[; ;./Project_ATCS_SETUP.h: 17: extern UnCHR COUNTER;
+[; ;./Project_ATCS_SETUP.h: 17: extern UnCHR DATA;
 [p x WRT  =  OFF         ]
 "18
-[; ;./Project_ATCS_SETUP.h: 18: extern UnCHR STACK[32];
+[; ;./Project_ATCS_SETUP.h: 18: extern UnCHR EE_FLAG;
 [p x PLLEN  =  OFF       ]
 "19
-[; ;./Project_ATCS_SETUP.h: 19: 
+[; ;./Project_ATCS_SETUP.h: 19: extern UnCHR COUNTER;
 [p x STVREN  =  ON       ]
 "20
-[; ;./Project_ATCS_SETUP.h: 20: typedef struct EE_STAGE_DATA{
+[; ;./Project_ATCS_SETUP.h: 20: extern UnCHR STACK[32];
 [p x BORV  =  HI         ]
 "21
-[; ;./Project_ATCS_SETUP.h: 21:     EE_SR EE_STATE;
+[; ;./Project_ATCS_SETUP.h: 21: 
 [p x LVP  =  OFF         ]
 "10 Project_ATCS_Decorder_INTERRUPT.c
 [; ;Project_ATCS_Decorder_INTERRUPT.c: 10: UnCHR COM_FLAG = 0x00;

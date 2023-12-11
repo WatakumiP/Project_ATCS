@@ -11,18 +11,27 @@
 # All addresses and the length are given in unqualified hexadecimal
 # in delta units.  Any other numeric values are decimal.
 %PSECTS
-$C:\Users\owata\AppData\Local\Temp\xcAs3slg.o
+$C:\Users\owata\AppData\Local\Temp\xcAs4dnk.o
 idloc IDLOC 5 8000 8000 4 2 1
 reset_vec CODE 0 0 0 1 2 1
-end_init CODE 0 EC EC 1 2 1
+end_init CODE 0 107 107 1 2 1
 config CONFIG 4 8007 8007 2 2 1
 $dist/default/production\Project_ATCS.production.o
-cinit CODE 0 ED ED 8 2 1
+cinit CODE 0 108 108 13 2 1
 idloc IDLOC 5 8000 8000 4 2 1
-maintext CODE 0 F5 F5 1A 2 1
-cstackCOMMON COMMON 1 75 75 3 1 1
-intentry CODE 0 4 4 E8 2 1
-bssCOMMON COMMON 1 70 70 5 1 1
+text1 CODE 0 11B 11B 1AF 2 1
+text3 CODE 0 2CA 2CA 19C 2 1
+maintext CODE 0 466 466 1E 2 1
+cstackCOMMON COMMON 1 70 70 8 1 1
+cstackBANK0 BANK0 1 30 30 5 1 1
+inittext CODE 0 4A0 4A0 6 2 1
+stringtext1 STRCODE 0 494 494 C 2 1
+stringtext2 STRCODE 0 4A6 4A6 5 2 1
+intentry CODE 0 4 4 103 2 1
+bssBANK0 BANK0 1 35 35 1 1 1
+idataBANK0 CODE 0 484 484 10 2 1
+dataBANK0 BANK0 1 20 20 10 1 1
+bssCOMMON COMMON 1 78 78 3 1 1
 config CONFIG 4 8007 8007 2 2 1
 # %UNUSED Section
 # This section enumerates the unused ranges of each CLASS. Each entry
@@ -30,14 +39,12 @@ config CONFIG 4 8007 8007 2 2 1
 #    <class name> <range> <delta>
 # Addresses given in the range are in hexadecimal and units of delta.
 %UNUSED
-RAM 20-6F 1
-RAM A0-BF 1
-BANK0 20-6F 1
-BANK1 A0-BF 1
+RAM 36-6F 1
+BANK0 36-6F 1
 CONST 1-3 2
-CONST 10F-7FF 2
+CONST 4AB-7FF 2
 ENTRY 1-3 2
-ENTRY 10F-7FF 2
+ENTRY 4AB-7FF 2
 SFR10 500-56F 1
 SFR11 580-5EF 1
 SFR12 600-66F 1
@@ -61,7 +68,7 @@ SFR29 E80-EEF 1
 SFR30 F00-F6F 1
 SFR31 F80-FEF 1
 CODE 1-3 2
-CODE 10F-7FF 2
+CODE 4AB-7FF 2
 SFR0 0-1F 1
 SFR1 80-9F 1
 SFR2 100-16F 1
@@ -73,12 +80,12 @@ SFR7 380-3EF 1
 SFR8 400-46F 1
 SFR9 480-4EF 1
 BIGRAM 2000-206F 1
-COMMON 78-7D 1
+COMMON 7B-7D 1
 EEDATA F000-F0FF 2
 STRCODE 1-3 2
-STRCODE 10F-7FF 2
+STRCODE 4AB-7FF 2
 STRING 1-3 2
-STRING 10F-7FF 2
+STRING 4AB-7FF 2
 # %LINETAB Section
 # This section enumerates the file/line to address mappings.
 # The beginning of the section is indicated by %LINETAB.
@@ -93,88 +100,314 @@ STRING 10F-7FF 2
 # All other numeric values are in decimal.
 %LINETAB
 $dist/default/production\Project_ATCS.production.o
-ED cinit CODE >1102:C:\Users\owata\AppData\Local\Temp\xcAs3slg.s
-ED cinit CODE >1105:C:\Users\owata\AppData\Local\Temp\xcAs3slg.s
-ED cinit CODE >1126:C:\Users\owata\AppData\Local\Temp\xcAs3slg.s
-EE cinit CODE >1127:C:\Users\owata\AppData\Local\Temp\xcAs3slg.s
-EF cinit CODE >1128:C:\Users\owata\AppData\Local\Temp\xcAs3slg.s
-F0 cinit CODE >1129:C:\Users\owata\AppData\Local\Temp\xcAs3slg.s
-F1 cinit CODE >1130:C:\Users\owata\AppData\Local\Temp\xcAs3slg.s
-F2 cinit CODE >1136:C:\Users\owata\AppData\Local\Temp\xcAs3slg.s
-F2 cinit CODE >1138:C:\Users\owata\AppData\Local\Temp\xcAs3slg.s
-F3 cinit CODE >1139:C:\Users\owata\AppData\Local\Temp\xcAs3slg.s
-F4 cinit CODE >1140:C:\Users\owata\AppData\Local\Temp\xcAs3slg.s
+108 cinit CODE >1167:C:\Users\owata\AppData\Local\Temp\xcAs4dnk.s
+108 cinit CODE >1170:C:\Users\owata\AppData\Local\Temp\xcAs4dnk.s
+108 cinit CODE >1212:C:\Users\owata\AppData\Local\Temp\xcAs4dnk.s
+109 cinit CODE >1213:C:\Users\owata\AppData\Local\Temp\xcAs4dnk.s
+10A cinit CODE >1214:C:\Users\owata\AppData\Local\Temp\xcAs4dnk.s
+10B cinit CODE >1215:C:\Users\owata\AppData\Local\Temp\xcAs4dnk.s
+10C cinit CODE >1216:C:\Users\owata\AppData\Local\Temp\xcAs4dnk.s
+10D cinit CODE >1217:C:\Users\owata\AppData\Local\Temp\xcAs4dnk.s
+10E cinit CODE >1218:C:\Users\owata\AppData\Local\Temp\xcAs4dnk.s
+10F cinit CODE >1219:C:\Users\owata\AppData\Local\Temp\xcAs4dnk.s
+110 cinit CODE >1220:C:\Users\owata\AppData\Local\Temp\xcAs4dnk.s
+111 cinit CODE >1221:C:\Users\owata\AppData\Local\Temp\xcAs4dnk.s
+114 cinit CODE >1226:C:\Users\owata\AppData\Local\Temp\xcAs4dnk.s
+115 cinit CODE >1227:C:\Users\owata\AppData\Local\Temp\xcAs4dnk.s
+116 cinit CODE >1228:C:\Users\owata\AppData\Local\Temp\xcAs4dnk.s
+117 cinit CODE >1232:C:\Users\owata\AppData\Local\Temp\xcAs4dnk.s
+118 cinit CODE >1238:C:\Users\owata\AppData\Local\Temp\xcAs4dnk.s
+118 cinit CODE >1240:C:\Users\owata\AppData\Local\Temp\xcAs4dnk.s
+119 cinit CODE >1241:C:\Users\owata\AppData\Local\Temp\xcAs4dnk.s
+11A cinit CODE >1242:C:\Users\owata\AppData\Local\Temp\xcAs4dnk.s
 4 intentry CODE >15:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_INTERRUPT.c
-4 intentry CODE >35:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_Main.c
 6 intentry CODE >16:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_INTERRUPT.c
-6 intentry CODE >17:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_INTERRUPT.c
-B intentry CODE >18:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_INTERRUPT.c
-C intentry CODE >19:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_INTERRUPT.c
-D intentry CODE >20:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_INTERRUPT.c
-E intentry CODE >21:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_INTERRUPT.c
-13 intentry CODE >22:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_INTERRUPT.c
-17 intentry CODE >23:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_INTERRUPT.c
-1C intentry CODE >23:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_INTERRUPT.c
-20 intentry CODE >23:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_INTERRUPT.c
-29 intentry CODE >23:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_INTERRUPT.c
-2D intentry CODE >23:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_INTERRUPT.c
-35 intentry CODE >24:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_INTERRUPT.c
-39 intentry CODE >25:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_INTERRUPT.c
-3A intentry CODE >26:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_INTERRUPT.c
-3F intentry CODE >26:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_INTERRUPT.c
-43 intentry CODE >26:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_INTERRUPT.c
-4B intentry CODE >27:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_INTERRUPT.c
-4E intentry CODE >27:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_INTERRUPT.c
-50 intentry CODE >27:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_INTERRUPT.c
-54 intentry CODE >28:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_INTERRUPT.c
-57 intentry CODE >29:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_INTERRUPT.c
-5A intentry CODE >30:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_INTERRUPT.c
-5D intentry CODE >33:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_INTERRUPT.c
-61 intentry CODE >34:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_INTERRUPT.c
-64 intentry CODE >34:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_INTERRUPT.c
-66 intentry CODE >34:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_INTERRUPT.c
-6A intentry CODE >35:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_INTERRUPT.c
-6F intentry CODE >35:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_INTERRUPT.c
-73 intentry CODE >35:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_INTERRUPT.c
-7C intentry CODE >35:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_INTERRUPT.c
-80 intentry CODE >35:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_INTERRUPT.c
-88 intentry CODE >36:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_INTERRUPT.c
-8A intentry CODE >37:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_INTERRUPT.c
-90 intentry CODE >37:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_INTERRUPT.c
-94 intentry CODE >37:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_INTERRUPT.c
-9C intentry CODE >38:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_INTERRUPT.c
-A0 intentry CODE >43:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_INTERRUPT.c
-A5 intentry CODE >43:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_INTERRUPT.c
-A9 intentry CODE >43:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_INTERRUPT.c
-B2 intentry CODE >43:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_INTERRUPT.c
-B6 intentry CODE >43:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_INTERRUPT.c
-BE intentry CODE >44:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_INTERRUPT.c
-C1 intentry CODE >45:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_INTERRUPT.c
-C4 intentry CODE >46:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_INTERRUPT.c
-C5 intentry CODE >47:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_INTERRUPT.c
-C9 intentry CODE >51:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_INTERRUPT.c
-C9 intentry CODE >52:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_INTERRUPT.c
-CE intentry CODE >53:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_INTERRUPT.c
-CF intentry CODE >54:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_INTERRUPT.c
-D2 intentry CODE >55:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_INTERRUPT.c
-D7 intentry CODE >56:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_INTERRUPT.c
-DC intentry CODE >57:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_INTERRUPT.c
-DE intentry CODE >58:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_INTERRUPT.c
-E5 intentry CODE >59:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_INTERRUPT.c
-E7 intentry CODE >60:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_INTERRUPT.c
-E8 intentry CODE >61:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_INTERRUPT.c
-EA intentry CODE >64:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_INTERRUPT.c
-F5 maintext CODE >16:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_Main.c
-F5 maintext CODE >18:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_Main.c
-F8 maintext CODE >19:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_Main.c
-FA maintext CODE >21:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_Main.c
-FD maintext CODE >22:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_Main.c
-FF maintext CODE >24:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_Main.c
-101 maintext CODE >25:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_Main.c
-104 maintext CODE >26:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_Main.c
-106 maintext CODE >27:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_Main.c
-109 maintext CODE >28:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_Main.c
-10C maintext CODE >32:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_Main.c
+6 intentry CODE >18:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_INTERRUPT.c
+B intentry CODE >19:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_INTERRUPT.c
+C intentry CODE >20:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_INTERRUPT.c
+D intentry CODE >21:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_INTERRUPT.c
+E intentry CODE >22:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_INTERRUPT.c
+13 intentry CODE >23:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_INTERRUPT.c
+18 intentry CODE >24:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_INTERRUPT.c
+1D intentry CODE >24:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_INTERRUPT.c
+21 intentry CODE >24:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_INTERRUPT.c
+2A intentry CODE >24:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_INTERRUPT.c
+2E intentry CODE >24:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_INTERRUPT.c
+37 intentry CODE >25:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_INTERRUPT.c
+3B intentry CODE >26:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_INTERRUPT.c
+3C intentry CODE >28:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_INTERRUPT.c
+41 intentry CODE >28:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_INTERRUPT.c
+45 intentry CODE >28:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_INTERRUPT.c
+4E intentry CODE >29:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_INTERRUPT.c
+50 intentry CODE >29:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_INTERRUPT.c
+54 intentry CODE >30:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_INTERRUPT.c
+58 intentry CODE >31:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_INTERRUPT.c
+5B intentry CODE >32:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_INTERRUPT.c
+5D intentry CODE >36:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_INTERRUPT.c
+61 intentry CODE >37:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_INTERRUPT.c
+63 intentry CODE >37:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_INTERRUPT.c
+67 intentry CODE >38:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_INTERRUPT.c
+6C intentry CODE >38:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_INTERRUPT.c
+70 intentry CODE >38:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_INTERRUPT.c
+79 intentry CODE >38:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_INTERRUPT.c
+7D intentry CODE >38:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_INTERRUPT.c
+86 intentry CODE >39:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_INTERRUPT.c
+88 intentry CODE >40:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_INTERRUPT.c
+8E intentry CODE >40:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_INTERRUPT.c
+92 intentry CODE >40:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_INTERRUPT.c
+9B intentry CODE >41:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_INTERRUPT.c
+9F intentry CODE >46:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_INTERRUPT.c
+A4 intentry CODE >46:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_INTERRUPT.c
+A8 intentry CODE >46:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_INTERRUPT.c
+B1 intentry CODE >46:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_INTERRUPT.c
+B5 intentry CODE >46:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_INTERRUPT.c
+BE intentry CODE >47:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_INTERRUPT.c
+C4 intentry CODE >48:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_INTERRUPT.c
+C7 intentry CODE >49:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_INTERRUPT.c
+CA intentry CODE >50:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_INTERRUPT.c
+CB intentry CODE >51:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_INTERRUPT.c
+CC intentry CODE >52:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_INTERRUPT.c
+D2 intentry CODE >53:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_INTERRUPT.c
+D3 intentry CODE >55:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_INTERRUPT.c
+D9 intentry CODE >56:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_INTERRUPT.c
+DD intentry CODE >57:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_INTERRUPT.c
+E2 intentry CODE >61:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_INTERRUPT.c
+E2 intentry CODE >62:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_INTERRUPT.c
+E7 intentry CODE >64:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_INTERRUPT.c
+E8 intentry CODE >65:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_INTERRUPT.c
+EB intentry CODE >67:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_INTERRUPT.c
+F0 intentry CODE >68:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_INTERRUPT.c
+F1 intentry CODE >69:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_INTERRUPT.c
+F7 intentry CODE >70:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_INTERRUPT.c
+F9 intentry CODE >71:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_INTERRUPT.c
+100 intentry CODE >72:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_INTERRUPT.c
+102 intentry CODE >74:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_INTERRUPT.c
+105 intentry CODE >76:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_INTERRUPT.c
+2CA text3 CODE >12:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_Module.c
+2CA text3 CODE >13:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_Module.c
+2CB text3 CODE >14:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_Module.c
+2CC text3 CODE >16:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_Module.c
+2CD text3 CODE >19:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_Module.c
+2D6 text3 CODE >20:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_Module.c
+2DD text3 CODE >21:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_Module.c
+2E1 text3 CODE >22:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_Module.c
+2E5 text3 CODE >23:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_Module.c
+2ED text3 CODE >24:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_Module.c
+2EF text3 CODE >27:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_Module.c
+2F3 text3 CODE >28:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_Module.c
+2FF text3 CODE >29:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_Module.c
+301 text3 CODE >29:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_Module.c
+306 text3 CODE >34:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_Module.c
+30F text3 CODE >35:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_Module.c
+316 text3 CODE >36:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_Module.c
+31A text3 CODE >37:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_Module.c
+31E text3 CODE >38:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_Module.c
+326 text3 CODE >40:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_Module.c
+32B text3 CODE >41:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_Module.c
+32D text3 CODE >41:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_Module.c
+331 text3 CODE >42:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_Module.c
+332 text3 CODE >43:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_Module.c
+333 text3 CODE >45:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_Module.c
+333 text3 CODE >46:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_Module.c
+334 text3 CODE >47:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_Module.c
+338 text3 CODE >49:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_Module.c
+341 text3 CODE >50:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_Module.c
+348 text3 CODE >51:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_Module.c
+350 text3 CODE >52:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_Module.c
+352 text3 CODE >53:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_Module.c
+354 text3 CODE >54:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_Module.c
+356 text3 CODE >55:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_Module.c
+357 text3 CODE >57:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_Module.c
+35B text3 CODE >58:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_Module.c
+360 text3 CODE >59:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_Module.c
+362 text3 CODE >59:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_Module.c
+366 text3 CODE >60:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_Module.c
+36A text3 CODE >62:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_Module.c
+36D text3 CODE >63:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_Module.c
+36F text3 CODE >64:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_Module.c
+371 text3 CODE >66:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_Module.c
+372 text3 CODE >67:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_Module.c
+374 text3 CODE >70:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_Module.c
+374 text3 CODE >71:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_Module.c
+375 text3 CODE >73:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_Module.c
+37E text3 CODE >74:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_Module.c
+385 text3 CODE >75:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_Module.c
+387 text3 CODE >76:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_Module.c
+38B text3 CODE >77:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_Module.c
+395 text3 CODE >77:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_Module.c
+399 text3 CODE >77:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_Module.c
+39D text3 CODE >78:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_Module.c
+3A3 text3 CODE >79:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_Module.c
+3A4 text3 CODE >80:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_Module.c
+3A9 text3 CODE >83:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_Module.c
+3AD text3 CODE >84:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_Module.c
+3B2 text3 CODE >85:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_Module.c
+3B4 text3 CODE >85:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_Module.c
+3B8 text3 CODE >86:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_Module.c
+3B9 text3 CODE >87:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_Module.c
+3BA text3 CODE >91:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_Module.c
+3C3 text3 CODE >92:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_Module.c
+3CA text3 CODE >93:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_Module.c
+3D2 text3 CODE >94:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_Module.c
+3D4 text3 CODE >95:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_Module.c
+3D6 text3 CODE >96:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_Module.c
+3D8 text3 CODE >97:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_Module.c
+3D9 text3 CODE >98:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_Module.c
+3DB text3 CODE >101:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_Module.c
+3DF text3 CODE >102:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_Module.c
+3EB text3 CODE >103:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_Module.c
+3ED text3 CODE >103:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_Module.c
+3F1 text3 CODE >104:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_Module.c
+3F2 text3 CODE >105:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_Module.c
+3F3 text3 CODE >109:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_Module.c
+3FC text3 CODE >110:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_Module.c
+403 text3 CODE >111:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_Module.c
+405 text3 CODE >112:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_Module.c
+409 text3 CODE >113:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_Module.c
+411 text3 CODE >114:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_Module.c
+41B text3 CODE >114:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_Module.c
+41F text3 CODE >114:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_Module.c
+423 text3 CODE >115:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_Module.c
+429 text3 CODE >116:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_Module.c
+42A text3 CODE >117:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_Module.c
+430 text3 CODE >121:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_Module.c
+434 text3 CODE >122:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_Module.c
+440 text3 CODE >123:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_Module.c
+442 text3 CODE >123:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_Module.c
+446 text3 CODE >124:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_Module.c
+447 text3 CODE >125:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_Module.c
+448 text3 CODE >129:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_Module.c
+44E text3 CODE >129:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_Module.c
+453 text3 CODE >129:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_Module.c
+456 text3 CODE >129:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_Module.c
+459 text3 CODE >129:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_Module.c
+45C text3 CODE >129:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_Module.c
+45F text3 CODE >129:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_Module.c
+462 text3 CODE >129:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_Module.c
+465 text3 CODE >130:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_Module.c
+11B text1 CODE >12:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_Module.c
+11B text1 CODE >13:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_Module.c
+11C text1 CODE >14:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_Module.c
+11E text1 CODE >16:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_Module.c
+11F text1 CODE >19:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_Module.c
+128 text1 CODE >20:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_Module.c
+12F text1 CODE >21:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_Module.c
+133 text1 CODE >22:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_Module.c
+137 text1 CODE >23:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_Module.c
+141 text1 CODE >24:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_Module.c
+143 text1 CODE >27:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_Module.c
+147 text1 CODE >28:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_Module.c
+153 text1 CODE >29:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_Module.c
+155 text1 CODE >29:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_Module.c
+15A text1 CODE >34:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_Module.c
+163 text1 CODE >35:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_Module.c
+16A text1 CODE >36:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_Module.c
+16E text1 CODE >37:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_Module.c
+172 text1 CODE >38:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_Module.c
+17C text1 CODE >40:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_Module.c
+181 text1 CODE >41:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_Module.c
+183 text1 CODE >41:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_Module.c
+187 text1 CODE >42:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_Module.c
+188 text1 CODE >43:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_Module.c
+189 text1 CODE >45:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_Module.c
+189 text1 CODE >46:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_Module.c
+18A text1 CODE >47:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_Module.c
+18E text1 CODE >49:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_Module.c
+197 text1 CODE >50:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_Module.c
+19E text1 CODE >51:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_Module.c
+1A8 text1 CODE >52:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_Module.c
+1AA text1 CODE >53:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_Module.c
+1AC text1 CODE >54:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_Module.c
+1AE text1 CODE >55:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_Module.c
+1AF text1 CODE >57:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_Module.c
+1B4 text1 CODE >58:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_Module.c
+1B8 text1 CODE >59:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_Module.c
+1BA text1 CODE >59:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_Module.c
+1BE text1 CODE >60:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_Module.c
+1C2 text1 CODE >62:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_Module.c
+1C5 text1 CODE >63:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_Module.c
+1C7 text1 CODE >64:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_Module.c
+1C9 text1 CODE >66:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_Module.c
+1CA text1 CODE >67:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_Module.c
+1CC text1 CODE >70:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_Module.c
+1CC text1 CODE >71:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_Module.c
+1CD text1 CODE >73:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_Module.c
+1D6 text1 CODE >74:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_Module.c
+1DD text1 CODE >75:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_Module.c
+1DF text1 CODE >76:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_Module.c
+1E3 text1 CODE >77:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_Module.c
+1F0 text1 CODE >77:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_Module.c
+1F6 text1 CODE >77:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_Module.c
+1FA text1 CODE >78:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_Module.c
+200 text1 CODE >79:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_Module.c
+201 text1 CODE >80:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_Module.c
+206 text1 CODE >83:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_Module.c
+20A text1 CODE >84:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_Module.c
+20E text1 CODE >85:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_Module.c
+210 text1 CODE >85:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_Module.c
+214 text1 CODE >86:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_Module.c
+215 text1 CODE >87:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_Module.c
+216 text1 CODE >91:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_Module.c
+21F text1 CODE >92:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_Module.c
+226 text1 CODE >93:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_Module.c
+230 text1 CODE >94:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_Module.c
+232 text1 CODE >95:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_Module.c
+234 text1 CODE >96:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_Module.c
+236 text1 CODE >97:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_Module.c
+237 text1 CODE >98:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_Module.c
+239 text1 CODE >101:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_Module.c
+23D text1 CODE >102:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_Module.c
+249 text1 CODE >103:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_Module.c
+24B text1 CODE >103:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_Module.c
+24F text1 CODE >104:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_Module.c
+250 text1 CODE >105:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_Module.c
+251 text1 CODE >109:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_Module.c
+25A text1 CODE >110:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_Module.c
+261 text1 CODE >111:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_Module.c
+263 text1 CODE >112:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_Module.c
+267 text1 CODE >113:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_Module.c
+271 text1 CODE >114:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_Module.c
+27E text1 CODE >114:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_Module.c
+284 text1 CODE >114:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_Module.c
+288 text1 CODE >115:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_Module.c
+28E text1 CODE >116:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_Module.c
+28F text1 CODE >117:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_Module.c
+295 text1 CODE >121:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_Module.c
+299 text1 CODE >122:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_Module.c
+2A5 text1 CODE >123:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_Module.c
+2A7 text1 CODE >123:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_Module.c
+2AB text1 CODE >124:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_Module.c
+2AC text1 CODE >125:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_Module.c
+2AD text1 CODE >129:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_Module.c
+2B2 text1 CODE >129:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_Module.c
+2B7 text1 CODE >129:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_Module.c
+2BA text1 CODE >129:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_Module.c
+2BD text1 CODE >129:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_Module.c
+2C0 text1 CODE >129:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_Module.c
+2C3 text1 CODE >129:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_Module.c
+2C6 text1 CODE >129:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_Module.c
+2C9 text1 CODE >130:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_Module.c
+466 maintext CODE >25:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_Main.c
+466 maintext CODE >27:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_Main.c
+469 maintext CODE >28:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_Main.c
+46B maintext CODE >30:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_Main.c
+46E maintext CODE >31:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_Main.c
+470 maintext CODE >33:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_Main.c
+472 maintext CODE >34:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_Main.c
+475 maintext CODE >35:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_Main.c
+477 maintext CODE >36:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_Main.c
+47A maintext CODE >37:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_Main.c
+47D maintext CODE >39:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_Main.c
+47F maintext CODE >40:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_Main.c
+482 maintext CODE >45:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_Main.c
+4A0 inittext CODE >1201:C:\Users\owata\AppData\Local\Temp\xcAs4dnk.s
+4A0 inittext CODE >1202:C:\Users\owata\AppData\Local\Temp\xcAs4dnk.s
+4A1 inittext CODE >1203:C:\Users\owata\AppData\Local\Temp\xcAs4dnk.s
+4A1 inittext CODE >1204:C:\Users\owata\AppData\Local\Temp\xcAs4dnk.s
+4A2 inittext CODE >1205:C:\Users\owata\AppData\Local\Temp\xcAs4dnk.s
+4A3 inittext CODE >1206:C:\Users\owata\AppData\Local\Temp\xcAs4dnk.s
+4A4 inittext CODE >1207:C:\Users\owata\AppData\Local\Temp\xcAs4dnk.s
+4A5 inittext CODE >1208:C:\Users\owata\AppData\Local\Temp\xcAs4dnk.s
 # %SYMTAB Section
 # An enumeration of all symbols in the program.
 # The beginning of the section is indicated by %SYMTAB.
@@ -188,50 +421,56 @@ FF maintext CODE >24:E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_Main.c
 # is the name of the object file in which the symbol was defined.
 %SYMTAB
 ___latbits 0 0 ABS 0 - dist/default/production\Project_ATCS.production.o
-__Hspace_0 10F 0 ABS 0 - -
-__Hspace_1 78 0 ABS 0 - -
+__LdataBANK0 0 0 ABS 0 dataBANK0 -
+__Hspace_0 4AB 0 ABS 0 - -
+__Hspace_1 7B 0 ABS 0 - -
 __Hspace_2 0 0 ABS 0 - -
 __Hspace_3 0 0 ABS 0 - -
 __Hspace_4 10010 0 ABS 0 - -
+__HidataBANK0 0 0 ABS 0 idataBANK0 -
 __Heeprom_data 0 0 EEDATA 3 eeprom_data -
-_COUNTER 70 0 COMMON 1 bssCOMMON dist/default/production\Project_ATCS.production.o
+_COUNTER 79 0 COMMON 1 bssCOMMON dist/default/production\Project_ATCS.production.o
 __Hstrings 0 0 ABS 0 strings -
-_DATA 72 0 COMMON 1 bssCOMMON dist/default/production\Project_ATCS.production.o
+_DATA 7A 0 COMMON 1 bssCOMMON dist/default/production\Project_ATCS.production.o
 _PIE1 91 0 ABS 0 - dist/default/production\Project_ATCS.production.o
 _PIE2 92 0 ABS 0 - dist/default/production\Project_ATCS.production.o
 _PIR1 11 0 ABS 0 - dist/default/production\Project_ATCS.production.o
-___sp 0 0 STACK 2 stack C:\Users\owata\AppData\Local\Temp\xcAs3slg.o
-_main 1EA 0 CODE 0 maintext dist/default/production\Project_ATCS.production.o
+_STCR 78 0 COMMON 1 bssCOMMON dist/default/production\Project_ATCS.production.o
+___sp 0 0 STACK 2 stack C:\Users\owata\AppData\Local\Temp\xcAs4dnk.o
+_main 8CC 0 CODE 0 maintext dist/default/production\Project_ATCS.production.o
 btemp 7E 0 ABS 0 - dist/default/production\Project_ATCS.production.o
-start 1D8 0 CODE 0 init C:\Users\owata\AppData\Local\Temp\xcAs3slg.o
+start 20E 0 CODE 0 init C:\Users\owata\AppData\Local\Temp\xcAs4dnk.o
+i1EEPROM_SELECT@EE_SAVE 72 0 COMMON 1 cstackCOMMON dist/default/production\Project_ATCS.production.o
 __HbssCOMMON 0 0 ABS 0 bssCOMMON -
+__LidataBANK0 0 0 ABS 0 idataBANK0 -
+i1EEPROM_SELECT@COUNT 74 0 COMMON 1 cstackCOMMON dist/default/production\Project_ATCS.production.o
 __Hpowerup 0 0 CODE 0 powerup -
-intlevel0 0 0 ENTRY 0 functab C:\Users\owata\AppData\Local\Temp\xcAs3slg.o
-intlevel1 0 0 ENTRY 0 functab C:\Users\owata\AppData\Local\Temp\xcAs3slg.o
-intlevel2 0 0 ENTRY 0 functab C:\Users\owata\AppData\Local\Temp\xcAs3slg.o
-intlevel3 0 0 ENTRY 0 functab C:\Users\owata\AppData\Local\Temp\xcAs3slg.o
-intlevel4 0 0 ENTRY 0 functab C:\Users\owata\AppData\Local\Temp\xcAs3slg.o
-intlevel5 0 0 ENTRY 0 functab C:\Users\owata\AppData\Local\Temp\xcAs3slg.o
+intlevel0 0 0 ENTRY 0 functab C:\Users\owata\AppData\Local\Temp\xcAs4dnk.o
+intlevel1 0 0 ENTRY 0 functab C:\Users\owata\AppData\Local\Temp\xcAs4dnk.o
+intlevel2 0 0 ENTRY 0 functab C:\Users\owata\AppData\Local\Temp\xcAs4dnk.o
+intlevel3 0 0 ENTRY 0 functab C:\Users\owata\AppData\Local\Temp\xcAs4dnk.o
+intlevel4 0 0 ENTRY 0 functab C:\Users\owata\AppData\Local\Temp\xcAs4dnk.o
+intlevel5 0 0 ENTRY 0 functab C:\Users\owata\AppData\Local\Temp\xcAs4dnk.o
 __LbssCOMMON 0 0 ABS 0 bssCOMMON -
 wtemp0 7E 0 ABS 0 - dist/default/production\Project_ATCS.production.o
 __Hfunctab 0 0 ENTRY 0 functab -
 __Hclrtext 0 0 ABS 0 clrtext -
+EEPROM_SELECT@EE_SAVE 32 0 BANK0 1 cstackBANK0 dist/default/production\Project_ATCS.production.o
 _ANSELA 18C 0 ABS 0 - dist/default/production\Project_ATCS.production.o
 _EECON1bits 195 0 ABS 0 - dist/default/production\Project_ATCS.production.o
 _CCPR1H 292 0 ABS 0 - dist/default/production\Project_ATCS.production.o
 _CCPR1L 291 0 ABS 0 - dist/default/production\Project_ATCS.production.o
-_EEADRH 192 0 ABS 0 - dist/default/production\Project_ATCS.production.o
-_EEADRL 191 0 ABS 0 - dist/default/production\Project_ATCS.production.o
+__end_of_EEPROM_SELECT 594 0 CODE 0 text1 dist/default/production\Project_ATCS.production.o
 _EECON1 195 0 ABS 0 - dist/default/production\Project_ATCS.production.o
 _EECON2 196 0 ABS 0 - dist/default/production\Project_ATCS.production.o
-_EEDATL 193 0 ABS 0 - dist/default/production\Project_ATCS.production.o
 __Lmaintext 0 0 ABS 0 maintext -
 _INTCON B 0 ABS 0 - dist/default/production\Project_ATCS.production.o
-___stackhi 0 0 ABS 0 - C:\Users\owata\AppData\Local\Temp\xcAs3slg.o
-___stacklo 0 0 ABS 0 - C:\Users\owata\AppData\Local\Temp\xcAs3slg.o
-start_initialization 1DA 0 CODE 0 cinit dist/default/production\Project_ATCS.production.o
+___stackhi 0 0 ABS 0 - C:\Users\owata\AppData\Local\Temp\xcAs4dnk.o
+___stacklo 0 0 ABS 0 - C:\Users\owata\AppData\Local\Temp\xcAs4dnk.o
+start_initialization 210 0 CODE 0 cinit dist/default/production\Project_ATCS.production.o
 _OSCCON 99 0 ABS 0 - dist/default/production\Project_ATCS.production.o
-___int_sp 0 0 STACK 2 stack C:\Users\owata\AppData\Local\Temp\xcAs3slg.o
+__pcstackBANK0 30 0 BANK0 1 cstackBANK0 dist/default/production\Project_ATCS.production.o
+___int_sp 0 0 STACK 2 stack C:\Users\owata\AppData\Local\Temp\xcAs4dnk.o
 __Hbank0 0 0 ABS 0 bank0 -
 __Hbank1 0 0 ABS 0 bank1 -
 __Hbank2 0 0 BANK2 1 bank2 -
@@ -242,7 +481,7 @@ __Hbank6 0 0 BANK6 1 bank6 -
 __Hbank7 0 0 BANK7 1 bank7 -
 __Hbank8 0 0 BANK8 1 bank8 -
 __Hbank9 0 0 BANK9 1 bank9 -
-__Hcinit 1EA 0 CODE 0 cinit -
+__Hcinit 236 0 CODE 0 cinit -
 __Hidloc 10008 0 IDLOC 5 idloc -
 __Hsfr10 0 0 ABS 0 sfr10 -
 __Hsfr11 0 0 ABS 0 sfr11 -
@@ -303,7 +542,7 @@ __Lbank6 0 0 BANK6 1 bank6 -
 __Lbank7 0 0 BANK7 1 bank7 -
 __Lbank8 0 0 BANK8 1 bank8 -
 __Lbank9 0 0 BANK9 1 bank9 -
-__Lcinit 1DA 0 CODE 0 cinit -
+__Lcinit 210 0 CODE 0 cinit -
 __Lidloc 0 0 IDLOC 5 idloc -
 __Lsfr10 0 0 ABS 0 sfr10 -
 __Lsfr11 0 0 ABS 0 sfr11 -
@@ -328,11 +567,13 @@ __Lsfr29 0 0 ABS 0 sfr29 -
 __Lsfr30 0 0 ABS 0 sfr30 -
 __Lsfr31 0 0 ABS 0 sfr31 -
 __Lstack 0 0 STACK 2 stack -
+init_ram 940 0 CODE 0 inittext dist/default/production\Project_ATCS.production.o
+__Linittext 0 0 ABS 0 inittext -
 _INTCONbits B 0 ABS 0 - dist/default/production\Project_ATCS.production.o
 __Habs1 0 0 ABS 0 abs1 -
 __Hcode 0 0 ABS 0 code -
 __Hheap 0 0 HEAP 7 heap -
-__Hinit 1D8 0 CODE 0 init -
+__Hinit 20E 0 CODE 0 init -
 __Hsfr0 0 0 ABS 0 sfr0 -
 __Hsfr1 0 0 ABS 0 sfr1 -
 __Hsfr2 0 0 ABS 0 sfr2 -
@@ -347,7 +588,7 @@ __Htext 0 0 ABS 0 text -
 __Labs1 0 0 ABS 0 abs1 -
 __Lcode 0 0 ABS 0 code -
 __Lheap 0 0 HEAP 7 heap -
-__Linit 1D8 0 CODE 0 init -
+__Linit 20E 0 CODE 0 init -
 __Lsfr0 0 0 ABS 0 sfr0 -
 __Lsfr1 0 0 ABS 0 sfr1 -
 __Lsfr2 0 0 ABS 0 sfr2 -
@@ -359,17 +600,25 @@ __Lsfr7 0 0 ABS 0 sfr7 -
 __Lsfr8 0 0 ABS 0 sfr8 -
 __Lsfr9 0 0 ABS 0 sfr9 -
 __Ltext 0 0 ABS 0 text -
+__pstringtext1 928 0 STRCODE 0 stringtext1 dist/default/production\Project_ATCS.production.o
+__pstringtext2 94C 0 STRCODE 0 stringtext2 dist/default/production\Project_ATCS.production.o
+__LcstackBANK0 0 0 ABS 0 cstackBANK0 -
 int$flags 7E 0 ABS 0 - dist/default/production\Project_ATCS.production.o
 __HcstackCOMMON 0 0 ABS 0 cstackCOMMON -
-__S0 10F 0 ABS 0 - -
-__S1 78 0 ABS 0 - -
+__S0 4AB 0 ABS 0 - -
+__S1 7B 0 ABS 0 - -
 __S3 0 0 ABS 0 - -
 _isr 8 0 CODE 0 intentry dist/default/production\Project_ATCS.production.o
-_EE_STATE 74 0 COMMON 1 bssCOMMON dist/default/production\Project_ATCS.production.o
-_COM_FLAG 73 0 COMMON 1 bssCOMMON dist/default/production\Project_ATCS.production.o
-__end_of_isr 1D8 0 CODE 0 intentry dist/default/production\Project_ATCS.production.o
+_EE_STORE 20 0 BANK0 1 dataBANK0 dist/default/production\Project_ATCS.production.o
+_COM_FLAG 35 0 BANK0 1 bssBANK0 dist/default/production\Project_ATCS.production.o
+__end_of_isr 20E 0 CODE 0 intentry dist/default/production\Project_ATCS.production.o
 __Lintentry 8 0 CODE 0 intentry -
-reset_vec 0 0 CODE 0 reset_vec C:\Users\owata\AppData\Local\Temp\xcAs3slg.o
+reset_vec 0 0 CODE 0 reset_vec C:\Users\owata\AppData\Local\Temp\xcAs4dnk.o
+__pdataBANK0 20 0 BANK0 1 dataBANK0 dist/default/production\Project_ATCS.production.o
+__LbssBANK0 0 0 ABS 0 bssBANK0 -
+__Lstringtext1 0 0 ABS 0 stringtext1 -
+__Lstringtext2 0 0 ABS 0 stringtext2 -
+EEPROM_SELECT@COUNT 34 0 BANK0 1 cstackBANK0 dist/default/production\Project_ATCS.production.o
 __Lbank10 0 0 BANK10 1 bank10 -
 __Lbank11 0 0 BANK11 1 bank11 -
 __Lbank12 0 0 BANK12 1 bank12 -
@@ -392,38 +641,53 @@ __Lbank28 0 0 BANK28 1 bank28 -
 __Lbank29 0 0 BANK29 1 bank29 -
 __Lbank30 0 0 BANK30 1 bank30 -
 __Lbank31 0 0 BANK31 1 bank31 -
-__pmaintext 1EA 0 CODE 0 maintext dist/default/production\Project_ATCS.production.o
+__pmaintext 8CC 0 CODE 0 maintext dist/default/production\Project_ATCS.production.o
 __Lbigram 0 0 ABS 0 bigram -
 __Lcommon 0 0 ABS 0 common -
 __Lconfig 0 0 CONFIG 4 config -
+__Hinittext 0 0 ABS 0 inittext -
 __Lspace_0 0 0 ABS 0 - -
 __Lspace_1 0 0 ABS 0 - -
 __Lspace_2 0 0 ABS 0 - -
 __Lspace_3 0 0 ABS 0 - -
 __Lspace_4 0 0 ABS 0 - -
-__pbssCOMMON 70 0 COMMON 1 bssCOMMON dist/default/production\Project_ATCS.production.o
+__pbssCOMMON 78 0 COMMON 1 bssCOMMON dist/default/production\Project_ATCS.production.o
+__HcstackBANK0 0 0 ABS 0 cstackBANK0 -
 _PIR1bits 11 0 ABS 0 - dist/default/production\Project_ATCS.production.o
 _PIR2bits 12 0 ABS 0 - dist/default/production\Project_ATCS.production.o
-__Lend_init 1D8 0 CODE 0 end_init -
+__Lend_init 20E 0 CODE 0 end_init -
 __LcstackCOMMON 0 0 ABS 0 cstackCOMMON -
-end_of_initialization 1E4 0 CODE 0 cinit dist/default/production\Project_ATCS.production.o
-__Hintentry 1D8 0 CODE 0 intentry -
+end_of_initialization 230 0 CODE 0 cinit dist/default/production\Project_ATCS.production.o
+__Hintentry 20E 0 CODE 0 intentry -
 isr@COUNT 76 0 COMMON 1 cstackCOMMON dist/default/production\Project_ATCS.production.o
+__end_of_DCC_ADRS 956 0 STRCODE 0 stringtext2 dist/default/production\Project_ATCS.production.o
+__end_of_DCC_DATA 940 0 STRCODE 0 stringtext1 dist/default/production\Project_ATCS.production.o
 __Lstrings 0 0 ABS 0 strings -
 __Hreset_vec 2 0 CODE 0 reset_vec -
+__HbssBANK0 0 0 ABS 0 bssBANK0 -
+__ptext1 236 0 CODE 0 text1 dist/default/production\Project_ATCS.production.o
+__ptext3 594 0 CODE 0 text3 dist/default/production\Project_ATCS.production.o
+__end_ofi1_EEPROM_SELECT 8CC 0 CODE 0 text3 dist/default/production\Project_ATCS.production.o
 __Lpowerup 0 0 CODE 0 powerup -
 __Leeprom_data 0 0 EEDATA 3 eeprom_data -
 __Lreset_vec 0 0 CODE 0 reset_vec -
-___heap_hi 0 0 ABS 0 - C:\Users\owata\AppData\Local\Temp\xcAs3slg.o
-___heap_lo 0 0 ABS 0 - C:\Users\owata\AppData\Local\Temp\xcAs3slg.o
-__end_of__initialization 1E4 0 CODE 0 cinit dist/default/production\Project_ATCS.production.o
+__Hstringtext1 0 0 ABS 0 stringtext1 -
+__Hstringtext2 0 0 ABS 0 stringtext2 -
+___heap_hi 0 0 ABS 0 - C:\Users\owata\AppData\Local\Temp\xcAs4dnk.o
+___heap_lo 0 0 ABS 0 - C:\Users\owata\AppData\Local\Temp\xcAs4dnk.o
+__end_of__initialization 230 0 CODE 0 cinit dist/default/production\Project_ATCS.production.o
 __Lfunctab 0 0 ENTRY 0 functab -
+__pidataBANK0 908 0 CODE 0 idataBANK0 dist/default/production\Project_ATCS.production.o
 __Lclrtext 0 0 ABS 0 clrtext -
-__pcstackCOMMON 75 0 COMMON 1 cstackCOMMON dist/default/production\Project_ATCS.production.o
-__Hend_init 1DA 0 CODE 0 end_init -
-__end_of_main 21E 0 CODE 0 maintext dist/default/production\Project_ATCS.production.o
+__pcstackCOMMON 70 0 COMMON 1 cstackCOMMON dist/default/production\Project_ATCS.production.o
+i1_EEPROM_SELECT 594 0 CODE 0 text3 dist/default/production\Project_ATCS.production.o
+__Hend_init 210 0 CODE 0 end_init -
+__end_of_main 908 0 CODE 0 maintext dist/default/production\Project_ATCS.production.o
+_EEADR 191 0 ABS 0 - dist/default/production\Project_ATCS.production.o
+_EEDAT 193 0 ABS 0 - dist/default/production\Project_ATCS.production.o
 _PORTA C 0 ABS 0 - dist/default/production\Project_ATCS.production.o
 _T1CON 18 0 ABS 0 - dist/default/production\Project_ATCS.production.o
+_STACK A0 0 ABS 1 - dist/default/production\Project_ATCS.production.o
 _TMR1H 17 0 ABS 0 - dist/default/production\Project_ATCS.production.o
 _TMR1L 16 0 ABS 0 - dist/default/production\Project_ATCS.production.o
 _TRISA 8C 0 ABS 0 - dist/default/production\Project_ATCS.production.o
@@ -431,7 +695,10 @@ __Hram 0 0 ABS 0 ram -
 __Lram 0 0 ABS 0 ram -
 _CCP1CON 293 0 ABS 0 - dist/default/production\Project_ATCS.production.o
 __pintentry 8 0 CODE 0 intentry dist/default/production\Project_ATCS.production.o
-__initialization 1DA 0 CODE 0 cinit dist/default/production\Project_ATCS.production.o
+__HdataBANK0 0 0 ABS 0 dataBANK0 -
+_EEPROM_SELECT 236 0 CODE 0 text1 dist/default/production\Project_ATCS.production.o
+__initialization 210 0 CODE 0 cinit dist/default/production\Project_ATCS.production.o
+__pbssBANK0 35 0 BANK0 1 bssBANK0 dist/default/production\Project_ATCS.production.o
 # %SPLITSTAB Section
 # This section enumerates all the psect splits performed by the assembler.
 # The beginning of the section is indicated by %SPLITSTAB.
@@ -448,6 +715,7 @@ __initialization 1DA 0 CODE 0 cinit dist/default/production\Project_ATCS.product
 # otherwise name will be "-".  The <space> number is in decimal.
 # <address> and <size> are in byte units as unqaulified hexadecimal
 %DABS
+_STACK 1 A0 20
 - 1 7E 2
 # %SEGMENTS Section
 # This sections enumerates the segments of the program.  Each segment
@@ -457,9 +725,13 @@ __initialization 1DA 0 CODE 0 cinit dist/default/production\Project_ATCS.product
 # and size are in units of delta. The file address is in units of bytes.
 # All other numeric quantities are in decimal.
 %SEGMENTS
-intentry 0 4 8 10B 2
+cstackCOMMON 1 70 70 B 1
+inittext 0 4A0 940 6 2
+stringtext1 0 494 928 C 2
+stringtext2 0 4A6 94C 5 2
+intentry 0 4 8 490 2
 reset_vec 0 0 0 1 2
-bssCOMMON 1 70 70 8 1
+dataBANK0 1 20 20 16 1
 # %NOTES Section
 # This section contains data of all the note-psects.  The beginning of the section
 # is indicated by %NOTES. The first line indicates the name and decimal

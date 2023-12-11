@@ -14,7 +14,6 @@
 
 
 
-
 # 1 "C:/Program Files/MPLAB_X/packs/Microchip/PIC12-16F1xxx_DFP/1.3.90/xc8\\pic\\include\\xc.h" 1 3
 # 18 "C:/Program Files/MPLAB_X/packs/Microchip/PIC12-16F1xxx_DFP/1.3.90/xc8\\pic\\include\\xc.h" 3
 extern const char __xc8_OPTIM_SPEED;
@@ -3452,7 +3451,7 @@ extern __bank0 unsigned char __resetbits;
 extern __bank0 __bit __powerdown;
 extern __bank0 __bit __timeout;
 # 29 "C:/Program Files/MPLAB_X/packs/Microchip/PIC12-16F1xxx_DFP/1.3.90/xc8\\pic\\include\\xc.h" 2 3
-# 9 "Project_ATCS_Decorder_INTERRUPT.c" 2
+# 8 "Project_ATCS_Decorder_INTERRUPT.c" 2
 
 # 1 "./Project_ATCS_SETUP.h" 1
 
@@ -3478,13 +3477,14 @@ extern __bank0 __bit __timeout;
 #pragma config LVP = OFF
 
 typedef enum EE_SR{
-    EE_READ = 0,
+    EE_READ_S = 0,
+    EE_READ_M,
     EE_WRITE_UID,
     EE_VERIFY_UID,
     EE_WRITE_ROM,
     EE_VERIFY_ROM,
     EE_NEXT
-}EE_STATE_V;
+}EE_SR;
 
 typedef unsigned int UnINT;
 typedef unsigned char UnCHR;
@@ -3493,19 +3493,32 @@ typedef unsigned char UnCHR;
 extern UnCHR COM_FLAG;
 extern UnCHR DATA;
 extern UnCHR EE_FLAG;
-extern UnINT COUNTER;
-extern EE_STATE_V EE_STATE;
+extern UnCHR COUNTER;
+extern UnCHR STACK[32];
+
+typedef struct EE_STAGE_DATA{
+    EE_SR EE_STATE;
+    UnCHR EE_CONFIG;
+    UnINT EE_ADRS;
+    UnINT EE_DATA[4];
+    UnCHR EE_REPORT[4];
+} EE_STAGE_DATA;
+
+extern EE_STAGE_DATA EE_STORE;
 
 UnCHR DATA_Sampling(void);
 void Preamble(void);
-# 10 "Project_ATCS_Decorder_INTERRUPT.c" 2
+void EEPROM_SELECT(void);
+# 9 "Project_ATCS_Decorder_INTERRUPT.c" 2
 
 UnCHR COM_FLAG = 0x00;
 UnCHR DATA = 0x00;
-UnINT COUNTER = 0x00;
+UnCHR COUNTER = 0x00;
+UnCHR STCR = 0x00;
 
 void __attribute__((picinterrupt(("")))) isr(void){
     int COUNT = 0x00;
+
     if(PIR1bits.CCP1IF){
         PIR1 = 0x00;
         TMR1H = 0x00;
@@ -3515,6 +3528,7 @@ void __attribute__((picinterrupt(("")))) isr(void){
             if(COUNT >= 0x00C0 && COUNT <= 0x0100 && !(COM_FLAG & 0x02) ){
                 COUNTER++;
             }
+
             else if(COUNT > 0x0080 || COM_FLAG & 0x02){
                 if(COUNTER > 11){
                     COM_FLAG = COM_FLAG | 0x01;
@@ -3522,9 +3536,10 @@ void __attribute__((picinterrupt(("")))) isr(void){
                     COUNTER = 0x00;
                 }
             }
+
         }else if(COM_FLAG & 0x01){
             if(COUNTER < 8 ){
-                if(COUNT >= 0x00C0 && COUNT <= 0x0100 && !(COM_FLAG & 0x02) ){
+                if(COUNT >= 0x00C0 && COUNT <= 0x0100 && !(COM_FLAG & 0x02)){
                     DATA = (UnCHR) (DATA << 1) | 0x01;
                 }else if(COUNT > 0x0080 || COM_FLAG & 0x02){
                     DATA = (UnCHR) (DATA << 1) & 0xFE;
@@ -3533,24 +3548,33 @@ void __attribute__((picinterrupt(("")))) isr(void){
             }
             else{
                 if(COUNT >= 0x00C0 && COUNT <= 0x0100 && !(COM_FLAG & 0x02)){
+                    STACK[STCR] = DATA;
                     COM_FLAG = COM_FLAG | 0x04;
                     COM_FLAG = COM_FLAG & 0xFE;
+                    STCR = 0x00;
                 }else{
+                    if(STCR == 32){
+                        STCR = 0;
+                    }
+                    STACK[STCR] = DATA;
                     COM_FLAG = COM_FLAG & 0xFB;
+                    STCR++;
                 }
                 COUNTER = 0x00;
             }
         }
     }else if(PIR1bits.TMR1IF){
+
         PIR1 = 0x00;
         COM_FLAG = COM_FLAG | 0x02;
+
     }else if(PIR2bits.EEIF){
-        if(EE_STATE == EE_WRITE_UID){
-            EE_STATE = EE_VERIFY_UID;
-        }else if(EE_STATE == EE_WRITE_ROM){
-            EE_STATE = EE_VERIFY_ROM;
-        }else{
-            EE_STATE = EE_NEXT;
+        PIR2bits.EEIF = 0;
+        if(EE_STORE.EE_STATE == EE_WRITE_UID){
+            EE_STORE.EE_STATE = EE_VERIFY_UID;
+        }else if(EE_STORE.EE_STATE == EE_WRITE_ROM){
+            EE_STORE.EE_STATE = EE_VERIFY_ROM;
         }
+        EEPROM_SELECT();
     }
 }

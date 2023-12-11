@@ -1,19 +1,20 @@
 /*
  * File:   Project_ATCS_Decorder_INTERRUPT.c
- * Author: owata
+ * Author: WATANABE
  *
  * Created on 2023/12/05, 3:46
  */
-
 
 #include <xc.h>
 #include "Project_ATCS_SETUP.h"
 UnCHR COM_FLAG = 0x00;
 UnCHR DATA = 0x00;
-UnINT COUNTER = 0x00; 
+UnCHR COUNTER = 0x00;
+UnCHR STCR = 0x00;
 
 void __interrupt() isr(void){                                                   //非同期動作開始地点
-    int COUNT = 0x00;
+    int COUNT = 0x00; 
+
     if(PIR1bits.CCP1IF){
         PIR1  = 0x00;
         TMR1H = 0x00;
@@ -23,6 +24,7 @@ void __interrupt() isr(void){                                                   
             if(COUNT >= 0x00C0 && COUNT <= 0x0100 && !(COM_FLAG & 0x02) ){
                 COUNTER++;
             }
+            
             else if(COUNT > 0x0080 || COM_FLAG & 0x02){
                 if(COUNTER > 11){
                     COM_FLAG = COM_FLAG | 0x01;
@@ -30,9 +32,10 @@ void __interrupt() isr(void){                                                   
                     COUNTER = 0x00;
                 }    
             }
+            
         }else if(COM_FLAG & 0x01){                                              //データ受信
             if(COUNTER < 8 ){
-                if(COUNT >= 0x00C0 && COUNT <= 0x0100 && !(COM_FLAG & 0x02) ){
+                if(COUNT >= 0x00C0 && COUNT <= 0x0100 && !(COM_FLAG & 0x02)){
                     DATA = (UnCHR) (DATA << 1) | 0x01;                          
                 }else if(COUNT > 0x0080 || COM_FLAG & 0x02){
                     DATA = (UnCHR) (DATA << 1) & 0xFE;
@@ -41,24 +44,32 @@ void __interrupt() isr(void){                                                   
             }
             else{                                                               //エンドビット検出
                 if(COUNT >= 0x00C0 && COUNT <= 0x0100 && !(COM_FLAG & 0x02)){
+                    STACK[STCR] = DATA;
                     COM_FLAG = COM_FLAG | 0x04;
                     COM_FLAG = COM_FLAG & 0xFE;
                 }else{
+                    if(STCR == 32){
+                        STCR = 0;
+                    }
+                    STACK[STCR] = DATA;
                     COM_FLAG = COM_FLAG & 0xFB;
+                    STCR++;
                 }
                 COUNTER = 0x00;
             }
         }
     }else if(PIR1bits.TMR1IF){
+        
         PIR1 = 0x00;
         COM_FLAG = COM_FLAG | 0x02;
+    
     }else if(PIR2bits.EEIF){
-        if(EE_STATE == EE_WRITE_UID){
-            EE_STATE = EE_VERIFY_UID;
-        }else if(EE_STATE == EE_WRITE_ROM){
-            EE_STATE = EE_VERIFY_ROM;
-        }else{
-            EE_STATE = EE_NEXT;
+        PIR2bits.EEIF = 0;
+        if(EE_STORE.EE_STATE == EE_WRITE_UID){
+            EE_STORE.EE_STATE = EE_VERIFY_UID;
+        }else if(EE_STORE.EE_STATE == EE_WRITE_ROM){
+            EE_STORE.EE_STATE = EE_VERIFY_ROM;            
         }
+        EEPROM_SELECT();
     }
 }

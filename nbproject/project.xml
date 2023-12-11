@@ -26,5 +26,23 @@
                 <project-formatting-style>false</project-formatting-style>
             </formatting>
         </data>
+        <spellchecker-wordlist xmlns="http://www.netbeans.org/ns/spellchecker-wordlist/1">
+            <word>bitで</word>
+            <word>bitで抑えて</word>
+            <word>それ以外はチェック無しで返す</word>
+            <word>の中身</word>
+            <word>アドレス</word>
+            <word>アドレスは各自指定</word>
+            <word>コンフィグ</word>
+            <word>シーケンス開始</word>
+            <word>データ</word>
+            <word>メインに戻す</word>
+            <word>ユーザー書込成否チェック</word>
+            <word>レポート記述</word>
+            <word>中身は</word>
+            <word>割り込み禁止</word>
+            <word>状態を指す</word>
+            <word>読み込み開始</word>
+        </spellchecker-wordlist>
     </configuration>
 </project>

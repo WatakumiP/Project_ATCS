@@ -1,47 +1,21 @@
 Version 4.0 HI-TECH Software Intermediate Code
-[t ~ __interrupt . k ]
-[t T1 __interrupt ]
-"726 C:/Program Files/MPLAB_X/packs/Microchip/PIC12-16F1xxx_DFP/1.3.90/xc8\pic\include\proc\pic12f1822.h
-[; ;C:/Program Files/MPLAB_X/packs/Microchip/PIC12-16F1xxx_DFP/1.3.90/xc8\pic\include\proc\pic12f1822.h: 726:     struct {
-[s S45 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S45 . TMR1IF TMR2IF CCP1IF SSP1IF TXIF RCIF ADIF TMR1GIF ]
-"725
-[; ;C:/Program Files/MPLAB_X/packs/Microchip/PIC12-16F1xxx_DFP/1.3.90/xc8\pic\include\proc\pic12f1822.h: 725: typedef union {
-[u S44 `S45 1 ]
-[n S44 . . ]
-"737
-[; ;C:/Program Files/MPLAB_X/packs/Microchip/PIC12-16F1xxx_DFP/1.3.90/xc8\pic\include\proc\pic12f1822.h: 737: extern volatile PIR1bits_t PIR1bits __attribute__((address(0x011)));
-[v _PIR1bits `VS44 ~T0 @X0 0 e@17 ]
-"720
-[; ;C:/Program Files/MPLAB_X/packs/Microchip/PIC12-16F1xxx_DFP/1.3.90/xc8\pic\include\proc\pic12f1822.h: 720: extern volatile unsigned char PIR1 __attribute__((address(0x011)));
-[v _PIR1 `Vuc ~T0 @X0 0 e@17 ]
-"869
-[; ;C:/Program Files/MPLAB_X/packs/Microchip/PIC12-16F1xxx_DFP/1.3.90/xc8\pic\include\proc\pic12f1822.h: 869: extern volatile unsigned char TMR1H __attribute__((address(0x017)));
-[v _TMR1H `Vuc ~T0 @X0 0 e@23 ]
-"849
-[; ;C:/Program Files/MPLAB_X/packs/Microchip/PIC12-16F1xxx_DFP/1.3.90/xc8\pic\include\proc\pic12f1822.h: 849: extern volatile unsigned char TMR1L __attribute__((address(0x016)));
-[v _TMR1L `Vuc ~T0 @X0 0 e@22 ]
-"3958
-[; ;C:/Program Files/MPLAB_X/packs/Microchip/PIC12-16F1xxx_DFP/1.3.90/xc8\pic\include\proc\pic12f1822.h: 3958: extern volatile unsigned char CCPR1H __attribute__((address(0x292)));
-[v _CCPR1H `Vuc ~T0 @X0 0 e@658 ]
-"3938
-[; ;C:/Program Files/MPLAB_X/packs/Microchip/PIC12-16F1xxx_DFP/1.3.90/xc8\pic\include\proc\pic12f1822.h: 3938: extern volatile unsigned char CCPR1L __attribute__((address(0x291)));
-[v _CCPR1L `Vuc ~T0 @X0 0 e@657 ]
-"41 ./Project_ATCS_SETUP.h
-[v _STACK `uc ~T0 @X0 -> 0 `x e ]
-"788 C:/Program Files/MPLAB_X/packs/Microchip/PIC12-16F1xxx_DFP/1.3.90/xc8\pic\include\proc\pic12f1822.h
-[; ;C:/Program Files/MPLAB_X/packs/Microchip/PIC12-16F1xxx_DFP/1.3.90/xc8\pic\include\proc\pic12f1822.h: 788:     struct {
-[s S47 :3 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S47 . . BCL1IF EEIF C1IF . OSFIF ]
-"787
-[; ;C:/Program Files/MPLAB_X/packs/Microchip/PIC12-16F1xxx_DFP/1.3.90/xc8\pic\include\proc\pic12f1822.h: 787: typedef union {
-[u S46 `S47 1 ]
-[n S46 . . ]
-"797
-[; ;C:/Program Files/MPLAB_X/packs/Microchip/PIC12-16F1xxx_DFP/1.3.90/xc8\pic\include\proc\pic12f1822.h: 797: extern volatile PIR2bits_t PIR2bits __attribute__((address(0x012)));
-[v _PIR2bits `VS46 ~T0 @X0 0 e@18 ]
-"69 Project_ATCS_Decorder_INTERRUPT.c
-[; ;Project_ATCS_Decorder_INTERRUPT.c: 69:         if(EE_STORE.EE_STATE == EE_WRITE_UID){
+"358 C:/Program Files/MPLAB_X/packs/Microchip/PIC12-16F1xxx_DFP/1.3.90/xc8\pic\include\proc\pic12f1822.h
+[; ;C:/Program Files/MPLAB_X/packs/Microchip/PIC12-16F1xxx_DFP/1.3.90/xc8\pic\include\proc\pic12f1822.h: 358:     struct {
+[s S31 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S31 . IOCIF INTF TMR0IF IOCIE INTE TMR0IE PEIE GIE ]
+"368
+[; ;C:/Program Files/MPLAB_X/packs/Microchip/PIC12-16F1xxx_DFP/1.3.90/xc8\pic\include\proc\pic12f1822.h: 368:     struct {
+[s S32 :2 `uc 1 :1 `uc 1 :2 `uc 1 :1 `uc 1 ]
+[n S32 . . T0IF . T0IE ]
+"357
+[; ;C:/Program Files/MPLAB_X/packs/Microchip/PIC12-16F1xxx_DFP/1.3.90/xc8\pic\include\proc\pic12f1822.h: 357: typedef union {
+[u S30 `S31 1 `S32 1 ]
+[n S30 . . . ]
+"375
+[; ;C:/Program Files/MPLAB_X/packs/Microchip/PIC12-16F1xxx_DFP/1.3.90/xc8\pic\include\proc\pic12f1822.h: 375: extern volatile INTCONbits_t INTCONbits __attribute__((address(0x00B)));
+[v _INTCONbits `VS30 ~T0 @X0 0 e@11 ]
+"19 Project_ATCS_Decorder_Module.c
+[; ;Project_ATCS_Decorder_Module.c: 19:                 if(EE_STORE.EE_REPORT[COUNT]){
 [c E1975 0 1 2 3 4 5 6 .. ]
 [n E1975 EE_SR EE_READ_S EE_READ_M EE_WRITE_UID EE_VERIFY_UID EE_WRITE_ROM EE_VERIFY_ROM EE_NEXT  ]
 "43 ./Project_ATCS_SETUP.h
@@ -49,8 +23,29 @@ Version 4.0 HI-TECH Software Intermediate Code
 [n S274 EE_STAGE_DATA EE_STATE EE_CONFIG EE_ADRS EE_DATA EE_REPORT ]
 "51
 [v _EE_STORE `S274 ~T0 @X0 0 e ]
-"55
-[v _EEPROM_SELECT `(v ~T0 @X0 0 ef ]
+"2680 C:/Program Files/MPLAB_X/packs/Microchip/PIC12-16F1xxx_DFP/1.3.90/xc8\pic\include\proc\pic12f1822.h
+[; ;C:/Program Files/MPLAB_X/packs/Microchip/PIC12-16F1xxx_DFP/1.3.90/xc8\pic\include\proc\pic12f1822.h: 2680: extern volatile unsigned short EEADR __attribute__((address(0x191)));
+[v _EEADR `Vus ~T0 @X0 0 e@401 ]
+"2792
+[; ;C:/Program Files/MPLAB_X/packs/Microchip/PIC12-16F1xxx_DFP/1.3.90/xc8\pic\include\proc\pic12f1822.h: 2792: extern volatile unsigned char EECON1 __attribute__((address(0x195)));
+[v _EECON1 `Vuc ~T0 @X0 0 e@405 ]
+"2798
+[; ;C:/Program Files/MPLAB_X/packs/Microchip/PIC12-16F1xxx_DFP/1.3.90/xc8\pic\include\proc\pic12f1822.h: 2798:     struct {
+[s S152 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S152 . RD WR WREN WRERR FREE LWLO CFGS EEPGD ]
+"2797
+[; ;C:/Program Files/MPLAB_X/packs/Microchip/PIC12-16F1xxx_DFP/1.3.90/xc8\pic\include\proc\pic12f1822.h: 2797: typedef union {
+[u S151 `S152 1 ]
+[n S151 . . ]
+"2809
+[; ;C:/Program Files/MPLAB_X/packs/Microchip/PIC12-16F1xxx_DFP/1.3.90/xc8\pic\include\proc\pic12f1822.h: 2809: extern volatile EECON1bits_t EECON1bits __attribute__((address(0x195)));
+[v _EECON1bits `VS151 ~T0 @X0 0 e@405 ]
+"2727
+[; ;C:/Program Files/MPLAB_X/packs/Microchip/PIC12-16F1xxx_DFP/1.3.90/xc8\pic\include\proc\pic12f1822.h: 2727: extern volatile unsigned short EEDAT __attribute__((address(0x193)));
+[v _EEDAT `Vus ~T0 @X0 0 e@403 ]
+"2854
+[; ;C:/Program Files/MPLAB_X/packs/Microchip/PIC12-16F1xxx_DFP/1.3.90/xc8\pic\include\proc\pic12f1822.h: 2854: extern volatile unsigned char EECON2 __attribute__((address(0x196)));
+[v _EECON2 `Vuc ~T0 @X0 0 e@406 ]
 "55 C:/Program Files/MPLAB_X/packs/Microchip/PIC12-16F1xxx_DFP/1.3.90/xc8\pic\include\proc\pic12f1822.h
 [; ;C:/Program Files/MPLAB_X/packs/Microchip/PIC12-16F1xxx_DFP/1.3.90/xc8\pic\include\proc\pic12f1822.h: 55: __asm("INDF0 equ 00h");
 [; <" INDF0 equ 00h ;# ">
@@ -444,256 +439,406 @@ Version 4.0 HI-TECH Software Intermediate Code
 "21
 [; ;./Project_ATCS_SETUP.h: 21:     EE_SR EE_STATE;
 [p x LVP  =  OFF         ]
-"10 Project_ATCS_Decorder_INTERRUPT.c
-[; ;Project_ATCS_Decorder_INTERRUPT.c: 10: UnCHR COM_FLAG = 0x00;
-[v _COM_FLAG `uc ~T0 @X0 1 e ]
-[i _COM_FLAG
--> -> 0 `i `uc
-]
-"11
-[; ;Project_ATCS_Decorder_INTERRUPT.c: 11: UnCHR DATA = 0x00;
-[v _DATA `uc ~T0 @X0 1 e ]
-[i _DATA
--> -> 0 `i `uc
-]
-"12
-[; ;Project_ATCS_Decorder_INTERRUPT.c: 12: UnCHR COUNTER = 0x00;
-[v _COUNTER `uc ~T0 @X0 1 e ]
-[i _COUNTER
--> -> 0 `i `uc
-]
-"13
-[; ;Project_ATCS_Decorder_INTERRUPT.c: 13: UnCHR STCR = 0x00;
-[v _STCR `uc ~T0 @X0 1 e ]
-[i _STCR
--> -> 0 `i `uc
-]
-[v $root$_isr `(v ~T0 @X0 0 e ]
-"15
-[; ;Project_ATCS_Decorder_INTERRUPT.c: 15: void __attribute__((picinterrupt(("")))) isr(void){
-[v _isr `(v ~T1 @X0 1 ef ]
+"12 Project_ATCS_Decorder_Module.c
+[; ;Project_ATCS_Decorder_Module.c: 12: void EEPROM_SELECT(void) {
+[v _EEPROM_SELECT `(v ~T0 @X0 1 ef ]
 {
-[e :U _isr ]
+[e :U _EEPROM_SELECT ]
 [f ]
+"13
+[; ;Project_ATCS_Decorder_Module.c: 13:     INTCONbits.GIE = 0;
+[e = . . _INTCONbits 0 7 -> -> 0 `i `uc ]
+"14
+[; ;Project_ATCS_Decorder_Module.c: 14:     UnCHR COUNT = 0x00 ;
+[v _COUNT `uc ~T0 @X0 1 a ]
+[e = _COUNT -> -> 0 `i `uc ]
 "16
-[; ;Project_ATCS_Decorder_INTERRUPT.c: 16:     int COUNT = 0x00;
-[v _COUNT `i ~T0 @X0 1 a ]
-[e = _COUNT -> 0 `i ]
+[; ;Project_ATCS_Decorder_Module.c: 16:     switch (EE_STORE.EE_STATE) {
+[e $U 277  ]
+{
+"17
+[; ;Project_ATCS_Decorder_Module.c: 17:         case EE_READ_S:
+[e :U 278 ]
 "18
-[; ;Project_ATCS_Decorder_INTERRUPT.c: 18:     if(PIR1bits.CCP1IF){
-[e $ ! != -> . . _PIR1bits 0 2 `i -> 0 `i 276  ]
+[; ;Project_ATCS_Decorder_Module.c: 18:             do{
+[e :U 281 ]
 {
 "19
-[; ;Project_ATCS_Decorder_INTERRUPT.c: 19:         PIR1 = 0x00;
-[e = _PIR1 -> -> 0 `i `uc ]
+[; ;Project_ATCS_Decorder_Module.c: 19:                 if(EE_STORE.EE_REPORT[COUNT]){
+[e $ ! != -> *U + &U . _EE_STORE 4 * -> _COUNT `ux -> -> # *U &U . _EE_STORE 4 `ui `ux `i -> 0 `i 282  ]
+{
 "20
-[; ;Project_ATCS_Decorder_INTERRUPT.c: 20:         TMR1H = 0x00;
-[e = _TMR1H -> -> 0 `i `uc ]
+[; ;Project_ATCS_Decorder_Module.c: 20:                     EEADR = EE_STORE.EE_ADRS;
+[e = _EEADR -> . _EE_STORE 2 `us ]
 "21
-[; ;Project_ATCS_Decorder_INTERRUPT.c: 21:         TMR1L = 0x00;
-[e = _TMR1L -> -> 0 `i `uc ]
+[; ;Project_ATCS_Decorder_Module.c: 21:                     EECON1 = EE_STORE.EE_CONFIG;
+[e = _EECON1 . _EE_STORE 1 ]
 "22
-[; ;Project_ATCS_Decorder_INTERRUPT.c: 22:         COUNT = CCPR1H << 8 | CCPR1L;
-[e = _COUNT | << -> _CCPR1H `i -> 8 `i -> _CCPR1L `i ]
-"23
-[; ;Project_ATCS_Decorder_INTERRUPT.c: 23:         if(!(COM_FLAG & 0x01)){
-[e $ ! ! != & -> _COM_FLAG `i -> 1 `i -> 0 `i 277  ]
-{
-"24
-[; ;Project_ATCS_Decorder_INTERRUPT.c: 24:             if(COUNT >= 0x00C0 && COUNT <= 0x0100 && !(COM_FLAG & 0x02) ){
-[e $ ! && && >= _COUNT -> 192 `i <= _COUNT -> 256 `i ! != & -> _COM_FLAG `i -> 2 `i -> 0 `i 278  ]
-{
-"25
-[; ;Project_ATCS_Decorder_INTERRUPT.c: 25:                 COUNTER++;
-[e ++ _COUNTER -> -> 1 `i `uc ]
-"26
-[; ;Project_ATCS_Decorder_INTERRUPT.c: 26:             }
-}
-[e $U 279  ]
-"28
-[; ;Project_ATCS_Decorder_INTERRUPT.c: 28:             else if(COUNT > 0x0080 || COM_FLAG & 0x02){
-[e :U 278 ]
-[e $ ! || > _COUNT -> 128 `i != & -> _COM_FLAG `i -> 2 `i -> 0 `i 280  ]
-{
-"29
-[; ;Project_ATCS_Decorder_INTERRUPT.c: 29:                 if(COUNTER > 11){
-[e $ ! > -> _COUNTER `i -> 11 `i 281  ]
-{
-"30
-[; ;Project_ATCS_Decorder_INTERRUPT.c: 30:                     COM_FLAG = COM_FLAG | 0x01;
-[e = _COM_FLAG -> | -> _COM_FLAG `i -> 1 `i `uc ]
-"31
-[; ;Project_ATCS_Decorder_INTERRUPT.c: 31:                     COM_FLAG = COM_FLAG & 0xFD;
-[e = _COM_FLAG -> & -> _COM_FLAG `i -> 253 `i `uc ]
-"32
-[; ;Project_ATCS_Decorder_INTERRUPT.c: 32:                     COUNTER = 0x00;
-[e = _COUNTER -> -> 0 `i `uc ]
-"33
-[; ;Project_ATCS_Decorder_INTERRUPT.c: 33:                 }
-}
-[e :U 281 ]
-"34
-[; ;Project_ATCS_Decorder_INTERRUPT.c: 34:             }
-}
-[e :U 280 ]
-[e :U 279 ]
-"36
-[; ;Project_ATCS_Decorder_INTERRUPT.c: 36:         }else if(COM_FLAG & 0x01){
-}
-[e $U 282  ]
-[e :U 277 ]
-[e $ ! != & -> _COM_FLAG `i -> 1 `i -> 0 `i 283  ]
-{
-"37
-[; ;Project_ATCS_Decorder_INTERRUPT.c: 37:             if(COUNTER < 8 ){
-[e $ ! < -> _COUNTER `i -> 8 `i 284  ]
-{
-"38
-[; ;Project_ATCS_Decorder_INTERRUPT.c: 38:                 if(COUNT >= 0x00C0 && COUNT <= 0x0100 && !(COM_FLAG & 0x02)){
-[e $ ! && && >= _COUNT -> 192 `i <= _COUNT -> 256 `i ! != & -> _COM_FLAG `i -> 2 `i -> 0 `i 285  ]
-{
-"39
-[; ;Project_ATCS_Decorder_INTERRUPT.c: 39:                     DATA = (UnCHR) (DATA << 1) | 0x01;
-[e = _DATA -> | -> -> << -> _DATA `i -> 1 `i `uc `i -> 1 `i `uc ]
-"40
-[; ;Project_ATCS_Decorder_INTERRUPT.c: 40:                 }else if(COUNT > 0x0080 || COM_FLAG & 0x02){
-}
-[e $U 286  ]
-[e :U 285 ]
-[e $ ! || > _COUNT -> 128 `i != & -> _COM_FLAG `i -> 2 `i -> 0 `i 287  ]
-{
-"41
-[; ;Project_ATCS_Decorder_INTERRUPT.c: 41:                     DATA = (UnCHR) (DATA << 1) & 0xFE;
-[e = _DATA -> & -> -> << -> _DATA `i -> 1 `i `uc `i -> 254 `i `uc ]
-"42
-[; ;Project_ATCS_Decorder_INTERRUPT.c: 42:                 }
-}
-[e :U 287 ]
-[e :U 286 ]
-"43
-[; ;Project_ATCS_Decorder_INTERRUPT.c: 43:                 COUNTER++;
-[e ++ _COUNTER -> -> 1 `i `uc ]
-"44
-[; ;Project_ATCS_Decorder_INTERRUPT.c: 44:             }
-}
-[e $U 288  ]
-"45
-[; ;Project_ATCS_Decorder_INTERRUPT.c: 45:             else{
+[; ;Project_ATCS_Decorder_Module.c: 22:                     while (EECON1bits.RD);
+[e $U 283  ]
 [e :U 284 ]
-{
-"46
-[; ;Project_ATCS_Decorder_INTERRUPT.c: 46:                 if(COUNT >= 0x00C0 && COUNT <= 0x0100 && !(COM_FLAG & 0x02)){
-[e $ ! && && >= _COUNT -> 192 `i <= _COUNT -> 256 `i ! != & -> _COM_FLAG `i -> 2 `i -> 0 `i 289  ]
-{
-"47
-[; ;Project_ATCS_Decorder_INTERRUPT.c: 47:                     STACK[STCR] = DATA;
-[e = *U + &U _STACK * -> _STCR `ux -> -> # *U &U _STACK `ui `ux _DATA ]
-"48
-[; ;Project_ATCS_Decorder_INTERRUPT.c: 48:                     COM_FLAG = COM_FLAG | 0x04;
-[e = _COM_FLAG -> | -> _COM_FLAG `i -> 4 `i `uc ]
-"49
-[; ;Project_ATCS_Decorder_INTERRUPT.c: 49:                     COM_FLAG = COM_FLAG & 0xFE;
-[e = _COM_FLAG -> & -> _COM_FLAG `i -> 254 `i `uc ]
-"50
-[; ;Project_ATCS_Decorder_INTERRUPT.c: 50:                     STCR = 0x00;
-[e = _STCR -> -> 0 `i `uc ]
-"51
-[; ;Project_ATCS_Decorder_INTERRUPT.c: 51:                 }else{
+[e :U 283 ]
+[e $ != -> . . _EECON1bits 0 0 `i -> 0 `i 284  ]
+[e :U 285 ]
+"23
+[; ;Project_ATCS_Decorder_Module.c: 23:                     EE_STORE.EE_DATA[COUNT] = EEDAT;
+[e = *U + &U . _EE_STORE 3 * -> _COUNT `ux -> -> # *U &U . _EE_STORE 3 `ui `ux -> _EEDAT `ui ]
+"24
+[; ;Project_ATCS_Decorder_Module.c: 24:                     INTCONbits.GIE = 1;
+[e = . . _INTCONbits 0 7 -> -> 1 `i `uc ]
+"25
+[; ;Project_ATCS_Decorder_Module.c: 25:                     return;
+[e $UE 275  ]
+"26
+[; ;Project_ATCS_Decorder_Module.c: 26:                 }
 }
-[e $U 290  ]
+[e :U 282 ]
+"27
+[; ;Project_ATCS_Decorder_Module.c: 27:                 COUNT++;
+[e ++ _COUNT -> -> 1 `i `uc ]
+"28
+[; ;Project_ATCS_Decorder_Module.c: 28:                 EEADR = EE_STORE.EE_ADRS++;
+[e = _EEADR -> ++ . _EE_STORE 2 -> -> 1 `i `ui `us ]
+"29
+[; ;Project_ATCS_Decorder_Module.c: 29:             }while(COUNT < 4);
+}
+[e $ < -> _COUNT `i -> 4 `i 281  ]
+[e :U 280 ]
+"30
+[; ;Project_ATCS_Decorder_Module.c: 30:             return;
+[e $UE 275  ]
+"32
+[; ;Project_ATCS_Decorder_Module.c: 32:         case EE_READ_M:
+[e :U 286 ]
+"33
+[; ;Project_ATCS_Decorder_Module.c: 33:             do {
 [e :U 289 ]
 {
-"52
-[; ;Project_ATCS_Decorder_INTERRUPT.c: 52:                     if(STCR == 32){
-[e $ ! == -> _STCR `i -> 32 `i 291  ]
+"34
+[; ;Project_ATCS_Decorder_Module.c: 34:                 if(EE_STORE.EE_REPORT[COUNT]){
+[e $ ! != -> *U + &U . _EE_STORE 4 * -> _COUNT `ux -> -> # *U &U . _EE_STORE 4 `ui `ux `i -> 0 `i 290  ]
 {
-"53
-[; ;Project_ATCS_Decorder_INTERRUPT.c: 53:                         STCR = 0;
-[e = _STCR -> -> 0 `i `uc ]
-"54
-[; ;Project_ATCS_Decorder_INTERRUPT.c: 54:                     }
-}
+"35
+[; ;Project_ATCS_Decorder_Module.c: 35:                     EEADR = EE_STORE.EE_ADRS;
+[e = _EEADR -> . _EE_STORE 2 `us ]
+"36
+[; ;Project_ATCS_Decorder_Module.c: 36:                     EECON1 = EE_STORE.EE_CONFIG;
+[e = _EECON1 . _EE_STORE 1 ]
+"37
+[; ;Project_ATCS_Decorder_Module.c: 37:                     while (EECON1bits.RD);
+[e $U 291  ]
+[e :U 292 ]
 [e :U 291 ]
-"55
-[; ;Project_ATCS_Decorder_INTERRUPT.c: 55:                     STACK[STCR] = DATA;
-[e = *U + &U _STACK * -> _STCR `ux -> -> # *U &U _STACK `ui `ux _DATA ]
-"56
-[; ;Project_ATCS_Decorder_INTERRUPT.c: 56:                     COM_FLAG = COM_FLAG & 0xFB;
-[e = _COM_FLAG -> & -> _COM_FLAG `i -> 251 `i `uc ]
-"57
-[; ;Project_ATCS_Decorder_INTERRUPT.c: 57:                     STCR++;
-[e ++ _STCR -> -> 1 `i `uc ]
-"58
-[; ;Project_ATCS_Decorder_INTERRUPT.c: 58:                 }
+[e $ != -> . . _EECON1bits 0 0 `i -> 0 `i 292  ]
+[e :U 293 ]
+"38
+[; ;Project_ATCS_Decorder_Module.c: 38:                     EE_STORE.EE_DATA[COUNT] = EEDAT;
+[e = *U + &U . _EE_STORE 3 * -> _COUNT `ux -> -> # *U &U . _EE_STORE 3 `ui `ux -> _EEDAT `ui ]
+"39
+[; ;Project_ATCS_Decorder_Module.c: 39:                 }
 }
 [e :U 290 ]
-"59
-[; ;Project_ATCS_Decorder_INTERRUPT.c: 59:                 COUNTER = 0x00;
-[e = _COUNTER -> -> 0 `i `uc ]
-"60
-[; ;Project_ATCS_Decorder_INTERRUPT.c: 60:             }
+"40
+[; ;Project_ATCS_Decorder_Module.c: 40:                 EE_STORE.EE_ADRS++;
+[e ++ . _EE_STORE 2 -> -> 1 `i `ui ]
+"41
+[; ;Project_ATCS_Decorder_Module.c: 41:             } while (COUNT < 4);
 }
+[e $ < -> _COUNT `i -> 4 `i 289  ]
 [e :U 288 ]
-"61
-[; ;Project_ATCS_Decorder_INTERRUPT.c: 61:         }
-}
-[e :U 283 ]
-[e :U 282 ]
-"62
-[; ;Project_ATCS_Decorder_INTERRUPT.c: 62:     }else if(PIR1bits.TMR1IF){
-}
-[e $U 292  ]
-[e :U 276 ]
-[e $ ! != -> . . _PIR1bits 0 0 `i -> 0 `i 293  ]
+"42
+[; ;Project_ATCS_Decorder_Module.c: 42:             INTCONbits.GIE = 1;
+[e = . . _INTCONbits 0 7 -> -> 1 `i `uc ]
+"43
+[; ;Project_ATCS_Decorder_Module.c: 43:             return;
+[e $UE 275  ]
+"45
+[; ;Project_ATCS_Decorder_Module.c: 45:         case EE_WRITE_UID:
+[e :U 294 ]
+"46
+[; ;Project_ATCS_Decorder_Module.c: 46:             INTCONbits.GIE = 0;
+[e = . . _INTCONbits 0 7 -> -> 0 `i `uc ]
+"47
+[; ;Project_ATCS_Decorder_Module.c: 47:             UnINT EE_SAVE = EE_STORE.EE_ADRS;
+[v _EE_SAVE `ui ~T0 @X0 1 a ]
+[e = _EE_SAVE . _EE_STORE 2 ]
+"48
+[; ;Project_ATCS_Decorder_Module.c: 48:             do {
+[e :U 297 ]
 {
-"64
-[; ;Project_ATCS_Decorder_INTERRUPT.c: 64:         PIR1 = 0x00;
-[e = _PIR1 -> -> 0 `i `uc ]
-"65
-[; ;Project_ATCS_Decorder_INTERRUPT.c: 65:         COM_FLAG = COM_FLAG | 0x02;
-[e = _COM_FLAG -> | -> _COM_FLAG `i -> 2 `i `uc ]
-"67
-[; ;Project_ATCS_Decorder_INTERRUPT.c: 67:     }else if(PIR2bits.EEIF){
-}
-[e $U 294  ]
-[e :U 293 ]
-[e $ ! != -> . . _PIR2bits 0 2 `i -> 0 `i 295  ]
+"49
+[; ;Project_ATCS_Decorder_Module.c: 49:                 if(EE_STORE.EE_REPORT[COUNT]){
+[e $ ! != -> *U + &U . _EE_STORE 4 * -> _COUNT `ux -> -> # *U &U . _EE_STORE 4 `ui `ux `i -> 0 `i 298  ]
 {
-"68
-[; ;Project_ATCS_Decorder_INTERRUPT.c: 68:         PIR2bits.EEIF = 0;
-[e = . . _PIR2bits 0 2 -> -> 0 `i `uc ]
-"69
-[; ;Project_ATCS_Decorder_INTERRUPT.c: 69:         if(EE_STORE.EE_STATE == EE_WRITE_UID){
-[e $ ! == -> . _EE_STORE 0 `ui -> . `E1975 2 `ui 296  ]
-{
-"70
-[; ;Project_ATCS_Decorder_INTERRUPT.c: 70:             EE_STORE.EE_STATE = EE_VERIFY_UID;
-[e = . _EE_STORE 0 . `E1975 3 ]
-"71
-[; ;Project_ATCS_Decorder_INTERRUPT.c: 71:         }else if(EE_STORE.EE_STATE == EE_WRITE_ROM){
-}
-[e $U 297  ]
-[e :U 296 ]
-[e $ ! == -> . _EE_STORE 0 `ui -> . `E1975 4 `ui 298  ]
-{
-"72
-[; ;Project_ATCS_Decorder_INTERRUPT.c: 72:             EE_STORE.EE_STATE = EE_VERIFY_ROM;
-[e = . _EE_STORE 0 . `E1975 5 ]
-"73
-[; ;Project_ATCS_Decorder_INTERRUPT.c: 73:         }
+"50
+[; ;Project_ATCS_Decorder_Module.c: 50:                     EEADR = EE_STORE.EE_ADRS;
+[e = _EEADR -> . _EE_STORE 2 `us ]
+"51
+[; ;Project_ATCS_Decorder_Module.c: 51:                     EEDAT = EE_STORE.EE_DATA[COUNT];
+[e = _EEDAT -> *U + &U . _EE_STORE 3 * -> _COUNT `ux -> -> # *U &U . _EE_STORE 3 `ui `ux `us ]
+"52
+[; ;Project_ATCS_Decorder_Module.c: 52:                     EECON1 = 0x64;
+[e = _EECON1 -> -> 100 `i `uc ]
+"53
+[; ;Project_ATCS_Decorder_Module.c: 53:                     EECON2 = 0x55;
+[e = _EECON2 -> -> 85 `i `uc ]
+"54
+[; ;Project_ATCS_Decorder_Module.c: 54:                     EECON2 = 0xAA;
+[e = _EECON2 -> -> 170 `i `uc ]
+"55
+[; ;Project_ATCS_Decorder_Module.c: 55:                     EECON1bits.WR = 1;
+[e = . . _EECON1bits 0 1 -> -> 1 `i `uc ]
+"56
+[; ;Project_ATCS_Decorder_Module.c: 56:                 }
 }
 [e :U 298 ]
-[e :U 297 ]
-"74
-[; ;Project_ATCS_Decorder_INTERRUPT.c: 74:         EEPROM_SELECT();
-[e ( _EEPROM_SELECT ..  ]
-"75
-[; ;Project_ATCS_Decorder_INTERRUPT.c: 75:     }
+"57
+[; ;Project_ATCS_Decorder_Module.c: 57:                 COUNT++;
+[e ++ _COUNT -> -> 1 `i `uc ]
+"58
+[; ;Project_ATCS_Decorder_Module.c: 58:                 EE_STORE.EE_ADRS++;
+[e ++ . _EE_STORE 2 -> -> 1 `i `ui ]
+"59
+[; ;Project_ATCS_Decorder_Module.c: 59:             } while (COUNT < 4);
 }
-[e :U 295 ]
-[e :U 294 ]
-[e :U 292 ]
+[e $ < -> _COUNT `i -> 4 `i 297  ]
+[e :U 296 ]
+"60
+[; ;Project_ATCS_Decorder_Module.c: 60:             EE_STORE.EE_ADRS = EE_SAVE;
+[e = . _EE_STORE 2 _EE_SAVE ]
+"62
+[; ;Project_ATCS_Decorder_Module.c: 62:             EECON1 = 0x44;
+[e = _EECON1 -> -> 68 `i `uc ]
+"63
+[; ;Project_ATCS_Decorder_Module.c: 63:             EECON2 = 0x55;
+[e = _EECON2 -> -> 85 `i `uc ]
+"64
+[; ;Project_ATCS_Decorder_Module.c: 64:             EECON2 = 0xAA;
+[e = _EECON2 -> -> 170 `i `uc ]
+"66
+[; ;Project_ATCS_Decorder_Module.c: 66:             EECON1bits.WR = 1;
+[e = . . _EECON1bits 0 1 -> -> 1 `i `uc ]
+"67
+[; ;Project_ATCS_Decorder_Module.c: 67:             INTCONbits.GIE = 1;
+[e = . . _INTCONbits 0 7 -> -> 1 `i `uc ]
+"68
+[; ;Project_ATCS_Decorder_Module.c: 68:             return;
+[e $UE 275  ]
+"70
+[; ;Project_ATCS_Decorder_Module.c: 70:         case EE_VERIFY_UID:
+[e :U 299 ]
+"71
+[; ;Project_ATCS_Decorder_Module.c: 71:             INTCONbits.GIE = 0;
+[e = . . _INTCONbits 0 7 -> -> 0 `i `uc ]
+"72
+[; ;Project_ATCS_Decorder_Module.c: 72:             do {
+[e :U 302 ]
+{
+"73
+[; ;Project_ATCS_Decorder_Module.c: 73:                 if(EE_STORE.EE_REPORT[COUNT]){
+[e $ ! != -> *U + &U . _EE_STORE 4 * -> _COUNT `ux -> -> # *U &U . _EE_STORE 4 `ui `ux `i -> 0 `i 303  ]
+{
+"74
+[; ;Project_ATCS_Decorder_Module.c: 74:                     EEADR = EE_STORE.EE_ADRS;
+[e = _EEADR -> . _EE_STORE 2 `us ]
+"75
+[; ;Project_ATCS_Decorder_Module.c: 75:                     EECON1 = 0x41;
+[e = _EECON1 -> -> 65 `i `uc ]
 "76
-[; ;Project_ATCS_Decorder_INTERRUPT.c: 76: }
+[; ;Project_ATCS_Decorder_Module.c: 76:                     while (EECON1bits.RD);
+[e $U 304  ]
+[e :U 305 ]
+[e :U 304 ]
+[e $ != -> . . _EECON1bits 0 0 `i -> 0 `i 305  ]
+[e :U 306 ]
+"77
+[; ;Project_ATCS_Decorder_Module.c: 77:                     if (EEDAT != EE_STORE.EE_DATA[COUNT]) {
+[e $ ! != -> _EEDAT `ui *U + &U . _EE_STORE 3 * -> _COUNT `ux -> -> # *U &U . _EE_STORE 3 `ui `ux 307  ]
+{
+"78
+[; ;Project_ATCS_Decorder_Module.c: 78:                         EE_STORE.EE_REPORT[COUNT] = 0xFF;
+[e = *U + &U . _EE_STORE 4 * -> _COUNT `ux -> -> # *U &U . _EE_STORE 4 `ui `ux -> -> 255 `i `uc ]
+"79
+[; ;Project_ATCS_Decorder_Module.c: 79:                     } else {
+}
+[e $U 308  ]
+[e :U 307 ]
+{
+"80
+[; ;Project_ATCS_Decorder_Module.c: 80:                         EE_STORE.EE_REPORT[COUNT] = 0x00;
+[e = *U + &U . _EE_STORE 4 * -> _COUNT `ux -> -> # *U &U . _EE_STORE 4 `ui `ux -> -> 0 `i `uc ]
+"81
+[; ;Project_ATCS_Decorder_Module.c: 81:                     }
+}
+[e :U 308 ]
+"82
+[; ;Project_ATCS_Decorder_Module.c: 82:                 }
+}
+[e :U 303 ]
+"83
+[; ;Project_ATCS_Decorder_Module.c: 83:                 COUNT++;
+[e ++ _COUNT -> -> 1 `i `uc ]
+"84
+[; ;Project_ATCS_Decorder_Module.c: 84:                 EE_STORE.EE_ADRS++;
+[e ++ . _EE_STORE 2 -> -> 1 `i `ui ]
+"85
+[; ;Project_ATCS_Decorder_Module.c: 85:             } while (COUNT < 4);
+}
+[e $ < -> _COUNT `i -> 4 `i 302  ]
+[e :U 301 ]
+"86
+[; ;Project_ATCS_Decorder_Module.c: 86:             INTCONbits.GIE = 1;
+[e = . . _INTCONbits 0 7 -> -> 1 `i `uc ]
+"87
+[; ;Project_ATCS_Decorder_Module.c: 87:             return;
+[e $UE 275  ]
+"89
+[; ;Project_ATCS_Decorder_Module.c: 89:         case EE_WRITE_ROM:
+[e :U 309 ]
+"90
+[; ;Project_ATCS_Decorder_Module.c: 90:             do{
+[e :U 312 ]
+{
+"91
+[; ;Project_ATCS_Decorder_Module.c: 91:                 if(EE_STORE.EE_REPORT[COUNT]){
+[e $ ! != -> *U + &U . _EE_STORE 4 * -> _COUNT `ux -> -> # *U &U . _EE_STORE 4 `ui `ux `i -> 0 `i 313  ]
+{
+"92
+[; ;Project_ATCS_Decorder_Module.c: 92:                     EEADR = EE_STORE.EE_ADRS;
+[e = _EEADR -> . _EE_STORE 2 `us ]
+"93
+[; ;Project_ATCS_Decorder_Module.c: 93:                     EEDAT = EE_STORE.EE_DATA[COUNT];
+[e = _EEDAT -> *U + &U . _EE_STORE 3 * -> _COUNT `ux -> -> # *U &U . _EE_STORE 3 `ui `ux `us ]
+"94
+[; ;Project_ATCS_Decorder_Module.c: 94:                     EECON1 = 0x44;
+[e = _EECON1 -> -> 68 `i `uc ]
+"95
+[; ;Project_ATCS_Decorder_Module.c: 95:                     EECON2 = 0x55;
+[e = _EECON2 -> -> 85 `i `uc ]
+"96
+[; ;Project_ATCS_Decorder_Module.c: 96:                     EECON2 = 0xAA;
+[e = _EECON2 -> -> 170 `i `uc ]
+"97
+[; ;Project_ATCS_Decorder_Module.c: 97:                     EECON1bits.WR = 1;
+[e = . . _EECON1bits 0 1 -> -> 1 `i `uc ]
+"98
+[; ;Project_ATCS_Decorder_Module.c: 98:                     INTCONbits.GIE = 1;
+[e = . . _INTCONbits 0 7 -> -> 1 `i `uc ]
+"99
+[; ;Project_ATCS_Decorder_Module.c: 99:                     return;
+[e $UE 275  ]
+"100
+[; ;Project_ATCS_Decorder_Module.c: 100:                 }
+}
+[e :U 313 ]
+"101
+[; ;Project_ATCS_Decorder_Module.c: 101:                 COUNT++;
+[e ++ _COUNT -> -> 1 `i `uc ]
+"102
+[; ;Project_ATCS_Decorder_Module.c: 102:                 EEADR = EE_STORE.EE_ADRS++;
+[e = _EEADR -> ++ . _EE_STORE 2 -> -> 1 `i `ui `us ]
+"103
+[; ;Project_ATCS_Decorder_Module.c: 103:             }while(COUNT < 4);
+}
+[e $ < -> _COUNT `i -> 4 `i 312  ]
+[e :U 311 ]
+"104
+[; ;Project_ATCS_Decorder_Module.c: 104:             INTCONbits.GIE = 1;
+[e = . . _INTCONbits 0 7 -> -> 1 `i `uc ]
+"105
+[; ;Project_ATCS_Decorder_Module.c: 105:             return;
+[e $UE 275  ]
+"107
+[; ;Project_ATCS_Decorder_Module.c: 107:         case EE_VERIFY_ROM:
+[e :U 314 ]
+"108
+[; ;Project_ATCS_Decorder_Module.c: 108:             do{
+[e :U 317 ]
+{
+"109
+[; ;Project_ATCS_Decorder_Module.c: 109:                 if(EE_STORE.EE_REPORT[COUNT]){
+[e $ ! != -> *U + &U . _EE_STORE 4 * -> _COUNT `ux -> -> # *U &U . _EE_STORE 4 `ui `ux `i -> 0 `i 318  ]
+{
+"110
+[; ;Project_ATCS_Decorder_Module.c: 110:                     EEADR = EE_STORE.EE_ADRS;
+[e = _EEADR -> . _EE_STORE 2 `us ]
+"111
+[; ;Project_ATCS_Decorder_Module.c: 111:                     EECON1 = 0x01;
+[e = _EECON1 -> -> 1 `i `uc ]
+"112
+[; ;Project_ATCS_Decorder_Module.c: 112:                     while (EECON1bits.RD);
+[e $U 319  ]
+[e :U 320 ]
+[e :U 319 ]
+[e $ != -> . . _EECON1bits 0 0 `i -> 0 `i 320  ]
+[e :U 321 ]
+"113
+[; ;Project_ATCS_Decorder_Module.c: 113:                     EE_STORE.EE_DATA[COUNT] = EEDAT;
+[e = *U + &U . _EE_STORE 3 * -> _COUNT `ux -> -> # *U &U . _EE_STORE 3 `ui `ux -> _EEDAT `ui ]
+"114
+[; ;Project_ATCS_Decorder_Module.c: 114:                     if (EEDAT != EE_STORE.EE_DATA[COUNT]) {
+[e $ ! != -> _EEDAT `ui *U + &U . _EE_STORE 3 * -> _COUNT `ux -> -> # *U &U . _EE_STORE 3 `ui `ux 322  ]
+{
+"115
+[; ;Project_ATCS_Decorder_Module.c: 115:                         EE_STORE.EE_REPORT[COUNT] = 0xFF;
+[e = *U + &U . _EE_STORE 4 * -> _COUNT `ux -> -> # *U &U . _EE_STORE 4 `ui `ux -> -> 255 `i `uc ]
+"116
+[; ;Project_ATCS_Decorder_Module.c: 116:                     } else {
+}
+[e $U 323  ]
+[e :U 322 ]
+{
+"117
+[; ;Project_ATCS_Decorder_Module.c: 117:                         EE_STORE.EE_REPORT[COUNT] = 0x00;
+[e = *U + &U . _EE_STORE 4 * -> _COUNT `ux -> -> # *U &U . _EE_STORE 4 `ui `ux -> -> 0 `i `uc ]
+"118
+[; ;Project_ATCS_Decorder_Module.c: 118:                     }
+}
+[e :U 323 ]
+"119
+[; ;Project_ATCS_Decorder_Module.c: 119:                     return;
+[e $UE 275  ]
+"120
+[; ;Project_ATCS_Decorder_Module.c: 120:                 }
+}
+[e :U 318 ]
+"121
+[; ;Project_ATCS_Decorder_Module.c: 121:                 COUNT++;
+[e ++ _COUNT -> -> 1 `i `uc ]
+"122
+[; ;Project_ATCS_Decorder_Module.c: 122:                 EEADR = EE_STORE.EE_ADRS++;
+[e = _EEADR -> ++ . _EE_STORE 2 -> -> 1 `i `ui `us ]
+"123
+[; ;Project_ATCS_Decorder_Module.c: 123:             }while(COUNT < 4);
+}
+[e $ < -> _COUNT `i -> 4 `i 317  ]
+[e :U 316 ]
+"124
+[; ;Project_ATCS_Decorder_Module.c: 124:             INTCONbits.GIE = 1;
+[e = . . _INTCONbits 0 7 -> -> 1 `i `uc ]
+"125
+[; ;Project_ATCS_Decorder_Module.c: 125:             return;
+[e $UE 275  ]
+"127
+[; ;Project_ATCS_Decorder_Module.c: 127:         default:
+[e :U 324 ]
+"128
+[; ;Project_ATCS_Decorder_Module.c: 128:             return;
+[e $UE 275  ]
+"129
+[; ;Project_ATCS_Decorder_Module.c: 129:     }
+}
+[e $U 276  ]
+[e :U 277 ]
+[e [\ -> . _EE_STORE 0 `ui , $ -> . `E1975 0 `ui 278
+ , $ -> . `E1975 1 `ui 286
+ , $ -> . `E1975 2 `ui 294
+ , $ -> . `E1975 3 `ui 299
+ , $ -> . `E1975 4 `ui 309
+ , $ -> . `E1975 5 `ui 314
+ 324 ]
+[e :U 276 ]
+"130
+[; ;Project_ATCS_Decorder_Module.c: 130: }
 [e :UE 275 ]
 }

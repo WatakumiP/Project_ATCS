@@ -3471,14 +3471,17 @@ extern __bank0 __bit __timeout;
 #pragma config BORV = HI
 #pragma config LVP = OFF
 
+
+
 typedef enum EE_SR{
-    EE_READ = 0,
+    EE_READ_S = 0,
+    EE_READ_M,
     EE_WRITE_UID,
     EE_VERIFY_UID,
     EE_WRITE_ROM,
     EE_VERIFY_ROM,
     EE_NEXT
-}EE_STATE_V;
+}EE_SR;
 
 typedef unsigned int UnINT;
 typedef unsigned char UnCHR;
@@ -3488,14 +3491,28 @@ extern UnCHR COM_FLAG;
 extern UnCHR DATA;
 extern UnCHR EE_FLAG;
 extern UnCHR COUNTER;
-extern EE_STATE_V EE_STATE;
+extern UnCHR STACK[32];
+
+typedef struct EE_STAGE_DATA{
+    EE_SR EE_STATE;
+    UnCHR EE_CONFIG;
+    UnINT EE_ADRS;
+    UnINT EE_DATA[4];
+    UnCHR EE_REPORT[4];
+} EE_STAGE_DATA;
+
+extern EE_STAGE_DATA EE_STORE;
 
 UnCHR DATA_Sampling(void);
 void Preamble(void);
+void EEPROM_SELECT(void);
 # 12 "Project_ATCS_Decorder_Main.c" 2
 
 
-EE_STATE_V EE_STATE = EE_READ;
+EE_STAGE_DATA EE_STORE __attribute__(()) = {EE_NEXT,0xFF,0x0000,{0x0FFF,0x0FFF,0x0FFF,0x0FFF},{0xAA,0xAA,0xAA,0xAA}};
+const UnCHR DCC_ADRS[12] = {0x00,0x01,0x7F,0x80,0xBF,0xC0,0xE7,0xE8,0xFC,0xFD,0xFE,0xFF};
+const UnCHR DCC_DATA[12] = {0x00,0x01,0x7F,0x80,0xBF,0xC0,0xE7,0xE8,0xFC,0xFD,0xFE,0xFF};
+UnCHR STACK[32] __attribute__((address(0xA0)));
 
 void main(void) {
 
@@ -3511,9 +3528,11 @@ void main(void) {
     CCP1CON = 0x05;
     T1CON = 0x01;
 
+    EE_STORE.EE_STATE = EE_WRITE_UID;
+    EEPROM_SELECT();
 
     while(1){
-        __nop();
+
     }
     return;
 }
