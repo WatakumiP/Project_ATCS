@@ -27,17 +27,17 @@
 #define Reserved_Address 0xFC
 #define AEPF 0xFE
 #define IDLE 0xFF
-
-
+#define EUID_CON 0x40
+#define EROM_CON 0x00
 
 typedef enum EE_SR{
-    EE_READ_S = 0,
-    EE_READ_M,
-    EE_WRITE_UID,
-    EE_VERIFY_UID,
-    EE_WRITE_ROM,
-    EE_VERIFY_ROM,
-    EE_NEXT
+    EE_READ_S = 0,              //シングルモード読み込み
+    EE_READ_M,                  //マルチモード読み込み
+    EE_WRITE_UID,               //User ID書き込み
+    EE_VERIFY_UID,              //User IDベリファイ
+    EE_WRITE_ROM,               //EEPROM 書き込み
+    EE_VERIFY_ROM,              //EEPROM ベリファイ
+    EE_NEXT                     //なにもしない。
 }EE_SR;
 
 typedef unsigned int UnINT;
@@ -49,6 +49,7 @@ extern UnCHR DATA;
 extern UnCHR EE_FLAG;
 extern UnCHR COUNTER;
 extern UnCHR STACK[32];
+extern UnCHR STCR;
 
 typedef struct EE_STAGE_DATA{
     EE_SR EE_STATE;               //状態を指す、EE_SRで指定する
@@ -63,8 +64,12 @@ extern EE_STAGE_DATA EE_STORE;
 UnCHR DATA_Sampling(void);
 void Preamble(void);
 void EEPROM_SELECT(void);
-
-
+void PACKET_CONTROL(UnCHR *,UnCHR *);
+void DEC_SET(UnCHR *,UnCHR *);
+void PWM_SET(UnCHR *,UnCHR *);
+void FUNC_SET(UnCHR *,UnCHR *);
+void CONFIG_SET(UnCHR *,UnCHR *);
+void RFU(UnCHR *DATA,UnCHR *P_RANGE);
 #endif	
 
 

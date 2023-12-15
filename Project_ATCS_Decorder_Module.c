@@ -22,6 +22,7 @@ void EEPROM_SELECT(void) {
                     while (EECON1bits.RD);
                     EE_STORE.EE_DATA[COUNT] = EEDAT;
                     INTCONbits.GIE = 1;
+                    EE_STORE.EE_REPORT[COUNT] = 0x00;
                     return;
                 }
                 COUNT++;
@@ -34,8 +35,10 @@ void EEPROM_SELECT(void) {
                 if(EE_STORE.EE_REPORT[COUNT]){
                     EEADR = EE_STORE.EE_ADRS;
                     EECON1 = EE_STORE.EE_CONFIG;
+                    EECON1bits.RD = 1;
                     while (EECON1bits.RD);
                     EE_STORE.EE_DATA[COUNT] = EEDAT;
+                    EE_STORE.EE_REPORT[COUNT] = 0x00;
                 }
                 EE_STORE.EE_ADRS++;
             } while (COUNT < 4);
@@ -64,6 +67,8 @@ void EEPROM_SELECT(void) {
             EECON2 = 0xAA;
 
             EECON1bits.WR = 1;
+            NOP();
+            NOP();
             INTCONbits.GIE = 1;
             return;                                                             //メインに戻す
 
@@ -95,6 +100,8 @@ void EEPROM_SELECT(void) {
                     EECON2 = 0x55;
                     EECON2 = 0xAA;
                     EECON1bits.WR = 1;
+                    NOP();
+                    NOP();
                     INTCONbits.GIE = 1;
                     return;
                 }
@@ -128,7 +135,44 @@ void EEPROM_SELECT(void) {
             return;
     }
 }
-void SPDSet(UnCHR *POWER,UnCHR *DATA){
+void PACKET_CONTROL(UnCHR *DATA, UnCHR *P_RANGE){
+    switch(DATA[1] >> 5){
+        case 0:
+            COM_FLAG &= 0xF7;
+            DEC_SET(DATA,P_RANGE);
+            return;
+        case 1:
+            COM_FLAG |= 0x08;
+            DEC_SET(DATA,P_RANGE);
+            return;
+        case 2:
+            COM_FLAG |= 0x10;
+            PWM_SET(DATA,P_RANGE);
+            return;
+        case 3:
+            COM_FLAG &= 0xEF;
+            PWM_SET(DATA,P_RANGE);
+            return;
+        case 4:
+            COM_FLAG &= 0xDF;
+            FUNC_SET(DATA,P_RANGE);
+            return;
+        case 5:
+            COM_FLAG |= 0x20;
+            FUNC_SET(DATA,P_RANGE);
+            return;
+        case 6:
+            NOP();
+            return;
+        case 7:
+            CONFIG_SET(DATA,P_RANGE);
+            return;
+    }
+}
+void DEC_SET(UnCHR *DATA,UnCHR *P_RANGE){
     
     
 }
+void PWM_SET(UnCHR *DATA,UnCHR *P_RANGE){}
+void FUNC_SET(UnCHR *DATA,UnCHR *P_RANGE){}
+void CONFIG_SET(UnCHR *DATA,UnCHR *P_RANGE){}

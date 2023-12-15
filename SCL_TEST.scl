@@ -154,6 +154,44 @@ begin
         wait for 55 us;
 
         RA2 <= '1';
+        wait for 100 us;
+        RA2 <= '0';
+        wait for 100 us;
+
+        RA2 <= '1';
+        wait for 100 us;
+        RA2 <= '0';
+        wait for 100 us;
+        RA2 <= '1';
+        wait for 55 us;
+        RA2 <= '0';
+        wait for 55 us;
+        RA2 <= '1';
+        wait for 55 us;
+        RA2 <= '0';
+        wait for 55 us;
+        RA2 <= '1';
+        wait for 100 us;
+        RA2 <= '0';
+        wait for 100 us;
+        RA2 <= '1';
+        wait for 100 us;
+        RA2 <= '0';
+        wait for 100 us;
+        RA2 <= '1';
+        wait for 55 us;
+        RA2 <= '0';
+        wait for 55 us;
+        RA2 <= '1';
+        wait for 55 us;
+        RA2 <= '0';
+        wait for 55 us;
+        RA2 <= '1';
+        wait for 100 us;
+        RA2 <= '0';
+        wait for 100 us;
+
+        RA2 <= '1';
         wait for 55 us;
         RA2 <= '0';
         wait for 55 us;

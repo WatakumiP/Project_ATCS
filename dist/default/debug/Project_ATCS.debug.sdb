@@ -13,7 +13,7 @@ EE_WRITE_ROM 4
 EE_VERIFY_ROM 5
 EE_NEXT 6
 ]
-"69 E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_INTERRUPT.c
+"67 E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_INTERRUPT.c
 [e E1975 EE_SR `uc
 EE_READ_S 0
 EE_READ_M 1
@@ -43,14 +43,24 @@ EE_NEXT 6
 [v ___memcpyee __memcpyee `(v  1 e 1 0 ]
 "15 E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_INTERRUPT.c
 [v _isr isr `II(v  1 e 1 0 ]
-"19 E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_Main.c
+"33 E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_Main.c
 [v _main main `(v  1 e 1 0 ]
 "12 E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_Module.c
 [v _EEPROM_SELECT EEPROM_SELECT `(v  1 e 1 0 ]
 [v i1_EEPROM_SELECT EEPROM_SELECT `(v  1 e 1 0 ]
+"138
+[v _PACKET_CONTROL PACKET_CONTROL `(v  1 e 1 0 ]
+"172
+[v _DEC_SET DEC_SET `(v  1 e 1 0 ]
+"176
+[v _PWM_SET PWM_SET `(v  1 e 1 0 ]
+"177
+[v _FUNC_SET FUNC_SET `(v  1 e 1 0 ]
+"178
+[v _CONFIG_SET CONFIG_SET `(v  1 e 1 0 ]
 "352 C:/Program Files/MPLAB_X/packs/Microchip/PIC12-16F1xxx_DFP/1.3.90/xc8\pic\include\proc\pic12f1822.h
 [v _INTCON INTCON `VEuc  1 e 1 @11 ]
-[s S147 . 1 `uc 1 IOCIF 1 0 :1:0 
+[s S82 . 1 `uc 1 IOCIF 1 0 :1:0 
 `uc 1 INTF 1 0 :1:1 
 `uc 1 TMR0IF 1 0 :1:2 
 `uc 1 IOCIE 1 0 :1:3 
@@ -60,18 +70,18 @@ EE_NEXT 6
 `uc 1 GIE 1 0 :1:7 
 ]
 "375
-[s S156 . 1 `uc 1 . 1 0 :2:0 
+[s S91 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 T0IF 1 0 :1:2 
 `uc 1 . 1 0 :2:3 
 `uc 1 T0IE 1 0 :1:5 
 ]
-[u S161 . 1 `S147 1 . 1 0 `S156 1 . 1 0 ]
-[v _INTCONbits INTCONbits `VES161  1 e 1 @11 ]
+[u S96 . 1 `S82 1 . 1 0 `S91 1 . 1 0 ]
+[v _INTCONbits INTCONbits `VES96  1 e 1 @11 ]
 "430
 [v _PORTA PORTA `VEuc  1 e 1 @12 ]
 "720
 [v _PIR1 PIR1 `VEuc  1 e 1 @17 ]
-[s S63 . 1 `uc 1 TMR1IF 1 0 :1:0 
+[s S117 . 1 `uc 1 TMR1IF 1 0 :1:0 
 `uc 1 TMR2IF 1 0 :1:1 
 `uc 1 CCP1IF 1 0 :1:2 
 `uc 1 SSP1IF 1 0 :1:3 
@@ -81,9 +91,9 @@ EE_NEXT 6
 `uc 1 TMR1GIF 1 0 :1:7 
 ]
 "737
-[u S72 . 1 `S63 1 . 1 0 ]
-[v _PIR1bits PIR1bits `VES72  1 e 1 @17 ]
-[s S90 . 1 `uc 1 . 1 0 :3:0 
+[u S126 . 1 `S117 1 . 1 0 ]
+[v _PIR1bits PIR1bits `VES126  1 e 1 @17 ]
+[s S139 . 1 `uc 1 . 1 0 :3:0 
 `uc 1 BCL1IF 1 0 :1:3 
 `uc 1 EEIF 1 0 :1:4 
 `uc 1 C1IF 1 0 :1:5 
@@ -91,14 +101,16 @@ EE_NEXT 6
 `uc 1 OSFIF 1 0 :1:7 
 ]
 "797
-[u S97 . 1 `S90 1 . 1 0 ]
-[v _PIR2bits PIR2bits `VES97  1 e 1 @18 ]
-"849
-[v _TMR1L TMR1L `VEuc  1 e 1 @22 ]
-"869
-[v _TMR1H TMR1H `VEuc  1 e 1 @23 ]
+[u S146 . 1 `S139 1 . 1 0 ]
+[v _PIR2bits PIR2bits `VES146  1 e 1 @18 ]
+"842
+[v _TMR1 TMR1 `VEus  1 e 2 @22 ]
 "889
 [v _T1CON T1CON `VEuc  1 e 1 @24 ]
+"1058
+[v _PR2 PR2 `VEuc  1 e 1 @27 ]
+"1078
+[v _T2CON T2CON `VEuc  1 e 1 @28 ]
 "1243
 [v _TRISA TRISA `VEuc  1 e 1 @140 ]
 "1293
@@ -107,6 +119,8 @@ EE_NEXT 6
 [v _PIE2 PIE2 `VEuc  1 e 1 @146 ]
 "1646
 [v _OSCCON OSCCON `VEuc  1 e 1 @153 ]
+"2491
+[v _APFCON APFCON `VEuc  1 e 1 @285 ]
 "2633
 [v _ANSELA ANSELA `VEuc  1 e 1 @396 ]
 "2680
@@ -115,7 +129,7 @@ EE_NEXT 6
 [v _EEDAT EEDAT `VEus  1 e 2 @403 ]
 "2792
 [v _EECON1 EECON1 `VEuc  1 e 1 @405 ]
-[s S196 . 1 `uc 1 RD 1 0 :1:0 
+[s S239 . 1 `uc 1 RD 1 0 :1:0 
 `uc 1 WR 1 0 :1:1 
 `uc 1 WREN 1 0 :1:2 
 `uc 1 WRERR 1 0 :1:3 
@@ -125,16 +139,20 @@ EE_NEXT 6
 `uc 1 EEPGD 1 0 :1:7 
 ]
 "2809
-[u S205 . 1 `S196 1 . 1 0 ]
-[v _EECON1bits EECON1bits `VES205  1 e 1 @405 ]
+[u S248 . 1 `S239 1 . 1 0 ]
+[v _EECON1bits EECON1bits `VES248  1 e 1 @405 ]
 "2854
 [v _EECON2 EECON2 `VEuc  1 e 1 @406 ]
 "3938
 [v _CCPR1L CCPR1L `VEuc  1 e 1 @657 ]
-"3958
-[v _CCPR1H CCPR1H `VEuc  1 e 1 @658 ]
 "3978
 [v _CCP1CON CCP1CON `VEuc  1 e 1 @659 ]
+"4292
+[v _PSTR1CON PSTR1CON `VEuc  1 e 1 @662 ]
+"4336
+[v _IOCAP IOCAP `VEuc  1 e 1 @913 ]
+"4452
+[v _IOCAF IOCAF `VEuc  1 e 1 @915 ]
 "10 E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_INTERRUPT.c
 [v _COM_FLAG COM_FLAG `uc  1 e 1 0 ]
 "11
@@ -146,35 +164,81 @@ EE_NEXT 6
 [s S30 EE_STAGE_DATA 16 `E1975 1 EE_STATE 1 0 `uc 1 EE_CONFIG 1 1 `ui 1 EE_ADRS 2 2 `[4]ui 1 EE_DATA 8 4 `[4]uc 1 EE_REPORT 4 12 ]
 "14 E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_Main.c
 [v _EE_STORE EE_STORE `S30  1 e 16 0 ]
-"17
+"31
 [v _STACK STACK `[32]uc  1 e 32 @160 ]
-"19
+"33
 [v _main main `(v  1 e 1 0 ]
 {
-"40
+"74
+[v main@count count `uc  1 a 1 42 ]
+"63
+[v main@BYPASS BYPASS `[32]uc  1 a 32 9 ]
+"62
+[v main@DCC_PACKET_RANGE DCC_PACKET_RANGE `uc  1 a 1 43 ]
+"64
+[v main@PACKET PACKET `uc  1 a 1 41 ]
+"96
 } 0
-"12 E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_Module.c
+"138 E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_Module.c
+[v _PACKET_CONTROL PACKET_CONTROL `(v  1 e 1 0 ]
+{
+[v PACKET_CONTROL@DATA DATA `*.4uc  1 a 1 wreg ]
+[v PACKET_CONTROL@DATA DATA `*.4uc  1 a 1 wreg ]
+[v PACKET_CONTROL@P_RANGE P_RANGE `*.4uc  1 p 1 2 ]
+[v PACKET_CONTROL@DATA DATA `*.4uc  1 a 1 6 ]
+"171
+} 0
+"176
+[v _PWM_SET PWM_SET `(v  1 e 1 0 ]
+{
+[v PWM_SET@DATA DATA `*.4uc  1 a 1 wreg ]
+[v PWM_SET@DATA DATA `*.4uc  1 a 1 wreg ]
+[v PWM_SET@P_RANGE P_RANGE `*.4uc  1 p 1 0 ]
+} 0
+"177
+[v _FUNC_SET FUNC_SET `(v  1 e 1 0 ]
+{
+[v FUNC_SET@DATA DATA `*.4uc  1 a 1 wreg ]
+[v FUNC_SET@DATA DATA `*.4uc  1 a 1 wreg ]
+[v FUNC_SET@P_RANGE P_RANGE `*.4uc  1 p 1 0 ]
+} 0
+"172
+[v _DEC_SET DEC_SET `(v  1 e 1 0 ]
+{
+[v DEC_SET@DATA DATA `*.4uc  1 a 1 wreg ]
+[v DEC_SET@DATA DATA `*.4uc  1 a 1 wreg ]
+[v DEC_SET@P_RANGE P_RANGE `*.4uc  1 p 1 0 ]
+"175
+} 0
+"178
+[v _CONFIG_SET CONFIG_SET `(v  1 e 1 0 ]
+{
+[v CONFIG_SET@DATA DATA `*.4uc  1 a 1 wreg ]
+[v CONFIG_SET@DATA DATA `*.4uc  1 a 1 wreg ]
+[v CONFIG_SET@P_RANGE P_RANGE `*.4uc  1 p 1 0 ]
+} 0
+"12
 [v _EEPROM_SELECT EEPROM_SELECT `(v  1 e 1 0 ]
 {
-"47
+"50
 [v EEPROM_SELECT@EE_SAVE EE_SAVE `ui  1 a 2 2 ]
 "14
 [v EEPROM_SELECT@COUNT COUNT `uc  1 a 1 4 ]
-"130
+"137
 } 0
 "15 E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_INTERRUPT.c
 [v _isr isr `II(v  1 e 1 0 ]
 {
 "16
-[v isr@COUNT COUNT `i  1 a 2 6 ]
-"76
+[v isr@COUNT COUNT `us  1 a 2 6 ]
+"74
 } 0
 "12 E:\WATAKUMI\PIC\Project_ATCS\Project_ATCS_Decorder_Module.c
 [v i1_EEPROM_SELECT EEPROM_SELECT `(v  1 e 1 0 ]
 {
-"47
+"50
 [v i1EEPROM_SELECT@EE_SAVE EE_SAVE `ui  1 a 2 2 ]
 "14
 [v i1EEPROM_SELECT@COUNT COUNT `uc  1 a 1 4 ]
-"130
+"137
 } 0

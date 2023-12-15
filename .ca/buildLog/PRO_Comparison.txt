@@ -1,0 +1,36 @@
+make -f nbproject/Makefile-PRO_Comparison.mk SUBPROJECTS= .clean-conf
+make[1]: Entering directory 'E:/WATAKUMI/PIC/Project_ATCS'
+rm -f  -r .ca/build/PRO_Comparison/production
+rm -f  -r .ca/dist/PRO_Comparison/production
+make[1]: Leaving directory 'E:/WATAKUMI/PIC/Project_ATCS'
+[32mCLEAN SUCCESSFUL (total time: 252ms)[0m
+make -f nbproject/Makefile-PRO_Comparison.mk SUBPROJECTS= .build-conf
+make[1]: Entering directory 'E:/WATAKUMI/PIC/Project_ATCS'
+make  -f nbproject/Makefile-PRO_Comparison.mk .ca/dist/PRO_Comparison/production/Project_ATCS.production.hex
+make[2]: Entering directory 'E:/WATAKUMI/PIC/Project_ATCS'
+"C:\Program Files\Microchip\xc8\v2.40\bin\xc8-cc.exe"  -mcpu=12F1822 -c   -mdfp="C:/Program Files/MPLAB_X/packs/Microchip/PIC12-16F1xxx_DFP/1.3.90/xc8"  -fno-short-double -fno-short-float -O0 -fasmfile -maddrqual=ignore -xassembler-with-cpp -mwarn=-3 -Wa,-a -DXPRJ_PRO_Comparison=PRO_Comparison  -msummary=-psect,-class,+mem,-hex,-file  -ginhx32 -Wl,--data-init -mno-keep-startup -mno-osccal -mno-resetbits -mno-save-resetbits -mno-download -mno-stackcall -mdefault-config-bits   -std=c99 -gdwarf-3 -mstack=compiled:auto:auto -mafrlcsj     -o .ca/build/PRO_Comparison/production/Project_ATCS_Decorder_INTERRUPT.p1 Project_ATCS_Decorder_INTERRUPT.c 
+"C:\Program Files\Microchip\xc8\v2.40\bin\xc8-cc.exe"  -mcpu=12F1822 -c   -mdfp="C:/Program Files/MPLAB_X/packs/Microchip/PIC12-16F1xxx_DFP/1.3.90/xc8"  -fno-short-double -fno-short-float -O0 -fasmfile -maddrqual=ignore -xassembler-with-cpp -mwarn=-3 -Wa,-a -DXPRJ_PRO_Comparison=PRO_Comparison  -msummary=-psect,-class,+mem,-hex,-file  -ginhx32 -Wl,--data-init -mno-keep-startup -mno-osccal -mno-resetbits -mno-save-resetbits -mno-download -mno-stackcall -mdefault-config-bits   -std=c99 -gdwarf-3 -mstack=compiled:auto:auto -mafrlcsj     -o .ca/build/PRO_Comparison/production/Project_ATCS_Decorder_Main.p1 Project_ATCS_Decorder_Main.c 
+"C:\Program Files\Microchip\xc8\v2.40\bin\xc8-cc.exe"  -mcpu=12F1822 -c   -mdfp="C:/Program Files/MPLAB_X/packs/Microchip/PIC12-16F1xxx_DFP/1.3.90/xc8"  -fno-short-double -fno-short-float -O0 -fasmfile -maddrqual=ignore -xassembler-with-cpp -mwarn=-3 -Wa,-a -DXPRJ_PRO_Comparison=PRO_Comparison  -msummary=-psect,-class,+mem,-hex,-file  -ginhx32 -Wl,--data-init -mno-keep-startup -mno-osccal -mno-resetbits -mno-save-resetbits -mno-download -mno-stackcall -mdefault-config-bits   -std=c99 -gdwarf-3 -mstack=compiled:auto:auto -mafrlcsj     -o .ca/build/PRO_Comparison/production/Project_ATCS_Decorder_Module.p1 Project_ATCS_Decorder_Module.c 
+"C:\Program Files\Microchip\xc8\v2.40\bin\xc8-cc.exe"  -mcpu=12F1822 -Wl,-Map=.ca/dist/PRO_Comparison/production/Project_ATCS.production.map  -DXPRJ_PRO_Comparison=PRO_Comparison  -Wl,--defsym=__MPLAB_BUILD=1   -mdfp="C:/Program Files/MPLAB_X/packs/Microchip/PIC12-16F1xxx_DFP/1.3.90/xc8"  -fno-short-double -fno-short-float -O0 -fasmfile -maddrqual=ignore -xassembler-with-cpp -mwarn=-3 -Wa,-a -msummary=-psect,-class,+mem,-hex,-file  -ginhx32 -Wl,--data-init -mno-keep-startup -mno-osccal -mno-resetbits -mno-save-resetbits -mno-download -mno-stackcall -mdefault-config-bits -mafrlcsj -std=c99 -gdwarf-3 -mstack=compiled:auto:auto      -Wl,--memorysummary,.ca/dist/PRO_Comparison/production/memoryfile.xml -o .ca/dist/PRO_Comparison/production/Project_ATCS.production.elf  .ca/build/PRO_Comparison/production/Project_ATCS_Decorder_Main.p1 .ca/build/PRO_Comparison/production/Project_ATCS_Decorder_INTERRUPT.p1 .ca/build/PRO_Comparison/production/Project_ATCS_Decorder_Module.p1     
+Project_ATCS_Decorder_Module.c:12:: advisory: (1510) non-reentrant function "_EEPROM_SELECT" appears in multiple call graphs and has been duplicated by the compiler
+Project_ATCS_Decorder_Module.c:169:: warning: (520) function "_PWM_SET" is never called
+Project_ATCS_Decorder_Module.c:170:: warning: (520) function "_FUNC_SET" is never called
+Project_ATCS_Decorder_Module.c:173:: warning: (520) function "_RFU" is never called
+
+Memory Summary:
+    Program space        used   5B3h (  1459) of   800h words   ( 71.2%)
+    Data space           used    6Ah (   106) of    80h bytes   ( 82.8%)
+    EEPROM space         used     0h (     0) of   100h bytes   (  0.0%)
+    Configuration bits   used     2h (     2) of     2h words   (100.0%)
+    ID Location space    used     4h (     4) of     4h bytes   (100.0%)
+
+
+You have compiled using a FREE license.
+With a PRO license, memory use would be:
+    Program space        used   3F8h (  1016) of   800h words   ( 49.6%)
+    Data space           used    6Ah (   106) of    80h bytes   ( 82.8%)
+
+
+make[2]: Leaving directory 'E:/WATAKUMI/PIC/Project_ATCS'
+make[1]: Leaving directory 'E:/WATAKUMI/PIC/Project_ATCS'
+[32mBUILD SUCCESSFUL (total time: 10s)[0m

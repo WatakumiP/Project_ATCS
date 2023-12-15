@@ -13,13 +13,13 @@ UnCHR COUNTER = 0x00;
 UnCHR STCR = 0x00;
 
 void __interrupt() isr(void){                                                   //非同期動作開始地点
-    int COUNT = 0x00; 
+    unsigned short COUNT = 0x00; 
 
-    if(PIR1bits.CCP1IF){
-        PIR1  = 0x00;
-        TMR1H = 0x00;
-        TMR1L = 0x00;
-        COUNT = CCPR1H << 8 | CCPR1L;
+    if(INTCONbits.IOCIF){
+        COUNT = TMR1;
+        TMR1 = 0x00;
+        IOCAF = 0x00;
+        
         if(!(COM_FLAG & 0x01)){                                                 //プリアンブル検出
             if(COUNT >= 0x00C0 && COUNT <= 0x0100 && !(COM_FLAG & 0x02) ){
                 COUNTER++;
@@ -30,6 +30,7 @@ void __interrupt() isr(void){                                                   
                     COM_FLAG = COM_FLAG | 0x01;
                     COM_FLAG = COM_FLAG & 0xFD;
                     COUNTER = 0x00;
+                    DATA = 0x00;
                 }    
             }
             
@@ -59,10 +60,8 @@ void __interrupt() isr(void){                                                   
             }
         }
     }else if(PIR1bits.TMR1IF){
-        
         PIR1 = 0x00;
         COM_FLAG = COM_FLAG | 0x02;
-    
     }else if(PIR2bits.EEIF){
         PIR2bits.EEIF = 0;
         if(EE_STORE.EE_STATE == EE_WRITE_UID){

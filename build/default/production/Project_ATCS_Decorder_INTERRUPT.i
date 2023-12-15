@@ -3475,7 +3475,7 @@ extern __bank0 __bit __timeout;
 #pragma config STVREN = ON
 #pragma config BORV = HI
 #pragma config LVP = OFF
-
+# 33 "./Project_ATCS_SETUP.h"
 typedef enum EE_SR{
     EE_READ_S = 0,
     EE_READ_M,
@@ -3495,6 +3495,7 @@ extern UnCHR DATA;
 extern UnCHR EE_FLAG;
 extern UnCHR COUNTER;
 extern UnCHR STACK[32];
+extern UnCHR STCR;
 
 typedef struct EE_STAGE_DATA{
     EE_SR EE_STATE;
@@ -3509,6 +3510,12 @@ extern EE_STAGE_DATA EE_STORE;
 UnCHR DATA_Sampling(void);
 void Preamble(void);
 void EEPROM_SELECT(void);
+void PACKET_CONTROL(UnCHR *,UnCHR *);
+void DEC_SET(UnCHR *,UnCHR *);
+void PWM_SET(UnCHR *,UnCHR *);
+void FUNC_SET(UnCHR *,UnCHR *);
+void CONFIG_SET(UnCHR *,UnCHR *);
+void RFU(UnCHR *DATA,UnCHR *P_RANGE);
 # 9 "Project_ATCS_Decorder_INTERRUPT.c" 2
 
 UnCHR COM_FLAG = 0x00;
@@ -3517,13 +3524,13 @@ UnCHR COUNTER = 0x00;
 UnCHR STCR = 0x00;
 
 void __attribute__((picinterrupt(("")))) isr(void){
-    int COUNT = 0x00;
+    unsigned short COUNT = 0x00;
 
-    if(PIR1bits.CCP1IF){
-        PIR1 = 0x00;
-        TMR1H = 0x00;
-        TMR1L = 0x00;
-        COUNT = CCPR1H << 8 | CCPR1L;
+    if(INTCONbits.IOCIF){
+        COUNT = TMR1;
+        TMR1 = 0x00;
+        IOCAF = 0x00;
+
         if(!(COM_FLAG & 0x01)){
             if(COUNT >= 0x00C0 && COUNT <= 0x0100 && !(COM_FLAG & 0x02) ){
                 COUNTER++;
@@ -3534,6 +3541,7 @@ void __attribute__((picinterrupt(("")))) isr(void){
                     COM_FLAG = COM_FLAG | 0x01;
                     COM_FLAG = COM_FLAG & 0xFD;
                     COUNTER = 0x00;
+                    DATA = 0x00;
                 }
             }
 
@@ -3551,7 +3559,6 @@ void __attribute__((picinterrupt(("")))) isr(void){
                     STACK[STCR] = DATA;
                     COM_FLAG = COM_FLAG | 0x04;
                     COM_FLAG = COM_FLAG & 0xFE;
-                    STCR = 0x00;
                 }else{
                     if(STCR == 32){
                         STCR = 0;
@@ -3564,10 +3571,8 @@ void __attribute__((picinterrupt(("")))) isr(void){
             }
         }
     }else if(PIR1bits.TMR1IF){
-
         PIR1 = 0x00;
         COM_FLAG = COM_FLAG | 0x02;
-
     }else if(PIR2bits.EEIF){
         PIR2bits.EEIF = 0;
         if(EE_STORE.EE_STATE == EE_WRITE_UID){

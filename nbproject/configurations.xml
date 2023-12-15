@@ -21,6 +21,7 @@
                    displayName="Important Files"
                    projectFiles="false">
       <itemPath>Makefile</itemPath>
+      <itemPath>Project_ATCS.mc3</itemPath>
     </logicalFolder>
   </logicalFolder>
   <sourceRootList>

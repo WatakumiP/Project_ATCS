@@ -1,4 +1,4 @@
-# 1 "Project_ATCS_Decorder_SinkLayer.c"
+# 1 "Project_ATCS_Decorder_Main.c"
 # 1 "<built-in>" 1
 # 1 "<built-in>" 3
 # 288 "<built-in>" 3
@@ -6,15 +6,8 @@
 # 1 "<built-in>" 2
 # 1 "C:/Program Files/MPLAB_X/packs/Microchip/PIC12-16F1xxx_DFP/1.3.90/xc8\\pic\\include\\language_support.h" 1 3
 # 2 "<built-in>" 2
-# 1 "Project_ATCS_Decorder_SinkLayer.c" 2
-
-
-
-
-
-
-
-
+# 1 "Project_ATCS_Decorder_Main.c" 2
+# 10 "Project_ATCS_Decorder_Main.c"
 # 1 "C:/Program Files/MPLAB_X/packs/Microchip/PIC12-16F1xxx_DFP/1.3.90/xc8\\pic\\include\\xc.h" 1 3
 # 18 "C:/Program Files/MPLAB_X/packs/Microchip/PIC12-16F1xxx_DFP/1.3.90/xc8\\pic\\include\\xc.h" 3
 extern const char __xc8_OPTIM_SPEED;
@@ -3452,7 +3445,8 @@ extern __bank0 unsigned char __resetbits;
 extern __bank0 __bit __powerdown;
 extern __bank0 __bit __timeout;
 # 29 "C:/Program Files/MPLAB_X/packs/Microchip/PIC12-16F1xxx_DFP/1.3.90/xc8\\pic\\include\\xc.h" 2 3
-# 9 "Project_ATCS_Decorder_SinkLayer.c" 2
+# 10 "Project_ATCS_Decorder_Main.c" 2
+
 
 # 1 "./Project_ATCS_SETUP.h" 1
 
@@ -3476,15 +3470,16 @@ extern __bank0 __bit __timeout;
 #pragma config STVREN = ON
 #pragma config BORV = HI
 #pragma config LVP = OFF
-
+# 33 "./Project_ATCS_SETUP.h"
 typedef enum EE_SR{
-    EE_READ = 0,
+    EE_READ_S = 0,
+    EE_READ_M,
     EE_WRITE_UID,
     EE_VERIFY_UID,
     EE_WRITE_ROM,
     EE_VERIFY_ROM,
     EE_NEXT
-}EE_STATE_V;
+}EE_SR;
 
 typedef unsigned int UnINT;
 typedef unsigned char UnCHR;
@@ -3494,64 +3489,111 @@ extern UnCHR COM_FLAG;
 extern UnCHR DATA;
 extern UnCHR EE_FLAG;
 extern UnCHR COUNTER;
-extern EE_STATE_V EE_STATE;
+extern UnCHR STACK[32];
+extern UnCHR STCR;
+
+typedef struct EE_STAGE_DATA{
+    EE_SR EE_STATE;
+    UnCHR EE_CONFIG;
+    UnINT EE_ADRS;
+    UnINT EE_DATA[4];
+    UnCHR EE_REPORT[4];
+} EE_STAGE_DATA;
+
+extern EE_STAGE_DATA EE_STORE;
 
 UnCHR DATA_Sampling(void);
 void Preamble(void);
-# 10 "Project_ATCS_Decorder_SinkLayer.c" 2
+void EEPROM_SELECT(void);
+void PACKET_CONTROL(UnCHR *,UnCHR *);
+void DEC_SET(UnCHR *,UnCHR *);
+void PWM_SET(UnCHR *,UnCHR *);
+void FUNC_SET(UnCHR *,UnCHR *);
+void CONFIG_SET(UnCHR *,UnCHR *);
+void RFU(UnCHR *DATA,UnCHR *P_RANGE);
+# 12 "Project_ATCS_Decorder_Main.c" 2
 
 
-void EEPROM_SLCT(){
-    switch(EE_STATE){
-        case EE_READ:
-            EEADRL = 0x00;
-            EEADRH = 0x00;
-            INTCONbits.GIE = 0;
-            EECON1 = 0x41;
-            while(EECON1bits.RD);
-            if(EEDATL != 0x00){
+EE_STAGE_DATA EE_STORE __attribute__(()) = {
+    EE_NEXT,
+    0xFF,
+    0x0000,
+    {0x0001,0x0FFF,0x0FFF,0x0FFF},
+    {0xAA,0x00,0x00,0x00}
+};
+const UnCHR DCC_ADRS[5] = {
+    0x7F,
+    0xBF,
+    0xE7,
+    0xFC,
+    0xFE
+};
+const UnCHR PWM_DATA[64] = {
+    0x00,0x00,0x7F,0x80,0xBF,0xC0,0xE7,0xE8,0xFC,0xFD,0xFE,0xFF
+};
+UnCHR STACK[32] __attribute__((address(0xA0)));
 
+void main(void) {
+
+    OSCCON = 0x72;
+    ANSELA = 0x00;
+
+    TRISA = 0x04;
+    PORTA = 0x00;
+
+    APFCON = 0x03;
+
+    INTCON = 0xC8;
+    IOCAP = 0x04;
+    PIE1 = 0x81;
+    PIE2 = 0x10;
+    T1CON = 0x01;
+
+    CCP1CON = 0x0F;
+    PSTR1CON = 0x01;
+    PR2 = 0x19;
+    CCPR1L = 0x00;
+    T2CON = 0x04;
+
+    EE_STORE.EE_STATE = EE_WRITE_UID;
+    EEPROM_SELECT();
+
+    while(1){
+
+        if(COM_FLAG & 0x04){
+            UnCHR CHECKSUM = 0x00;
+            UnCHR DCC_PACKET_RANGE = STCR;
+            UnCHR BYPASS[32];
+            UnCHR PACKET = STACK[0];
+
+            COM_FLAG = COM_FLAG & 0xFB;
+            do{
+                STCR--;
+                BYPASS[STCR] = STACK[STCR];
+            }while(STCR);
+
+            if(DCC_PACKET_RANGE < 7){
+                CHECKSUM = STACK[DCC_PACKET_RANGE];
+                for(UnCHR count = 1 ;count < DCC_PACKET_RANGE;count++){
+                    PACKET = PACKET ^ BYPASS[count];
+                }
+
+                if(PACKET == STACK[DCC_PACKET_RANGE]){
+                    if(BYPASS[0] == 0x00){
+                        PACKET_CONTROL(BYPASS,&DCC_PACKET_RANGE);
+                    }else if(BYPASS[0] <= 0x7F){
+                        EE_STORE.EE_ADRS = 0x00;
+                        EE_STORE.EE_STATE = EE_READ_S;
+                        EE_STORE.EE_CONFIG = 0x40;
+                        EE_STORE.EE_REPORT[0] = 0xAA;
+                        EEPROM_SELECT();
+                        if(BYPASS[0] == EE_STORE.EE_DATA[0]){
+                            PACKET_CONTROL(BYPASS,&DCC_PACKET_RANGE);
+                        }
+                    }
+                }
             }
-            return;
-
-        case EE_WRITE_UID:
-            INTCONbits.GIE = 0;
-            EECON1 = 0x44;
-            EECON2 = 0x55;
-            EECON2 = 0xAA;
-            EECON1bits.WR = 1;
-            return;
-
-        case EE_VERIFY_UID:
-            EEADRL = 0x00;
-            EEADRH = 0x00;
-            INTCONbits.GIE = 0;
-            EECON1 = 0x41;
-            while(EECON1bits.RD);
-            if(EEDATL != 0x00){
-            }
-            return;
-
-        case EE_WRITE_ROM:
-            INTCONbits.GIE = 0;
-            EECON1 = 0x44;
-            EECON2 = 0x55;
-            EECON2 = 0xAA;
-            EECON1bits.WR = 1;
-            return;
-
-        case EE_VERIFY_ROM:
-            EEADRL = 0x00;
-            EEADRH = 0x00;
-            INTCONbits.GIE = 0;
-            EECON1 = 0x01;
-            while(EECON1bits.RD);
-            if(EEDATL != 0x00){
-            }
-            return;
-
-        default:
-            return;
-
+        }
     }
+    return;
 }

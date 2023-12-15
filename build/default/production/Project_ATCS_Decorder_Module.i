@@ -3476,7 +3476,7 @@ extern __bank0 __bit __timeout;
 #pragma config STVREN = ON
 #pragma config BORV = HI
 #pragma config LVP = OFF
-
+# 33 "./Project_ATCS_SETUP.h"
 typedef enum EE_SR{
     EE_READ_S = 0,
     EE_READ_M,
@@ -3496,6 +3496,7 @@ extern UnCHR DATA;
 extern UnCHR EE_FLAG;
 extern UnCHR COUNTER;
 extern UnCHR STACK[32];
+extern UnCHR STCR;
 
 typedef struct EE_STAGE_DATA{
     EE_SR EE_STATE;
@@ -3510,6 +3511,12 @@ extern EE_STAGE_DATA EE_STORE;
 UnCHR DATA_Sampling(void);
 void Preamble(void);
 void EEPROM_SELECT(void);
+void PACKET_CONTROL(UnCHR *,UnCHR *);
+void DEC_SET(UnCHR *,UnCHR *);
+void PWM_SET(UnCHR *,UnCHR *);
+void FUNC_SET(UnCHR *,UnCHR *);
+void CONFIG_SET(UnCHR *,UnCHR *);
+void RFU(UnCHR *DATA,UnCHR *P_RANGE);
 # 10 "Project_ATCS_Decorder_Module.c" 2
 
 
@@ -3526,6 +3533,7 @@ void EEPROM_SELECT(void) {
                     while (EECON1bits.RD);
                     EE_STORE.EE_DATA[COUNT] = EEDAT;
                     INTCONbits.GIE = 1;
+                    EE_STORE.EE_REPORT[COUNT] = 0x00;
                     return;
                 }
                 COUNT++;
@@ -3538,8 +3546,10 @@ void EEPROM_SELECT(void) {
                 if(EE_STORE.EE_REPORT[COUNT]){
                     EEADR = EE_STORE.EE_ADRS;
                     EECON1 = EE_STORE.EE_CONFIG;
+                    EECON1bits.RD = 1;
                     while (EECON1bits.RD);
                     EE_STORE.EE_DATA[COUNT] = EEDAT;
+                    EE_STORE.EE_REPORT[COUNT] = 0x00;
                 }
                 EE_STORE.EE_ADRS++;
             } while (COUNT < 4);
@@ -3568,6 +3578,8 @@ void EEPROM_SELECT(void) {
             EECON2 = 0xAA;
 
             EECON1bits.WR = 1;
+            __nop();
+            __nop();
             INTCONbits.GIE = 1;
             return;
 
@@ -3599,6 +3611,8 @@ void EEPROM_SELECT(void) {
                     EECON2 = 0x55;
                     EECON2 = 0xAA;
                     EECON1bits.WR = 1;
+                    __nop();
+                    __nop();
                     INTCONbits.GIE = 1;
                     return;
                 }
@@ -3632,3 +3646,44 @@ void EEPROM_SELECT(void) {
             return;
     }
 }
+void PACKET_CONTROL(UnCHR *DATA, UnCHR *P_RANGE){
+    switch(DATA[1] >> 5){
+        case 0:
+            COM_FLAG &= 0xF7;
+            DEC_SET(DATA,P_RANGE);
+            return;
+        case 1:
+            COM_FLAG |= 0x08;
+            DEC_SET(DATA,P_RANGE);
+            return;
+        case 2:
+            COM_FLAG |= 0x10;
+            PWM_SET(DATA,P_RANGE);
+            return;
+        case 3:
+            COM_FLAG &= 0xEF;
+            PWM_SET(DATA,P_RANGE);
+            return;
+        case 4:
+            COM_FLAG &= 0xDF;
+            FUNC_SET(DATA,P_RANGE);
+            return;
+        case 5:
+            COM_FLAG |= 0x20;
+            FUNC_SET(DATA,P_RANGE);
+            return;
+        case 6:
+            __nop();
+            return;
+        case 7:
+            CONFIG_SET(DATA,P_RANGE);
+            return;
+    }
+}
+void DEC_SET(UnCHR *DATA,UnCHR *P_RANGE){
+
+
+}
+void PWM_SET(UnCHR *DATA,UnCHR *P_RANGE){}
+void FUNC_SET(UnCHR *DATA,UnCHR *P_RANGE){}
+void CONFIG_SET(UnCHR *DATA,UnCHR *P_RANGE){}
