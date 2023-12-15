@@ -25,9 +25,7 @@ const UnCHR DCC_ADRS[5] = {
     Reserved_Address,
     AEPF
 };                                                                              //データ内部
-const UnCHR PWM_DATA[64] = {
-    0x00,0x00,0x7F,0x80,0xBF,0xC0,0xE7,0xE8,0xFC,0xFD,0xFE,0xFF
-};
+void (*PKT_FUNC[])() = {DEC_SET,DEC_SET,PWM_SET,PWM_SET,FUNC_SET,FUNC_SET,NULL,CONFIG_SET};
 UnCHR STACK[32] __at(0xA0);
 
 void main(void) {
@@ -54,38 +52,28 @@ void main(void) {
     
     EE_STORE.EE_STATE = EE_WRITE_UID; 
     EEPROM_SELECT();
-    
     while(1){
-        
         if(COM_FLAG & 0x04){
-            UnCHR CHECKSUM = 0x00;
-            UnCHR DCC_PACKET_RANGE = STCR;
-            UnCHR BYPASS[32];
-            UnCHR PACKET = STACK[0];
-                        
-            COM_FLAG = COM_FLAG & 0xFB;
-            do{
-                STCR--;
-                BYPASS[STCR] = STACK[STCR];
-            }while(STCR);
+            COM_FLAG_bits.Endbit = 0;
+            UnCHR CKS = STACK[0];
             
-            if(DCC_PACKET_RANGE < 7){
-                CHECKSUM = STACK[DCC_PACKET_RANGE];
-                for(UnCHR count = 1 ;count < DCC_PACKET_RANGE;count++){
-                    PACKET = PACKET ^ BYPASS[count];
+            if(STCR < 7){
+                for(UnCHR count = 1 ;count < STCR;count++){
+                    CKS = CKS ^ STACK[STCR];
                 }
                 
-                if(PACKET == STACK[DCC_PACKET_RANGE]){
-                    if(BYPASS[0] == Broadcast_Address){
-                        PACKET_CONTROL(BYPASS,&DCC_PACKET_RANGE);
-                    }else if(BYPASS[0] <= MuFuD_7bits){
+                if(CKS == STACK[STCR]){
+                    UnCHR PACK = STACK[1] >> 5;
+                    if(STACK[0] == Broadcast_Address){
+                        PKT_FUNC[PACK];
+                    }else if(STACK[0] <= MuFuD_7bits){
                         EE_STORE.EE_ADRS = 0x00;
                         EE_STORE.EE_STATE = EE_READ_S;
                         EE_STORE.EE_CONFIG = EUID_CON;
                         EE_STORE.EE_REPORT[0] = 0xAA;
                         EEPROM_SELECT();
-                        if(BYPASS[0] == EE_STORE.EE_DATA[0]){
-                            PACKET_CONTROL(BYPASS,&DCC_PACKET_RANGE);
+                        if(STACK[0] == EE_STORE.EE_DATA[0]){
+                            PKT_FUNC[PACK];
                         }
                     }
                 }       

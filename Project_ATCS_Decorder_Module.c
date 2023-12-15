@@ -135,44 +135,8 @@ void EEPROM_SELECT(void) {
             return;
     }
 }
-void PACKET_CONTROL(UnCHR *DATA, UnCHR *P_RANGE){
-    switch(DATA[1] >> 5){
-        case 0:
-            COM_FLAG &= 0xF7;
-            DEC_SET(DATA,P_RANGE);
-            return;
-        case 1:
-            COM_FLAG |= 0x08;
-            DEC_SET(DATA,P_RANGE);
-            return;
-        case 2:
-            COM_FLAG |= 0x10;
-            PWM_SET(DATA,P_RANGE);
-            return;
-        case 3:
-            COM_FLAG &= 0xEF;
-            PWM_SET(DATA,P_RANGE);
-            return;
-        case 4:
-            COM_FLAG &= 0xDF;
-            FUNC_SET(DATA,P_RANGE);
-            return;
-        case 5:
-            COM_FLAG |= 0x20;
-            FUNC_SET(DATA,P_RANGE);
-            return;
-        case 6:
-            NOP();
-            return;
-        case 7:
-            CONFIG_SET(DATA,P_RANGE);
-            return;
-    }
+void DEC_SET(){
 }
-void DEC_SET(UnCHR *DATA,UnCHR *P_RANGE){
-    
-    
-}
-void PWM_SET(UnCHR *DATA,UnCHR *P_RANGE){}
-void FUNC_SET(UnCHR *DATA,UnCHR *P_RANGE){}
-void CONFIG_SET(UnCHR *DATA,UnCHR *P_RANGE){}
+void PWM_SET(){}
+void FUNC_SET(){}
+void CONFIG_SET(){}
