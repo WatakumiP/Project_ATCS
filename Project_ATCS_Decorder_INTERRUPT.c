@@ -17,7 +17,7 @@ void __interrupt() isr(void){                                                   
 
     if(INTCONbits.IOCIF){
         COUNT = TMR1;
-        TMR1 = 0x00;
+        TMR1 =  0x00;
         IOCAF = 0x00;
         
         if(!(COM_FLAG & 0x01)){                                                 //プリアンブル検出

@@ -9,7 +9,7 @@
 #include <xc.h>
 #include "Project_ATCS_SETUP.h"
 
-void EEPROM_SELECT(void) {
+void EEPROM_SELECT(void) {                                                    //EEPROM書き込み専用
     INTCONbits.GIE = 0;                                                         //割り込み禁止
     UnCHR COUNT = 0x00 ;
     
@@ -136,7 +136,47 @@ void EEPROM_SELECT(void) {
     }
 }
 void DEC_SET(){
+    
 }
-void PWM_SET(){}
+void SPD_SET(){
+    if(COM_FLAG & 0x40){     
+        UnCHR SWAP;
+        if((STACK[1] & 0x1F) == 0x11  || (STACK[1] & 0x1F) & 0x01){
+            CCPR1L = 0x3F;
+            COM_FLAG &= 0xBF;
+        }else if(STACK[1] & 0x20){
+            if(SPEED[0] == SPEED[1]){
+                COM_FLAG &= 0xBF;
+            }else if((STACK[1] & 0x1F) == 0x00 || (STACK[1] & 0x1F) == 0x10){
+                COM_FLAG |= 0x20;
+                SPEED[0] = SPEED[1];
+                SPEED[1] = 0x00;
+            }else{
+                COM_FLAG |= 0x20;
+                SPEED[0] = SPEED[1];
+                SWAP = STACK[1] & 0x10;
+                STACK[1] = STACK[1] << 1;
+                STACK[1] |= SWAP;
+                SPEED[1] = STACK[1] - 3;
+            }
+        }else{
+            if(SPEED[0] == SPEED[1]){
+                COM_FLAG &= 0xBF;
+            }else if((STACK[1] & 0x1F) == 0x00 || (STACK[1] & 0x1F) == 0x10){
+                COM_FLAG |= 0x20;
+                SPEED[0] = SPEED[1];
+                SPEED[1] = 0x00;
+            }else{
+                COM_FLAG &= 0xBF;
+                SPEED[0] = SPEED[1];
+                SWAP = STACK[1] & 0x10;
+                STACK[1] = STACK[1] << 1;
+                STACK[1] |= SWAP;
+                SPEED[1] = STACK[1] - 3;
+            }
+        }
+    }
+}
 void FUNC_SET(){}
+void FT_EXPANSION(){}
 void CONFIG_SET(){}

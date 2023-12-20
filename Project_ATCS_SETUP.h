@@ -45,21 +45,13 @@ typedef unsigned char UnCHR;
 
 // COMフラグについては、別途記載のドキュメント参照のこと。
 
-typedef union{
-    UnCHR                   :8;
-    struct{
-        unsigned Preamble   :1;
-        unsigned Overflow   :1;
-        unsigned Endbit     :1;
-        unsigned RFU        :5;
-    };
-}COM_FLAG;
-
+extern UnCHR COM_FLAG;
 extern UnCHR DATA;
 extern UnCHR COUNTER;
 extern UnCHR STACK[32];
 extern UnCHR STCR;
-
+extern UnCHR SPEED[2];
+extern UnCHR PACKET_FLAG;
 
 typedef struct EE_STAGE_DATA{
     EE_SR EE_STATE;               //状態を指す、EE_SRで指定する
@@ -76,8 +68,9 @@ void Preamble(void);
 void EEPROM_SELECT(void);
 void PACKET_CONTROL(void);
 void DEC_SET(void);
-void PWM_SET(void);
+void SPD_SET(void);
 void FUNC_SET(void);
+void FT_EXPANSION(void);
 void CONFIG_SET(void);
 
 #endif	

@@ -25,8 +25,20 @@ const UnCHR DCC_ADRS[5] = {
     Reserved_Address,
     AEPF
 };                                                                              //データ内部
-void (*PKT_FUNC[])() = {DEC_SET,DEC_SET,PWM_SET,PWM_SET,FUNC_SET,FUNC_SET,NULL,CONFIG_SET};
+void (*PKT_FUNC[])(void) = {
+    DEC_SET,
+    DEC_SET,
+    SPD_SET,
+    SPD_SET,
+    FUNC_SET,           //
+    FUNC_SET,           //ファンクション命令 F5-
+    FT_EXPANSION,       //BiDiなのはわかってるけどこの子に入れられないのでNULL
+    CONFIG_SET
+};
+
 UnCHR STACK[32] __at(0xA0);
+UnCHR SPEED[2];
+UnCHR PACKET_FLAG;
 
 void main(void) {
     
@@ -44,17 +56,17 @@ void main(void) {
     PIE2 =    0x10;
     T1CON =   0x01;
     
-    CCP1CON = 0x0F;
+    CCP1CON =  0x0F;
     PSTR1CON = 0x01;
-    PR2 =     0x19;
-    CCPR1L =  0x3F;
-    T2CON =   0x04;
+    PR2 =      0x19;
+    CCPR1L =   0x3F;
+    T2CON =    0x04;
     
     EE_STORE.EE_STATE = EE_WRITE_UID; 
     EEPROM_SELECT();
     while(1){
         if(COM_FLAG & 0x04){
-            COM_FLAG_bits.Endbit = 0;
+            COM_FLAG &= 0xFB;
             UnCHR CKS = STACK[0];
             
             if(STCR < 7){
@@ -65,7 +77,7 @@ void main(void) {
                 if(CKS == STACK[STCR]){
                     UnCHR PACK = STACK[1] >> 5;
                     if(STACK[0] == Broadcast_Address){
-                        PKT_FUNC[PACK];
+                        PKT_FUNC[PACK]();
                     }else if(STACK[0] <= MuFuD_7bits){
                         EE_STORE.EE_ADRS = 0x00;
                         EE_STORE.EE_STATE = EE_READ_S;
@@ -73,7 +85,7 @@ void main(void) {
                         EE_STORE.EE_REPORT[0] = 0xAA;
                         EEPROM_SELECT();
                         if(STACK[0] == EE_STORE.EE_DATA[0]){
-                            PKT_FUNC[PACK];
+                            PKT_FUNC[PACK]();
                         }
                     }
                 }       
