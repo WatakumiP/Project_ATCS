@@ -21,5 +21,22 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Project_ATCS_CONTROLER.ino" />
+    <ClCompile Include="DCC_CORE.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\Download\AGTimer_R4_Library-main\AGTimer_R4_Library-main\src\AGTimerR4.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="__vm\.Project_ATCS_CONTROLER.vsarduino.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="DCC_CORE.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\Download\AGTimer_R4_Library-main\AGTimer_R4_Library-main\src\AGTimerR4.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
