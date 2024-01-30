@@ -24,7 +24,10 @@
     <ClCompile Include="DCC_CORE.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\..\Download\AGTimer_R4_Library-main\AGTimer_R4_Library-main\src\AGTimerR4.cpp">
+    <ClCompile Include="C:\Users\owata\Source\Repos\LiquidCrystal_I2C\LiquidCrystal_I2C.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\Download\DSshieldAUTOR4_20230704\DSshieldAUTO\TrackReporterS88_DS.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -35,7 +38,10 @@
     <ClInclude Include="DCC_CORE.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\..\..\Download\AGTimer_R4_Library-main\AGTimer_R4_Library-main\src\AGTimerR4.h">
+    <ClInclude Include="C:\Users\owata\Source\Repos\LiquidCrystal_I2C\LiquidCrystal_I2C.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\Download\DSshieldAUTOR4_20230704\DSshieldAUTO\TrackReporterS88_DS.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
